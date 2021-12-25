@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+#service-page
+{
+    background-image:url('../images/service_provider.png');
+    width: 100%;
+    padding-bottom: 30px;
+}
+/* header section start */
+#service-page #header .navbar
+{
+	width:100%;
+	padding:10px 13px 0px 17px;
+}
+#service-page #header .navbar .navbar-brand 
+{
+	width: 8.9%;
+  height: 11%;
+	padding-top: 0rem; 
+  padding-bottom: 0rem; 
+}
+#service-page #header .navbar .navbar-nav .nav-item .nav-link
+{
+  font-family: Roboto;
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.41;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  padding-right: 0%;
+  padding-left: 0%;
+}
+#service-page #header .navbar .navbar-nav .o4
+{
+    width: 109px;
+}
+#service-page #header .navbar .navbar-nav .book-now .nav-link
+{
+  width: 161px;
+  height: 40px;
+  border-radius: 20px;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+}
+#service-page #header .navbar .login .nav-link
+{
+  width: 97px;
+  height: 40px;
+  border-radius: 20px;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  margin-right: 11px;
+  margin-left: 20px;
+}
+#service-page #header .navbar .navbar-nav .helper .nav-link
+{
+  width: 161px;
+  height: 40px;
+  border-radius: 20px;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  margin-right: 22px;
+}
+/* header section end */
+/* registration form section start */
+#service-page form
+{
+  width: 430px;
+  /* height: 71.6%; */
+  border-radius: 4px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 38px;
+  padding-top: 23px;
+  padding-bottom: 19px;
+}
+#reg_form .reg_title
+{
+  font-family: Roboto;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+}
+#reg_form form > input
+{
+    width: 359px;
+  height: 46px;
+  margin-left: 8.4%;
+  margin-right: 8.1%;
+  border: solid 1px #c8c8c8;
+  background-color: #fff;
+  margin-bottom: 15px;
+  padding-left: 16px;
+}
+#reg_form .flex-nowrap > input
+{
+  border: solid 1px #c8c8c8 ;
+}
+#reg_form form > div
+{
+    width:359px;
+  margin-left: 8.4%;
+  margin-right: 8.1%;
+}
+#reg_form .input-group input
+{
+    width: 100%;
+    padding-left: 16px;
+}
+#reg_form .input-group
+{
+    margin-bottom: 15px;
+}
+#reg_form input::placeholder
+{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #a0a0a0;
+}
+#reg_form .blue_text
+{
+  color:#1fb6ff;
+}
+#reg_form form img
+{
+  width: 302px;
+  height: 76px;
+  margin: 15px auto 20px 8.6%;
+  object-fit: contain;
+}
+#reg_form .get_started
+{
+  width: 166px;
+  height: 46px;
+  margin: 0px auto 0px auto;
+  border-radius: 23px;
+  background-color: #1d7a8c;
+  padding-top:10px;
+  padding-left: 27px;
+}
+#reg_form .get_started span
+{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #fff;
+}
+#reg_form .get_started img
+{
+  width: 30px;
+  height: 11px;
+  margin: 0 0 0 8px;
+  object-fit: contain;
+  color: #fff;
+}
+#reg_form .com-down
+{
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 63px;
+}
+/* registration form section end */
+/* how it work section start */
+#how_work .work_title
+{
+  margin: 68px auto 73px auto;
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.45;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+}
+#how_work .card-1,#how_work .card-3
+{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+#how_work .card-2
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px; 
+}
+#how_work .card-1 .card_text
+{
+  width:330px;
+  margin-right: 158px;
+}
+#how_work .card-2 .card_text
+{
+  width:362px;
+  margin-left: 126px;
+}
+#how_work .card-3 .card_text
+{
+  width:365px;
+  margin-right: 125px;
+}
+#how_work .card-1 .card_text .cardhead,#how_work .card-2 .card_text .cardhead,#how_work .card-3 .card_text .cardhead
+{
+  margin-top: 52px;
+  margin-bottom: 16px;
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+}
+#how_work .card-1 .card_text .carddesc,#how_work .card-2 .card_text .carddesc,#how_work .card-3 .card_text .carddesc
+{
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+}
+#how_work .card-1 .card_text .read-more ,#how_work .card-2 .card_text .read-more,#how_work .card-3 .card_text .read-more 
+{
+  margin-top: 48px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+}
+/* how it work section end */
+/*Newsletter section start*/
+#news-letter .container-fluid .news-letter-title
+{
+  height: 13px;
+  font-family: Roboto;
+  margin-top:77px;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  text-align: center;
+  color: #353548;
+}
+#news-letter .container-fluid .email-get
+{
+	display:flex;
+	justify-content:center;
+}
+#news-letter .container-fluid .news-email
+{
+	 width: 233px;
+  height: 40px;
+  margin: 20px 11px 53px 56px;
+ padding-left: 25px;
+  border-radius: 20px;
+  border: solid 1px #565656;
+  background-color: #f4f5f8;
+}
+#news-letter .container-fluid .news-email::placeholder{
+	text-transform: uppercase;
+	
+}
+
+#news-letter .container-fluid .news-button
+{
+	width: 88px;
+  height: 40px;
+  margin: 20px 56px 53px 11px;
+  text-align: center;
+  padding-top: 5px;
+  border-radius: 20px;
+  background-color: #ff7b6d;
+}
+#news-letter .container-fluid .news-button .button-text
+{
+	width: 44px;
+  height: 11px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+/*Newsletter section end*/
+/*footer section start*/
+.footer .footer_wrapper {
+  background-color: #111111;
+}
+
+.footer .footer_bar {
+  margin: auto 110px;
+  padding: 21px 0;
+}
+
+.footer .footer_logo {
+  height: 78px;
+  width: 106px;
+}
+
+
+
+.footer .footer_menu ul {
+  list-style-type: none;
+  text-decoration: none;
+  display: flex;
+  padding: 36px 0 25px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer .row {
+  --bs-gutter-x: 0;
+}
+
+.footer .footer_menu ul li {
+  margin-left: 25px;
+  font-size: 14px;
+  line-break: 30px;
+}
+
+.footer .footer_menu ul a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer .social :first-child {
+  margin-right: 15px;
+}
+
+.footer .social {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer .copyright {
+  text-align: center;
+  color: #9ba0a3;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+}
+
+.footer .hr
+{
+    height: 1px;
+    margin: 0 7.7% 27px 7.7%;
+    background-color: #424242;
+}
+/*footer section end*/
+/* media query */
+@media(max-width:1090px)
+{
+    #service-page #header .navbar .navbar-nav .nav-item .nav-link
+    {
+        font-size: 14px;
+    }
+    #service-page #header .navbar .navbar-nav .o4
+    {
+        width: 90px;
+    }
+    #service-page #header .navbar .navbar-nav .book-now .nav-link
+    {
+        width: 140px;
+    }
+    #service-page #header .navbar .login .nav-link
+    {
+      width: 80px;
+      margin-right: 2px;
+      margin-left: 2px;
+    }
+    #service-page #header .navbar .navbar-nav .helper .nav-link
+    {
+      width: 140px;
+      margin-right: 2px;
+    }
+}
+@media(max-width:888px)
+{
+    #service-page #header .navbar .navbar-nav .nav-item .nav-link
+    {
+        font-size: 10px;
+    }
+    #service-page #header .navbar .navbar-nav .o4
+    {
+        width: 70px;
+    }
+    #service-page #header .navbar .navbar-nav .book-now .nav-link
+    {
+        width: 90px;
+        height: 30px;
+    }
+    #service-page #header .navbar .login .nav-link
+    {
+      width: 50px;
+      height: 30px;
+      margin-right: 2px;
+      margin-left: 2px;
+    }
+    #service-page #header .navbar .navbar-nav .helper .nav-link
+    {
+      width: 100px;
+      height: 30px;
+      margin-right: 2px;
+    }
+    #how_work .card-1 .card_text
+    {
+      margin-right: 10%;
+    }
+    #how_work .card-2 .card_text
+    {
+      margin-left: 9%;
+    }
+    #how_work .card-3 .card_text
+    {
+      margin-right: 10%;
+    }    
+}
+@media(max-width:767px)
+{
+  #service-page #header .navbar .navbar-nav .nav-item .nav-link
+  {
+      font-size: 17px;
+      float: left;
+      margin-bottom: 5px;
+      padding-left: 10px;
+      text-align: left;
+  }  
+  #service-page #header .navbar .navbar-nav .o4
+    {
+        width: 120px;
+    }
+    #service-page #header .navbar .navbar-nav .book-now .nav-link
+    {
+        margin-top: 10px;
+        width: 180px;
+        height: 40px;
+    }
+    #service-page #header .navbar .login .nav-link
+    {
+      width: 180px;
+      height: 40px;
+    }
+    #service-page #header .navbar .navbar-nav .helper .nav-link
+    {
+      width: 180px;
+      height: 40px;
+    }
+}
+@media(max-width:720px)
+{
+  #service-page #header .navbar .navbar-brand 
+  {
+    width: 80px;
+    height: 80px;
+  }  
+    #how_work .card-1,#how_work .card-2,#how_work .card-3
+    {
+        display: block;
+        text-align: center;
+    }
+    #how_work .card-1 .card_text,#how_work .card-2 .card_text,#how_work .card-3 .card_text
+    {
+      margin-right: auto;
+      margin-left: auto;
+    }
+    #how_work .card-1 .card_text .cardhead,#how_work .card-2 .card_text .cardhead,#how_work .card-3 .card_text .cardhead
+    {
+        text-align: center;
+    }
+    #how_work .card-1 .card_text .carddesc,#how_work .card-2 .card_text .carddesc,#how_work .card-3 .card_text .carddesc
+    {
+        text-align: center;
+    }
+    #how_work .card-1 .card_text .read-more ,#how_work .card-2 .card_text .read-more,#how_work .card-3 .card_text .read-more 
+    {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+@media(max-width:526px)
+{
+    #service-page form
+    {
+      width: 80%;
+      height: 78%;
+    }
+    #reg_form form > input
+    {
+        width:80%;
+    }
+    #reg_form form > div
+    {
+        width:80%;
+    }
+    #reg_form form img
+    {
+      width: 80%;
+      margin-bottom:3%;
+    }
+    #reg_form .get_started
+    {
+      width: 140px;
+    }
+    #reg_form .get_started span
+    {
+      font-size: 12px;
+    }
+    #reg_form .get_started img
+    {
+      width: 20px;
+    }
+    #how_work .card-1 .card_text,#how_work .card-2 .card_text,#how_work .card-3 .card_text
+    {
+      width: 80%;
+    }
+    #reg_form .com-down
+    {
+      margin-top: 55px;
+    }
+}
+@media(max-width:452px)
+{
+  #news-letter .container-fluid .email-get
+  {
+    display: block;
+  }
+  #news-letter .container-fluid .news-button
+  {
+    margin:0 auto 10px auto;
+  }
+  #news-letter .container-fluid .news-email
+  {
+    margin: 20px auto 13px auto;
+    width:150px;
+    display: flex;
+    justify-content: center;   
+  }
+}
