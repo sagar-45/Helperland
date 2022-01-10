@@ -1,7 +1,20 @@
 // Helperland page start
+
 const toTop=document.querySelector('.up-arrow');
+const navbar=document.querySelector(".navbar");
+const logo=document.querySelector(".logo");
 window.addEventListener('scroll',() =>{
-if(window.pageYOffset>930)
+if(window.pageYOffset>1)
+{
+    navbar.style.backgroundColor="#525252";
+    logo.style.height="54px"
+}
+else
+{
+    navbar.style.backgroundColor="transparent";
+    logo.style.height="100%";
+}
+if(window.pageYOffset>200)
 {
     toTop.classList.add("active");
 }
@@ -10,12 +23,3 @@ else{
 }
 });
 
-// FAQ page start
-$(document).ready(function(){
-    $("#faq .accordion .heading").click(function(){
-        if($(this).find("img.img-fluid").hasClass(".down-arrow"))
-        {
-             let image=document.getElementsByClassName("down-arrow");
-        }
-    });
-});
