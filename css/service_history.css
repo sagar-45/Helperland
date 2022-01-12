@@ -3,6 +3,7 @@
   width: 100%;
   padding: 6px 0px 4px 15px;
   background-color: #525252;
+  opacity: 0.8;
 }
 #header .navbar .navbar-brand {
   width: 73px;
@@ -108,6 +109,10 @@
 }
 #header .dashboard-item button {
   margin-right: 10px;
+}
+#header .dashboard-item button i{
+  color: #fff;
+  font-size: 35px;
 }
 .offcanvas {
   width: 50% !important;

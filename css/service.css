@@ -9,6 +9,7 @@
   padding-top: 0px !important;
   padding-bottom: 0px !important;
   z-index: 2;
+  opacity: 0.8;
 }
 #header .nav-item .nav-link {
   font-family: Roboto;
@@ -57,10 +58,9 @@
   display: none;
   margin-left: 80%;
 }
-#header .mobile-view .btn {
-  background-color: transparent !important;
-  border: none;
-  color: #fff !important;
+#header .mobile-view .btn i {
+  color: #fff;
+  font-size: 35px;
 }
 #header .mobile-view .nav-item {
   padding: 10px 0px 0px 0px;

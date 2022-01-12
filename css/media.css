@@ -8,7 +8,8 @@
   #FAQ #header .navbar .navbar-nav .nav-item,
   #price #header .navbar .navbar-nav .nav-item,
   #contact #header .navbar .navbar-nav .nav-item,
-  #service-pro #header .navbar-nav .nav-item {
+  #service-pro #header .navbar-nav .nav-item,
+  #bookS #header .navbar-nav .nav-item {
     margin-right: 5px;
   }
   #home #header .text {
@@ -126,6 +127,42 @@
     width: 200px;
     margin-right: 10px;
   }
+  #bookS .step_payment .step_p {
+    width: 610px;
+  }
+  #bookS .step_payment .nav-link {
+    height: 90px;
+    padding: 55px 0px 0px 0px !important;
+    background-position: center 20px;
+    width: 150px;
+    text-align: center;
+  }
+  #bookS .triangle {
+    top: 90px;
+    left: 40%;
+  }
+  #bookS .payment {
+    margin-left: 1%;
+    width: 280px;
+  }
+  #bookS .payment .card-pay .card_title {
+    width: 100%;
+  }
+  #bookS .step_payment .book_time .when {
+    margin-right: 10px;
+  }
+  #bookS .step_payment .extra .extra-1 {
+    margin-right: 3%;
+  }
+  #bookS .step_payment .extra .extra-1:nth-child(5) {
+    margin-right: 0px;
+  }
+  #bookS .step_payment .when select {
+    margin: 10px 2px 0px;
+  }
+  #bookS .payment .accordion-body {
+    width: 100%;
+  }
 }
 @media (max-width: 1000px) {
   .footer .footer_head {
@@ -160,7 +197,8 @@
   #upcomingP .tab-navbar,
   #upcomingP #list,
   #serviceH .tab-navbar,
-  #serviceH #list {
+  #serviceH #list,
+  #bookS #header .tab-view {
     display: none;
   }
   #home #header .mobile-view,
@@ -168,7 +206,8 @@
   #FAQ #header .mobile-view,
   #price #header .mobile-view,
   #contact #header .mobile-view,
-  #service-pro #header .mobile-view {
+  #service-pro #header .mobile-view,
+  #bookS #header .mobile-view {
     display: block;
   }
   #upcomingP .mobile-view,
@@ -267,6 +306,19 @@
   #upcomingP #header .pipe,
   #serviceH #header .pipe {
     margin: 10px 0px;
+  }
+  #bookS .step_payment {
+    display: block;
+  }
+  #bookS .payment {
+    width: 610px;
+    margin-top: 80px;
+  }
+  #bookS .step_payment .nav-link {
+    width: 152px;
+  }
+  #bookS .step_payment .when select {
+    margin: 0px 2px 0px;
   }
 }
 @media (max-width: 767px) {
@@ -413,7 +465,8 @@
   #FAQ .mobile-view,
   #price .mobile-view,
   #contact .mobile-view,
-  #service-pro .mobile-view {
+  #service-pro .mobile-view,
+  #bookS .mobile-view {
     margin-left: 0px;
   }
   #about .aimg,
@@ -565,6 +618,59 @@
   #serviceH .mobile-card {
     display: inline;
   }
+  #bookS #main-img {
+    display: none;
+  }
+  #bookS #book_service .title {
+    font-size: 25px;
+    line-height: 1.2;
+  }
+  #bookS .step_payment .step_payment {
+    width: 100%;
+  }
+  #bookS .step_payment .nav-tabs {
+    flex-wrap: nowrap;
+  }
+  #bookS .step_payment .step_p {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #bookS .step_payment .nav-link .all_name {
+    display: none;
+  }
+  #bookS .step_payment .nav-link {
+    height: 30px;
+    background-position: center 15px;
+    max-width: 100px;
+  }
+  #bookS .payment {
+    display: none;
+  }
+  #bookS .triangle {
+    top: 50px;
+    left: 34%;
+  }
+  #bookS .step_payment .extra {
+    display: block;
+  }
+  #bookS .step_payment .middle {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #bookS .step_payment .extra .extra-1 p {
+    margin-bottom: 20px;
+  }
+  #bookS .step_payment .book_time {
+    display: block;
+  }
+  #bookS .step_payment .when select {
+    margin: 10px 2px 0px;
+  }
+  #bookS .step_payment .middle .select_title {
+    width: 150px;
+  }
 }
 @media (max-width: 500px) {
   /* home page media query  */
@@ -614,5 +720,22 @@
   #price #services div.card-price {
     margin-right: 0%;
     margin-bottom: 10px;
+  }
+  #bookS .step_payment .nav-tabs {
+    border: none;
+  }
+  #bookS .step_payment .nav-link {
+    width: 80px;
+  }
+  #bookS .triangle {
+    left: 30%;
+  }
+}
+@media (max-width: 350px) {
+  #bookS .step_payment .nav-link {
+    width: 60px;
+  }
+  #bookS .triangle {
+    left: 25%;
   }
 }

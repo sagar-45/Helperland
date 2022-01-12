@@ -67,10 +67,9 @@
   display: none;
   margin-left: 80%;
 }
-#header .mobile-view .btn {
-  background-color: transparent !important;
-  border: none;
-  color: #fff !important;
+#header .mobile-view .btn i{
+  color:#fff;
+  font-size: 35px;
 }
 #header .mobile-view .nav-item {
   padding: 10px 0px 0px 0px;

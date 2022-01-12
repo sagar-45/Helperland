@@ -9,6 +9,7 @@
   padding-top: 0px !important;
   padding-bottom: 0px !important;
   z-index: 2;
+  opacity: 0.8;
 }
 #header .nav-item .nav-link {
   font-family: Roboto;
@@ -59,10 +60,14 @@
 #header .mobile-view {
   display: none;
 }
-#header .mobile-view .btn {
+#header .mobile-view .btn
+{
   background-color: transparent !important;
   border: none;
-  color: #fff !important;
+}
+#header .mobile-view .btn i {
+  color:#fff;
+  font-size: 35px;
 }
 #header .mobile-view .nav-item {
   padding: 10px 0px 0px 0px;
@@ -114,6 +119,11 @@
   border-radius: 27px;
   background-color: #006072;
   opacity: 0.6;
+}
+#header .btn a
+{
+  text-decoration: none;
+  color:#fff;
 }
 #header .step {
   display: flex;
