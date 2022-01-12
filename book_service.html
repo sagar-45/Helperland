@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Helperland</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" type="text/css" href="css/book_service.css" />
+  <link rel="stylesheet" type="text/css" href="css/media.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+</head>
+
+<body id="bookS">
+  <!-- header section start -->
+  <section id="header">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <a class="navbar-brand">
+        <img src="images/white-logo-transparent-background.png" class="img-fluid" alt="" />
+      </a>
+      <div class="tab-view">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item book-now">
+              <a class="nav-link">Book now</a>
+            </li>
+            <li class="nav-item prices">
+              <a class="nav-link">Prices & services</a>
+            </li>
+            <li class="nav-item guarantee">
+              <a class="nav-link">Our Guarantee</a>
+            </li>
+            <li class="nav-item blog">
+              <a class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item contact">
+              <a class="nav-link">Contact us</a>
+            </li>
+            <li class="nav-item login">
+              <a class="nav-link">Login</a>
+            </li>
+            <li class="nav-item helper">
+              <a class="nav-link">Become a Helper</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mobile-view">
+        <a class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasR" aria-controls="offcanavasRight">
+          <span class="navbar-toggler-icon"></span>
+        </a>
+        <div class="offcanvas offcanvas-end" id="offcanvasR" aria-labelledby="offcanvasRightL">
+          <ul>
+            <li class="nav-item">
+              <a class="nav-link">Book a Cleaner</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Prices</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Our Guarantee</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Become a Helper</a>
+            </li>
+            <hr />
+            <div class="icon-social">
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-instagram"></i>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- header section end -->
+  <!-- img section start -->
+  <section id="main-img">
+    <img src="images/book_service.jpg" class="img-fluid" alt="" />
+  </section>
+  <!-- img section end -->
+  <!-- service section start -->
+  <section id="book_service">
+    <div class="title">Set up your cleaning service</div>
+    <div class="star">
+      <div class="line1"></div>
+      <img src="images/star.png" class="img-fluid" alt="" />
+      <div class="line2"></div>
+    </div>
+    <div class="step_payment">
+      <div class="step_p">
+        <ul class="nav nav-tabs" role="tab-list">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab">
+              <span class="all_name">Setup Service</span>
+              <span class="triangle"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab">
+              <span class="all_name">Schedule & Plan</span>
+              <span class="triangle"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab">
+              <span class="all_name">Your Details</span>
+              <span class="triangle"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab">
+              <span class="all_name">Make Payment</span>
+              <span class="triangle"></span>
+            </a>
+          </li>
+        </ul>
+        <div class="rooms_bath">
+          <p class="select_title">Select number of rooms and bath</p>
+          <select class="bed">
+            <option>1 bed</option>
+            <option>2 bed</option>
+            <option>3 bed</option>
+          </select>
+          <select class="bath">
+            <option>1 bath</option>
+            <option>2 bath</option>
+            <option>3 bath</option>
+          </select>
+        </div>
+        <div class="hr"></div>
+        <div class="book_time">
+          <div class="when">
+            <p class="select_title">When do you need the cleaner?</p>
+            <div class="date">
+              <img src="images/admin_calendar.png">
+              <input type="text" placeholder="01/01/2018" />
+            </div>
+            <select>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+            </select>
+          </div>
+          <div class="how_time">
+            <p class="select_title">How long do you need your cleaner to stay?</p>
+            <select>
+              <option>2.0 Hrs</option>
+              <option>3.0 Hrs</option>
+              <option>4.0 Hrs</option>
+            </select>
+          </div>
+        </div>
+        <div class="hr11"></div>
+        <div class="middle">
+          <p class="select_title">Extra Services</p>
+          <div class="extra">
+            <div class="extra-1">
+              <div class="outer_border">
+                <img src="images/3.png" alt="" class="img-fluid">
+              </div>
+              <p>Inside Cabinets</p>
+            </div>
+            <div class="extra-1">
+              <div class="outer_border">
+                <img src="images/5.png" alt="" class="img-fluid">
+              </div>
+              <p>Inside fridge</p>
+            </div>
+            <div class="extra-1">
+              <div class="outer_border">
+                <img src="images/4.png" alt="" class="img-fluid">
+              </div>
+              <p>Inside oven</p>
+            </div>
+            <div class="extra-1">
+              <div class="outer_border">
+                <img src="images/2.png" alt="" class="img-fluid">
+              </div>
+              <p>Laundry wash & dry</p>
+            </div>
+            <div class="extra-1">
+              <div class="outer_border">
+                <img src="images/1.png" alt="" class="img-fluid">
+              </div>
+              <p>Interior windows</p>
+            </div>
+          </div>
+        </div>
+        <div class="hr11"></div>
+        <div class="comment">
+          <p class="select_title">Comments</p>
+          <textarea rows=2></textarea>
+          <input type="checkbox">I have pets at home
+        </div>
+        <div class="hr12"></div>
+        <button class="btn">Continue</button>
+      </div>
+      <!-- card section start -->
+      <div class="payment">
+        <div class="card-pay">
+          <div class="card_title">
+            Payment Summary
+          </div>
+          <div class="time">01/01/2018 @ 4:00 pm<br>1 bed, 1 bath.</div>
+          <div class="duration">
+            <span class="d_title"><b>Duration</b></span><br>
+            <span>Basic<span class="right_t">3 Hrs</span></span><br>
+            <span>Inside cabinets (extra)<span class="right_t">30 Mins</span></span>
+            <div class="hr1"></div>
+            <span><b>Total Service Time<span class="right_t">3.5 Hrs</span></b></span>
+          </div>
+          <div class="hr2"></div>
+          <div class="discount">
+            <span>Per cleaning<span class="right_t">$87</span></span><br>
+            <span>Discount<span class="right_t">- $27</span></span>
+          </div>
+          <div class="hr3"></div>
+          <div class="price">
+            <span class="total">Total Payment<span class="right_t"><b>$63</b></span></span>
+            <span>Effective Price<span class="right_t e_price"><b>$50.4</b></span></span>
+            <br>
+            <span class="small_letter">*You will save 20% according to §35a EStG.</span>
+          </div>
+          <div class="happy">
+            <img src="images/smiley.png" alt="" class="img-fluid">
+            <span>See what is always included</span>
+          </div>
+        </div>
+        <div class="question">
+          <div class="q_title">Questions?</div>
+          <div class="accordion" id="accordionId">
+            <div class="heading" id="headingOne">
+              <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="false" aria-controls="collapseOne">
+                Which Helperland professional will come to my place?
+              </span>
+            </div>
+            <div class="hr1"></div>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionId">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
+                diam tincidunt, fringilla ante vitae, dapibus velit.
+              </div>
+            </div>
+            <div class="heading" id="headingOne">
+              <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseOne">
+                Which Helperland professional will come to my place?
+              </span>
+            </div>
+            <div class="hr1"></div>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionId">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
+                diam tincidunt, fringilla ante vitae, dapibus velit.
+              </div>
+            </div>
+            <div class="heading" id="headingOne">
+              <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseOne">
+                Which Helperland professional will come to my place?
+              </span>
+            </div>
+            <div class="hr1"></div>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionId">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
+                diam tincidunt, fringilla ante vitae, dapibus velit.
+              </div>
+            </div>
+            <div class="heading" id="headingOne">
+              <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                aria-expanded="false" aria-controls="collapseOne">
+                Which Helperland professional will come to my place?
+              </span>
+            </div>
+            <div class="hr1"></div>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionId">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
+                diam tincidunt, fringilla ante vitae, dapibus velit.
+              </div>
+            </div>
+            <div class="heading" id="headingOne">
+              <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                aria-expanded="false" aria-controls="collapseOne">
+                Which Helperland professional will come to my place?
+              </span>
+            </div>
+            <div class="hr1"></div>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionId">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
+                diam tincidunt, fringilla ante vitae, dapibus velit.
+              </div>
+            </div>
+            <div class="heading" id="headingOne">
+              <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSix"
+                aria-expanded="false" aria-controls="collapseOne">
+                Which Helperland professional will come to my place?
+              </span>
+            </div>
+            <div class="hr1"></div>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionId">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
+                diam tincidunt, fringilla ante vitae, dapibus velit.
+              </div>
+            </div>
+            <div class="heading" id="headingOne">
+              <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSeven"
+                aria-expanded="false" aria-controls="collapseOne">
+                Which Helperland professional will come to my place?
+              </span>
+            </div>
+            <div class="hr1"></div>
+            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionId">
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
+                diam tincidunt, fringilla ante vitae, dapibus velit.
+              </div>
+            </div>
+          </div>
+          <button class="btn">For more help</button>
+        </div>
+      </div>
+    </div>
+    <!-- card section end -->
+  </section>
+  <!-- service section end -->
+  <!-- news-letter section start-->
+  <section id="news-letter">
+    <div class="container-fluid">
+      <div class="news-letter-title">GET OUR NEWSLETTER</div>
+      <div class="email-get">
+        <input type="text" placeholder="Your Email" class="news-email" />
+        <div class="news-button"><span class="button-text">submit</span></div>
+      </div>
+    </div>
+  </section>
+  <!--news-letter section end -->
+  <!--footer section start-->
+  <section>
+    <div class="footer">
+      <div class="footer_head">
+        <div class="logo">
+          <img src="images/white-logo-transparent-background.png" />
+        </div>
+        <div class="menu_footer">
+          <ul>
+            <li class="item">
+              <a class="link" href="#">HOME</a>
+            </li>
+            <li class="item">
+              <a class="link" href="#">ABOUT</a>
+            </li>
+            <li class="item">
+              <a class="link" href="#">TESTIMONIAL</a>
+            </li>
+            <li class="item">
+              <a class="link" href="#">FAQS</a>
+            </li>
+            <li class="item">
+              <a class="link" href="#">INSURANCE POLICY</a>
+            </li>
+            <li class="item">
+              <a class="link" href="#">IMPRESSUM</a>
+            </li>
+          </ul>
+        </div>
+        <div class="social_footer">
+          <img src="images/facebook.png" alt="" />
+          <img src="images/instagram.png" alt="" />
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div class="copyright">
+        <span>©2018 Helperland. All rights reserved. Terms and Conditions |
+          Privacy Policy</span>
+      </div>
+    </div>
+  </section>
+  <!-- footer section end-->
+  <script src="js/helperland.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
