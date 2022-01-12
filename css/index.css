@@ -16,7 +16,7 @@
   font-size: 17px;
   color: #fff;
 }
-#header .nav-item:hover {
+#header .tab-view .nav-item:hover {
   border-radius: 20px;
   border: solid 1px rgba(255, 255, 255, 0.5);
   text-align: center;
