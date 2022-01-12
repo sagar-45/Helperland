@@ -671,6 +671,9 @@
   #bookS .step_payment .middle .select_title {
     width: 150px;
   }
+  #bookS .step_payment .date img {
+    padding-top: 22px;
+  }
 }
 @media (max-width: 500px) {
   /* home page media query  */
