@@ -1,6 +1,17 @@
 <?php
+  if(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==1)
+  {
+      require_once('header3.php');
+  }
+  elseif(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==2)
+  {
+    require_once('header4.php');
+  }
+  else
+  {
     include('header2.php');
-    include("header1_mobileView.php");
+    require_once('navbar_mobile_view.php');
+  }
 ?>
 </section>
 <!-- contact image section start -->

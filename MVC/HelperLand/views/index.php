@@ -1,51 +1,19 @@
 <?php
-  include('header1.php');
+  if(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==1)
+  {
+      require_once('header3.php');
+  }
+  elseif(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==2)
+  {
+    require_once('header4.php');
+  }
+  else
+  {
+    include('header1.php');
+    require_once("navbar_mobile_view.php");
+  }
+  require_once('card_modal.php');
 ?>
-    <div class="modal fade" id="login" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4>Login to your account</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-labelledby="close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="email-input">
-              <input type="email" placeholder="Email">
-              <i class="bi bi-person-fill"></i>
-            </div>
-            <div class="password-input">
-              <input type="password" placeholder="Password">
-              <i class="bi bi-lock-fill"></i>
-            </div>
-            <input type="checkbox">  Remember me<br>
-            <button class="btn login-modal">Login</button>
-            <div class="forgot">
-              <a class="link" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal">Forgot password?</a><br>
-              <span>Don't have an account?<a class="link" href="<?= $base_url.'?controller=Home&&function=Customer_signUp' ?>"> Create an account</a></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="forgot_password" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4>Forgot Password</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-labelledby="close"></button>
-          </div>
-          <div class="modal-body">
-            <div>
-              <input class="link" type="email" placeholder="Email Address">
-            </div>
-            <button class="btn login-modal">Send</button>
-            <div class="forgot">
-              <a data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#login">Login now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="text">
       <div class="main-text">Lorem ipsum text</div>
       <div class="text_desc">
@@ -61,7 +29,7 @@
         <span>Lorem ipsum dolor sit amet, consectetur adipiscing</span>
       </div>
     </div>
-    <button class="btn"><a href="book_service.html">Let’s Book a Cleaner</a></button>
+    <button class="btn book_clean"><a href="book_service.html">Let’s Book a Cleaner</a></button>
     <div class="step">
       <div class="step-1">
         <img src="./assets/images/1-img.png" class="img-fluid" />
@@ -326,6 +294,59 @@
     </div>
   </section>
   <!-- footer section end-->
+  <script>
+    window.onload=function(){
+      <?php
+      if(isset($_SESSION['forgot_password_email']))
+      {
+      ?>
+        forgot_link_success();
+      <?php
+        unset($_SESSION['forgot_password_email']);
+      }
+      ?>
+      if(sessionStorage.getItem("afterPages")==2){
+        login_popup();
+      }
+      <?php
+      if(isset($_SESSION["error"]))
+      {
+      ?>
+        document.querySelector('.login_alert').style.display='block';
+        setTimeout(function() {document.querySelector('.login_alert').style.display='none';},5000);
+        <?php unset($_SESSION['error']); ?>
+        login_popup();
+      <?php
+      }
+      if(isset($_SESSION['forgot_password_error']))
+      {
+      ?>
+        document.querySelector('.forgot_alert').style.display='block';
+        setTimeout(function() {document.querySelector('.forgot_alert').style.display='none';},5000);
+        <?php unset($_SESSION['forgot_password_error']); ?>
+        forgot_password_popup();
+      <?php
+      }
+      ?>
+      if(sessionStorage.getItem("logout")==2){
+        document.querySelector(".logout").click();
+        sessionStorage.setItem("logout",0);
+      }
+    }
+    function login_popup()
+    {
+        document.querySelector(".login").click();
+        sessionStorage.setItem('afterPages',0);
+    }
+    function forgot_password_popup()
+    {
+        document.querySelector(".forgot_btn").click();
+    }
+    function forgot_link_success()
+    {
+        document.querySelector(".forgot_suceess").click();
+    }
+  </script>
   <script src="./assets/js/helperland.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

@@ -1,6 +1,17 @@
 <?php
+  if(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==1)
+  {
+      require_once('header3.php');
+  }
+  elseif(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==2)
+  {
+    require_once('header4.php');
+  }
+  else
+  {
     include('header2.php');
-    include("header1_mobileView.php")
+    require_once('navbar_mobile_view.php');
+  }
 ?>
 </section>
 <!-- about image seaction start -->
@@ -80,7 +91,6 @@
     include('news_letter.php');
     include("footer2.php");
   ?>
-  <script src="./assets/js/helperland.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
