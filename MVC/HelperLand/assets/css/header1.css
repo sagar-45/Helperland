@@ -1,0 +1,128 @@
+#header .navbar {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    z-index: 2;
+    opacity: 0.8;
+  }
+  #header .nav-item .nav-link {
+    font-family: Roboto;
+    font-size: 17px;
+    color: #fff;
+  }
+  
+  #header .nav-item:nth-last-child(1):hover {
+    border: none;
+  }
+  #header .navbar-brand {
+    width: 11.2%;
+    height: 14%;
+    margin: 10px auto 0px 17px;
+  }
+  #header  .nav-item:hover{
+    border: 1px solid  rgba(255, 255, 255, 0.5);
+  }
+  #header .tab-view .navbar-nav .home-book-now {
+    width: 161px;
+    height: 40px;
+    border-radius: 20px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    text-align: center;
+  }
+  #header .tab-view .navbar-nav .home-prices{
+    width: 80px;
+    height: 40px;
+    border-radius:20px;
+    text-align: center;
+  }
+  #header .tab-view .navbar-nav .home-guarantee{
+    width: 140px;
+    height: 40px;
+    border-radius:20px;
+    text-align: center;
+  }
+  #header .tab-view .navbar-nav .home-blog{
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  #header .tab-view .navbar-nav .home-contact{
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;  
+  }
+  #header .tab-view .navbar-nav .login {
+    width: 97px;
+    height: 40px;
+    border-radius: 20px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    text-align: center;
+  }
+  #header .tab-view .navbar-nav .helper {
+    width: 161px;
+    height: 40px;
+    border-radius: 20px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    text-align: center;
+  }
+  #header .navbar-nav .nav-item {
+    margin-right: 5px;
+  }
+  #header .navbar-nav .dropdown .dropdown-menu {
+    margin-top: 50px !important;
+  }
+  #header .mobile-view {
+    display: none;
+  }
+  #header .mobile-view .btn
+  {
+    background-color: transparent !important;
+    border: none;
+  }
+  #header .mobile-view .btn i {
+    color:#fff;
+    font-size: 35px;
+  }
+  #header .mobile-view .nav-item {
+    padding: 10px 0px 0px 0px;
+    list-style-type: none;
+  }
+  #header .mobile-view .nav-link {
+    color: #4f4f4f !important;
+    padding: 0px !important;
+  }
+  .offcanvas {
+    width: 50% !important;
+    overflow-y: auto;
+  }
+  #header .mobile-view .icon-social {
+    text-align: center;
+  }
+  #header .mobile-view .icon-social i {
+    font-size: 25px;
+    margin-left: 10px;
+  }
+  
+  #header .true{
+    text-align: center;
+  }
+  #header .true p{
+    font-family: Roboto;
+    font-size: 20px;
+  }
+  #header .true img{
+    background-color: #67b644;
+    width: 80px;
+    height: 80px;
+    padding: 20px;
+    border-radius: 50%;
+    margin: 30px 0px 30px;
+  }
+  #header .logout_btn{
+    background-color: #006072 !important;
+    width: 100px;
+    margin: 0px auto;
+    color: #fff;
+    border-radius:40px ;
+  }

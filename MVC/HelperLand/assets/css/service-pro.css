@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+#header {
+  width: 100%;
+  padding-bottom: 33px;
+  background-image: url("../images/group-35.jpg");
+  padding-top: 20px;
+}
+input:focus
+{
+  outline: none !important;
+  border: 1px solid #1d7a8c !important;
+}
+#header .dark:hover 
+{
+  background-color: #fff !important;
+  opacity: 1;
+}
+#header .dark .nav-link:hover 
+{
+  color:#1d7a8c;
+}
+#header .email_exist
+{
+  display: none;
+}
+#header .modal 
+{
+  text-align: center;
+}
+#header .modal .false
+{
+  background-color: #a94442;
+  padding: 30px;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0px auto;
+  border-radius: 50%;
+  margin: 40px auto 20px;
+}
+#header .modal .false img
+{
+  width: 40px;
+  height: 40px;
+}
+#header .modal p
+{
+  font-size: 20px;
+}
+#header .exist_btn{
+  background-color: #1d7a8c;
+  color: #fff;
+  width: 80px;
+  margin: 0px auto 30px;
+  border-radius: 40px;
+}
+/* registration form section start */
+#service-page form {
+  width: 430px;
+  /* height: 71.6%; */
+  border-radius: 4px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 38px;
+  padding-top: 23px;
+  padding-bottom: 19px;
+}
+#reg_form .reg_title {
+  font-family: Roboto;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+}
+#reg_form form > input {
+  width: 359px;
+  height: 46px;
+  margin-left: 8.4%;
+  margin-right: 8.1%;
+  border: solid 1px #c8c8c8;
+  background-color: #fff;
+  padding-left: 16px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+input:focus{
+  outline: none;
+  border: 1px solid #1d7a8c !important;
+}
+#reg_form .errors{
+  margin-bottom: 10px;
+}
+#reg_form .flex-nowrap > input {
+  border: solid 1px #c8c8c8;
+  height: 46px;
+  border-radius: 4px;
+}
+#reg_form .flex-nowrap{
+  margin-bottom: 15px;
+}
+#reg_form form > div {
+  width: 359px;
+  margin-left: 8.4%;
+  margin-right: 8.1%;
+}
+#reg_form .input-group input {
+  width: 100%;
+  padding-left: 16px;
+}
+#reg_form .errors{
+  font-family: Roboto;
+  font-size: 14px;
+  color: #a94442;
+  display: none;
+  margin-top: -15px;
+}
+#reg_form input::placeholder {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #a0a0a0;
+}
+#reg_form .blue_text {
+  color: #1fb6ff;
+}
+#reg_form form img {
+  width: 302px;
+  height: 76px;
+  margin: 15px auto 20px 8.6%;
+  object-fit: contain;
+}
+#reg_form .get_started {
+  width: 166px;
+  height: 46px;
+  margin: 0px auto 0px auto;
+  border-radius: 23px;
+  background-color: #1d7a8c;
+  padding-left: 27px;
+  display: block;
+}
+#reg_form .get_started span {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #fff;
+}
+#reg_form .get_started img {
+  width: 30px;
+  height: 11px;
+  margin: 0 0 0 8px;
+  object-fit: contain;
+  color: #fff;
+}
+#reg_form .com-down {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 63px;
+}
+/* registration form section end */
+.sec_rect {
+  background-image: url("../images/blog-left-bg.png"),
+    url("../images/blog-right-bg.png");
+  background-repeat: no-repeat;
+  background-position: 0% 30px, 100% 30px;
+}
+/* how it work section start */
+#how_work .work_title {
+  margin: 68px auto 73px auto;
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.45;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+}
+#how_work .card-1,
+#how_work .card-3 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+#how_work .card-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+#how_work .card-1 .card_text {
+  width: 330px;
+  margin-right: 158px;
+}
+#how_work .card-2 .card_text {
+  width: 362px;
+  margin-left: 126px;
+}
+#how_work .card-3 .card_text {
+  width: 365px;
+  margin-right: 125px;
+}
+#how_work .card-1 .card_text .cardhead,
+#how_work .card-2 .card_text .cardhead,
+#how_work .card-3 .card_text .cardhead {
+  margin-top: 52px;
+  margin-bottom: 16px;
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+}
+#how_work .card-1 .card_text .carddesc,
+#how_work .card-2 .card_text .carddesc,
+#how_work .card-3 .card_text .carddesc {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+}
+#how_work .card-1 .card_text .read-more,
+#how_work .card-2 .card_text .read-more,
+#how_work .card-3 .card_text .read-more {
+  margin-top: 48px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4f4f4f;
+}
+/* how it work section end */
+/*Newsletter section start*/
+#news-letter .container-fluid .news-letter-title {
+  height: 13px;
+  font-family: Roboto;
+  margin-top: 77px;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  text-align: center;
+  color: #353548;
+}
+#news-letter .container-fluid .email-get {
+  display: flex;
+  justify-content: center;
+}
+#news-letter .container-fluid .news-email {
+  width: 233px;
+  height: 40px;
+  margin: 20px 11px 53px 56px;
+  padding-left: 25px;
+  border-radius: 20px;
+  border: solid 1px #565656;
+  background-color: #f4f5f8;
+}
+#news-letter .container-fluid .news-email::placeholder {
+  text-transform: uppercase;
+}
+
+#news-letter .container-fluid .news-button {
+  width: 88px;
+  height: 40px;
+  margin: 20px 56px 53px 11px;
+  text-align: center;
+  padding-top: 5px;
+  border-radius: 20px;
+  background-color: #ff7b6d;
+}
+#news-letter .container-fluid .news-button .button-text {
+  width: 44px;
+  height: 11px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+/*Newsletter section end*/

@@ -1,0 +1,172 @@
+#header{
+  margin-bottom: 62px;
+}
+#header .navbar {
+    width: 100%;
+    padding: 6px 0px 4px 15px;
+    background-color: #525252;
+  }
+  #header .navbar .navbar-brand {
+    width: 73px;
+    height: 54px;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
+  #header .tab-view {
+    margin-right: 0px;
+    margin-left: auto;
+  }
+  #header .navbar .nav-item{
+    height: 40px;
+  }
+  #header .navbar .mobile-view {
+    margin-right: 0px;
+    margin-left: auto;
+  }
+  #header .navbar .navbar-nav .nav-item:nth-last-child(1) {
+    margin-right: 14px;
+  }
+  #header .navbar .navbar-nav .nav-item:nth-child(-n + 5) {
+    margin-left: 10px;
+  }
+  #header .navbar .navbar-nav .contact {
+    margin-right: 10px;
+  }
+  #header .navbar .navbar-nav .nav-item:nth-child(-n + 5):hover {
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 40px;
+  }
+  #header .navbar .navbar-nav .nav-item .nav-link {
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.41;
+    letter-spacing: normal;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #fff;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  #header .navbar-nav .prices{
+    width: 180px;
+  }
+  #header .navbar-nav .Warranty{
+    width: 100px;
+  }
+  #header .navbar-nav .blog{
+    width: 80px;
+  }
+  #header .navbar-nav .contact{
+    width: 120px;
+  }
+  .Notification {
+    list-style-type: none;
+    position: relative;
+  }
+  .Notification .notification-img {
+    width: 29px;
+    height: 32px;
+    object-fit: contain;
+    margin-right: 25px;
+  }
+  .Notification .badge {
+    position: absolute;
+    top: 3px;
+    right: 15px;
+    padding: 4px 5px 5px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+  }
+  .pipe {
+    width: 1px;
+    height: 48px;
+    background-color: #e1e1e1;
+    margin-right: 16px;
+  }
+  .mobile-view {
+    display: none;
+  }
+  #header .dashboard-item button {
+    margin-right: 10px;
+  }
+  #header .dashboard-item button i{
+    color: #fff;
+    font-size: 35px;
+  }
+  .offcanvas {
+    width: 50% !important;
+    overflow-y: auto;
+  }
+  #header .dashboard-item .icon-social {
+    text-align: center;
+  }
+  .dashboard-item .nav-link {
+    color: #525252;
+    font-family: Roboto;
+    font-size: 17px;
+  }
+  #header .dashboard-item .icon-social i {
+    font-size: 25px;
+    margin-left: 10px;
+  }
+  #header .notification-mobile {
+    display: none;
+  }
+  #header .user .dropdown .menu::after {
+    content: none;
+  }
+  #header .user .dropdown .menu {
+    height: 36px;
+    width: 50px;
+    padding: 3px 0px 0px !important;
+  }
+  #header .user .dropdown .menu .user-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+  #header .user .dropdown .menu::before {
+    content: none;
+  }
+  
+  #header .user .dropdown .dropdown-menu {
+    margin-top: 70px;
+    margin-right: -100%;
+    font-family: Roboto;
+    color: #646464;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+  }
+  #header .user .dropdown .dropdown-menu::before{
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-top: 1px solid #999999;
+    border-left: 1px solid #999999;
+    right: 25px;
+    top:-8px;
+    transform: rotate(45deg);
+    z-index: -1;
+    border-bottom: none;
+  }
+  #header .user .dropdown-menu li{
+    font-size: 15px !important;
+    font-family: Roboto;
+  }
+  .navbar .mobile-view .nav-item {
+    list-style-type: none;
+  }
+  hr{
+    margin: 5px 0px !important;
+  }
+  .disabled{
+    color:#646464 !important;
+    font-family: Roboto !important;
+
+  }

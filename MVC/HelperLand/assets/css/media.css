@@ -21,8 +21,20 @@
   #home #header .step .step-1 {
     width: 15%;
   }
-  #home #header .navbar-nav .book-now {
+  #home #header .navbar-nav .home-book-now {
     width: 138px;
+  }
+  #header .tab-view .navbar-nav .home-prices{
+    width: 60px;
+  }
+  #header .tab-view .navbar-nav .home-guarantee{
+    width: 130px;
+  }
+  #header .tab-view .navbar-nav .home-blog{
+    width: 70px;
+  }
+  #header .tab-view .navbar-nav .home-contact{
+    width: 108px;
   }
   #home #header .navbar-nav .login {
     width: 80px;
@@ -174,6 +186,15 @@
   #bookS .payment .accordion-body {
     width: 100%;
   }
+  #header .navbar .prices{
+    width: 150px;
+  }
+  #header .navbar .book-now{
+    width: 130px;
+  }
+  #header .navbar .blog{
+    width: 80px;
+  }
 }
 @media (max-width: 1000px) {
   .footer .footer_head {
@@ -199,42 +220,16 @@
   }
 }
 @media (max-width: 990px) {
-  #home #header .tab-view,
-  #about #header .tab-view,
-  #FAQ #header .tab-view,
-  #price #header .tab-view,
-  #contact #header .tab-view,
-  #service-pro #header .tab-view,
-  #upcomingP .tab-navbar,
-  #upcomingP #list,
-  #serviceH .tab-navbar,
-  #serviceH #list,
-  #bookS #header .tab-view,
-  #Customer_signUp #header .tab-view,
-  #sp_new #header .tab-view ,
-  #sp_history #header .tab-view{
+  .tab-view{
     display: none;
   }
-  #home #header .mobile-view,
-  #about #header .mobile-view,
-  #FAQ #header .mobile-view,
-  #price #header .mobile-view,
-  #contact #header .mobile-view,
-  #service-pro #header .mobile-view,
-  #bookS #header .mobile-view ,
-  #Customer_signUp .mobile-view{
+  #header .mobile-view{
     display: block;
   }
-  #upcomingP .mobile-view,
-  #serviceH .mobile-view,
-  #sp_new .mobile-view,
-  #sp_history .mobile-view {
+  /* #header .mobile-view {
     display: inline;
-  }
-  #upcomingP .mobile-card,
-  #serviceH .mobile-card,
-  #sp_new .mobile-card ,
-  #sp_history .mobile-card{
+  } */
+  .mobile-card{
     display: none;
   }
   #about #about-us .title,
@@ -244,6 +239,9 @@
   #about #story .story-text,
   #about #about-us .about-text {
     width: 90%;
+  }
+  #home #header{
+    padding-top: 150px;
   }
   #FAQ #header,#about #header{
     padding-top: 77px;
@@ -310,31 +308,19 @@
   #upcomingP hr {
     margin: 3px 0px !important;
   }
-  #upcomingP #header .notification-mobile,
-  #serviceH #header .notification-mobile ,
-  #sp_new #header .notification-mobile,
-  #sp_history #header .notification-mobile{
+  #header .notification-mobile{
     display: flex;
     margin-left: auto;
   }
-  #upcomingP .Notification .notification-img,
-  #serviceH .Notification .notification-img,
-  #sp_new .Notification .notification-img,
-  #sp_history .Notification .notification-img {
+ .Notification .notification-img {
     margin-right: 5px;
     margin-top: 8px;
   }
-  #upcomingP .Notification .badge,
-  #servieH #upcomingP .Notification .badge,
-  #sp_new .Notification .badge,
-  #sp_history .Notification .badge {
+  .Notification .badge {
     top: 5px;
     right: 15px;
   }
-  #upcomingP #header .pipe,
-  #serviceH #header .pipe,
-  #sp_new #header .pipe,
-  #sp_history #header .pipe {
+  #header .pipe {
     margin: 10px 0px;
   }
   #bookS .step_payment {
@@ -350,12 +336,10 @@
   #bookS .step_payment .when select {
     margin: 0px 2px 0px;
   }
-  #sp_new #list,
-  #sp_history #list{
+  #list{
     display: none;
   }
-  #sp_new #filter,
-  #sp_history #filter{
+  #filter{
     width: 760px;
   }
 }
@@ -499,13 +483,7 @@
     margin-bottom: 10px;
   }
   /* home page media query  */
-  #about .mobile-view,
-  #FAQ .mobile-view,
-  #price .mobile-view,
-  #contact .mobile-view,
-  #service-pro .mobile-view,
-  #bookS .mobile-view ,
-  #Customer_signUp .mobile-view{
+  #header .mobile-view{
     margin-left: 0px;
   }
   #about .aimg,
@@ -635,7 +613,6 @@
   }
   #service-pro #service-page form {
     width: 80%;
-    height: 78%;
   }
   #service-pro #reg_form form > input {
     width: 80%;
@@ -656,16 +633,13 @@
   #service-pro #reg_form .get_started img {
     width: 20px;
   }
-  #upcomingP .tab-view,
-  #serviceH .tab-view,
-  #sp_new .tab-view,
-  #sp_history .tab-view {
+  .tab-view {
     display: none;
   }
-  #upcomingP .mobile-card,
-  #serviceH .mobile-card,
-  #sp_new .mobile-card,
-  #sp_history .mobile-card {
+  .table_page{
+    display: none;
+  }
+  .mobile-card {
     display: inline;
   }
   #bookS #main-img {
@@ -728,20 +702,19 @@
   {
     font-size: 30px;
   }
-  #Customer_signUp #create .contact-form
-  {
-    padding-left: 25px;
-  }
   #Customer_signUp #create .contact-form .personal-detail input,#Customer_signUp #create .contact-form .personal-detail .n_e .mobile
   {
-    width: 90%;
+    width: 100%;
   }
-  #Customer_signUp #create .contact-form .personal-detail .n_e
+  #Customer_signUp #create .contact-form .personal-detail .n_e,#Customer_signUp #create .contact-form .name,#Customer_signUp #create .contact-form .password
   {
     display: block;
   }
-  #Customer_signUp #create .contact-form .personal-detail > input:nth-child(2),#Customer_signUp #create .contact-form .personal-detail > input:nth-child(7),#Customer_signUp #create .contact-form .n_e div {
-    margin-left: 0px;
+  #Customer_signUp #create .contact-form .name div,#Customer_signUp #create .contact-form .n_e > div,#Customer_signUp #create .contact-form .password div{
+    margin: 0px auto 10px;
+  }
+  #Customer_signUp #create .contact-form .n_e > div{
+    margin-bottom: 10px;
   }
   .footer{
     padding-left: 0px;
@@ -805,6 +778,9 @@
   }
   #bookS .triangle {
     left: 30%;
+  }
+  .reset_password{
+    width: 90%;
   }
 }
 @media (max-width: 350px) {

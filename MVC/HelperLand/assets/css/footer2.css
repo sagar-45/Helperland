@@ -1,6 +1,5 @@
 /*footer section start*/
 .footer {
-    height: 16.9%;
     width: 100%;
     background-color: #111111;
     padding: 27px 120px 22px;
@@ -29,6 +28,9 @@
     margin-left: 20px;
     font-family: Roboto;
     font-size: 14px;
+  }
+  .footer .menu_footer .link:hover{
+    color: #1d7a8c;
   }
   .footer .footer_head .social_footer {
     margin-left: auto;

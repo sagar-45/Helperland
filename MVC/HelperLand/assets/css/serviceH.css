@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+/* header section end */
+.welcome {
+  width: 100%;
+  height: 119px;
+  margin-top: 64px;
+  background-color: #f9f9f9;
+}
+.welcome p {
+  font-family: Roboto;
+  font-size: 30px;
+  padding-top: 44px;
+  line-height: 0.8;
+  text-align: center;
+  color: #4f4f4f;
+}
+.hr {
+  height: 1px;
+  background-color: #e1e1e1;
+}
+.mid-dash {
+  display: flex;
+  justify-content: center;
+}
+/* service history section start */
+.table_page .service_head {
+  margin: 33px 0px 0px 16px;
+  width: 861px;
+}
+.table_page .service_txt {
+  height: 20px;
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 2.05;
+  text-align: left;
+  color: #646464;
+}
+.table_page .export {
+  border-radius: 17px;
+  background-color: #146371;
+  color: #fff;
+  font-family: Roboto;
+  float: right;
+}
+#service_history .table {
+  width: 864px;
+  height: auto;
+  padding: 1px 0 22px;
+  margin: 0px auto 10px 14px;
+  border: solid 1px #e1e1e1;
+  background-color: #fff;
+}
+#service_history thead {
+  width: 861px;
+  height: 49px;
+  margin: 0 2px 0 1px;
+}
+#service_history th {
+  margin: 1px 9px 3px 0;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.63;
+  text-align: left;
+  color: #646464;
+}
+#service_history th img {
+  margin-left: 9px;
+}
+#service_history tr td {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.63;
+  text-align: left;
+  color: #646464;
+}
+#service_history tr td .date span {
+  font-weight: bold;
+}
+#service_history tr .date {
+  margin: 25px auto 1.2% auto;
+}
+#service_history tr .rating,
+.mobile-view .card .rating {
+  display: flex;
+  margin-top: 22px;
+}
+#service_history tr .rating .cap,
+.mobile-view .card .rating .cap {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  padding: 12px 7px;
+  border: solid 1px #aaa;
+  background-color: #fff;
+  margin-right: 12px;
+}
+#service_history tr .rating .star p,
+.mobile-view .card .rating .star p {
+  margin-bottom: 0px;
+}
+#service_history tr .rupee .uro,
+.mobile-view .rupee {
+  font-size: 20px;
+}
+#service_history tr .rupee,
+.mobile-view .rupee {
+  height: 17px;
+  margin-top: 35px;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  color: #1d7a8c;
+}
+#service_history tr .status-c,
+.mobile-view .status-c {
+  width: fit-content;
+  height: 22px;
+  margin-top: 31px;
+  padding: 0px 10px 4px 9px;
+  background-color: #67b644;
+}
+#service_history tr .status-d,
+.mobile-view .status-d {
+  width: fit-content;
+  height: 22px;
+  margin-top: 32px;
+  padding: 0px 10px 7px;
+  background-color: #ff6b6b;
+}
+#service_history tr .status-c .text,
+#service_history tr .status-d .text,
+.mobile-view .status-c .text,
+.mobile-view .status-d .text {
+  width: 63px;
+  height: 13px;
+  font-family: Roboto;
+  font-size: 13px;
+  line-height: 1.85;
+  text-align: left;
+  color: #fff;
+}
+#service_history tr button {
+  height: 34px;
+  margin-top: 25px;
+  border-radius: 17px;
+  color: #fff;
+  background-color: #6da9b5;
+}
+/* service history section end */
+/* for mobile view  */
+.mobile-view .card_name {
+  width: 90%;
+  margin: 10px auto 0px;
+  color: #646464;
+  font-family: Roboto;
+  font-size: 18px;
+}
+.mobile-view .card {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 10px auto;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  font-family: Roboto;
+  color: #646464;
+  font-size: 16px;
+}
+.mobile-view .card .card_name {
+  margin-left: 25px;
+}
+.card-body {
+  padding: 10px 20px 10px !important;
+}
+.mobile-view .card .date {
+  margin-bottom: 10px;
+}
+.mobile-view .card hr {
+  margin: 10px 0px !important;
+}
+.mobile-view .card button {
+  border-radius: 17px;
+  background-color: #6da9b5;
+  color: #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* pagination end */
+/* page navigation end */

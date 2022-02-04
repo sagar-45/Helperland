@@ -1,0 +1,22 @@
+#list {
+    width: 262px;
+    height: auto;
+    margin: 31px 0px 30px 0px;
+    background-color: #1d7a8c;
+  }
+  #list .list-group-item {
+    background-color: #1d7a8c;
+    border-color: #2f8f9f;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 2;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+  }
+  #list .active {
+    background-color: #146371;
+  }
