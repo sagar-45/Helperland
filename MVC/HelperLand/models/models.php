@@ -97,9 +97,8 @@ class Models
             return false;
         }
     }
-    function changePassword($password)
+    function changePassword($email,$password)
     {
-        $email=$_SESSION['forgot_password_email'];
         $sql="UPDATE `user` SET `Password`='$password' WHERE `Email`='$email'";
         mysqli_query($this->conn,$sql);
     }
