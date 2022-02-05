@@ -351,9 +351,9 @@
   #home #header .text {
     margin-top: 0px;
   }
-  #home #header .navbar-brand {
-    height: 60px;
-    width: 73px;
+  #header .navbar-brand {
+    height: 60px !important;
+    width: 73px !important;
   }
   #home #header .text {
     margin-top: 40px;
