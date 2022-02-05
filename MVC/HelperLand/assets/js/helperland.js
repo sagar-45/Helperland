@@ -30,17 +30,20 @@ function outsidepassword()
 const login_button=document.querySelector('.login-modal');
 function login_module()
 {   
-    login_button.disabled=false;
     if(email_input.value.length>0 && password_input.value.length>0)
     {
         login_button.disabled=false;
     }
-    else if(email_input.value.length==0 || password_input.value.length==0)
+    if(email_input.value==0 || password_input.value==0)
     {
         outsideemail();
         outsidepassword();
         login_button.disabled=true;
     }
+}
+function login_enble()
+{
+    login_button.disabled=false;
 }
 const forgot_email=document.querySelector('.forgot_email_input');
 function forgotemail()
@@ -145,6 +148,56 @@ function validate_ccpassword()
         document.querySelector(".error6").style.display='none';
     }
 }
+const register_btn=document.querySelector(".register_btn");
+function register()
+{
+    if(CsignUp_fname.value==0)
+    {
+        validate_fname();
+        register_btn.disabled=true;
+    }
+    if(CsignUp_lname.value==0)
+    {
+        validate_lname();
+        register_btn.disabled=true;
+    }
+    if(cemail.value==0)
+    {
+        validate_cemail();
+        register_btn.disabled=true;
+    }
+    if(cnumber.value==0)
+    {
+        validate_cnumber();
+        register_btn.disabled=true;
+    }
+    if(cpassword.value==0)
+    {
+        validate_cpassword();
+        register_btn.disabled=true;
+    }
+    if(ccpassword.value==0)
+    {
+        validate_ccpassword();
+        register_btn.disabled=true;
+    }
+    if(cpassword.value.length<6)
+    {
+        document.querySelector(".error5").style.display='block';
+        document.querySelector(".error5").innerHTML='Password should be 6 letter long';
+        register_btn.disabled=true;
+    }
+    if(cpassword.value!=ccpassword.value)
+    {
+        document.querySelector(".error6").style.display='block';
+        document.querySelector(".error6").innerHTML='Password & Confirm Password are not match'; 
+        register_btn.disabled=true;
+    }
+}
+function register_btn_enble()
+{
+    register_btn.disabled=false;
+}
 
 
 const toTop=document.querySelector('.up-arrow');
@@ -155,7 +208,8 @@ window.addEventListener('scroll',() =>{
 if(window.pageYOffset>1)
 {
     navbar.style.backgroundColor="#525252";
-    logo.style.height="54px";
+    logo.style.height="55px";
+    logo.style.width="73px";
     dark_link[0].style.backgroundColor="#006072";
     dark_link[1].style.backgroundColor="#006072";
     dark_link[2].style.backgroundColor="#006072";
@@ -164,6 +218,7 @@ else
 {
     navbar.style.backgroundColor="transparent";
     logo.style.height="100%";
+    logo.style.width="100%";
     dark_link[0].style.backgroundColor="transparent";
     dark_link[1].style.backgroundColor="transparent";
     dark_link[2].style.backgroundColor="transparent";
