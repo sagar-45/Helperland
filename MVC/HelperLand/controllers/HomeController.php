@@ -62,6 +62,7 @@ class HomeController
     function resetPassword()
     {
         $function='resetPassword';
+        $_SESSION['forgot_email']=$_GET['email'];
         include('./views/resetPassword.php');
     }
     function forgotPassword()
@@ -70,13 +71,11 @@ class HomeController
         if(isset($_POST))
         {
             $_SESSION['forgot_password']=1;
-            $details=[
-            'email'=>$_POST['email']
-            ];
-            $check=$this->modal->select_user($details);
+            $email=$_POST['email'];
+            $check=$this->modal->checkEmail($email);
             if($check!="User Not Found")
             {
-                $this->reset_password($details['email']);
+                $this->reset_password($email);
             }
             else
             {
@@ -137,6 +136,7 @@ class HomeController
             }
             else
             {
+                $_SESSION['register']=1;
                 header('Location:' .$base_url."?controller=Home&&function=index");
             }
         }
@@ -183,6 +183,7 @@ class HomeController
             }
             else
             {
+                $_SESSION['register']=1;
                 header('Location:' .$base_url."?controller=Home&&function=index");
             }
         }
@@ -233,7 +234,7 @@ class HomeController
         $mail->addReplyTo('rathodsagar1362001@gmail.com');
         $mail->isHTML(true);
         $mail->Subject="Password Change";
-        $mail->Body="This is link to Reset Password:<a href='http://localhost/HelperLand/?controller=Home&&function=resetPassword'>http://localhost/HelperLand/?controller=Home&&function=resetPassword</a>";
+        $mail->Body="This is link to Reset Password:<a href='http://localhost/HelperLand/?controller=Home&&function=resetPassword&email=$email'>http://localhost/HelperLand/?controller=Home&&function=resetPassword</a>";
         $mail->AltBody="";
         if(!$mail->send())
         {
@@ -250,8 +251,9 @@ class HomeController
         $base_url="http://localhost/HelperLand/";
         if(isset($_POST))
         {
+            $email=$_POST['email'];
             $password=$_POST['new_password'];
-            $this->modal->changePassword($password);
+            $this->modal->changePassword($email,$password);
             header('Location:' .$base_url."?controller=Home&&function=index");
         }
     }
