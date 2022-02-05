@@ -26,7 +26,7 @@
   <section id="header">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top nav-light">
       <a class="navbar-brand" href="<?= $base_url.'?controller=Home&&function=index'?>">
-        <img src="./assets/images/white-logo-transparent-background.png" class="img-fluid logo" alt="" />
+        <img src="./assets/images/white-logo-transparent-background.png" class="img-fluid nav_brand_img logo" alt="" />
       </a>
       <div class="tab-view">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

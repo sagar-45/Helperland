@@ -11,30 +11,30 @@
     <section id="reg_form">
       <form action="<?= $base_url.'?controller=Home&&function=sp_signUp'?>" method="POST">
         <div class="reg_title">Register Now!</div>
-        <input type="text" name="fname" class="cfname" placeholder="First name" onblur="validate_fname()" />
+        <input type="text" name="fname" class="cfname" placeholder="First name" onkeypress="register_btn_enble()" onblur="validate_fname()" />
         <div class="errors error1">
           <span></span>
         </div>
-        <input type="text" name="lname" class="clname" placeholder="Last name" onblur="validate_lname()" />
+        <input type="text" name="lname" class="clname" placeholder="Last name" onkeypress="register_btn_enble()" onblur="validate_lname()" />
         <div class="errors error2">
           <span></span>
         </div>
-        <input type="email" name="email-add" class="cemail" placeholder="Email address" onblur="validate_cemail()" />
+        <input type="email" name="email-add" class="cemail" placeholder="Email address" onkeypress="register_btn_enble()" onblur="validate_cemail()" />
         <div class="errors error3">
           <span></span>
         </div>
         <div class="input-group flex-nowrap">
           <span class="input-group-text" id="addon-wrapping">+49</span>
-          <input type="number" name="mbno" class="cnumber" placeholder="Mobile number" onblur="validate_cnumber()" />
+          <input type="number" name="mbno" class="cnumber" placeholder="Mobile number" onkeypress="register_btn_enble()" onblur="validate_cnumber()" />
         </div>
         <div class="errors error4">
           <span></span>
         </div>
-        <input type="password" name="password" class="cpassword" placeholder="Password" onblur="validate_cpassword()" />
+        <input type="password" name="password" class="cpassword" placeholder="Password" onkeypress="register_btn_enble()" onblur="validate_cpassword()" />
         <div class="errors error5">
           <span></span>
         </div>
-        <input type="password" name="con-pass" class="ccpassword" placeholder="Confirm Password" onblur="validate_ccpassword()" />
+        <input type="password" name="con-pass" class="ccpassword" placeholder="Confirm Password" onkeypress="register_btn_enble()" onblur="validate_ccpassword()" />
         <div class="errors error6">
           <span></span>
         </div>
@@ -52,7 +52,7 @@
           </label>
         </div>
         <img src="./assets/images/not_robot.png" class="img-fluid" alt="" />
-        <button class="btn get_started">
+        <button class="btn get_started register_btn" onclick="register()">
           <span>Get Started</span>
           <img src="./assets/images/arrow-white.png" class="img-fluid" alt="" />
         </button>

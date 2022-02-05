@@ -12,14 +12,14 @@
           </div>
           <div class="modal-body">
             <div class="email-input">
-              <input type="email" name="email" class="email_input" placeholder="Email" onblur="outsideemail()">
+              <input type="email" name="email" class="email_input" placeholder="Email" onkeypress="login_enble()" onblur="outsideemail()">
               <i class="bi bi-person-fill"></i>
             </div>
             <div class="email_error errors">
               <span></span> 
             </div>
             <div class="password-input">
-              <input type="password" name="password" class="password_input" placeholder="Password" onblur="outsidepassword()">
+              <input type="password" name="password" class="password_input" placeholder="Password" onkeypress="login_enble()" onblur="outsidepassword()">
               <i class="bi bi-lock-fill"></i>
             </div>
             <div class="password_error errors">
@@ -50,12 +50,12 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                    <input class="link forgot_email_input" name='email' type="email" placeholder="Email Address"  onblur="forgotemail()">
+                    <input class="link forgot_email_input" name='email' type="email" placeholder="Email Address" onblur="forgotemail()">
                     </div>
                     <div class="email_error1 errors">
                     <span></span> 
                     </div>
-                    <button class="btn login-modal">Send</button>
+                    <button class="btn login-modal" onclick="login_module()">Send</button>
                     <div class="forgot">
                     <a data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#login">Login now</a>
                     </div>

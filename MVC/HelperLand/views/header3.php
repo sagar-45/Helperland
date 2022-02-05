@@ -27,7 +27,7 @@
   <section id="header">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <a class="navbar-brand" href="<?= $base_url.'?controller=Home&&function=index'?>">
-        <img src="./assets/images/white-logo-transparent-background.png" class="img-fluid logo" alt="" />
+        <img src="./assets/images/white-logo-transparent-background.png" class="img-fluid nav_brand_img logo" alt="" />
       </a>
       <div class="tab-view tab-navbar">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -94,14 +94,14 @@
               <a class="nav-link">Welcome</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link name"><b>Gaurang</b></a>
+              <a class="nav-link name"><b><?php echo $_SESSION['UserName'] ?></b></a>
             </li>
             <hr />
             <li class="nav-item">
               <a class="nav-link">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Service History</a>
+              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=customer_service_history'?>">Service History</a>
             </li>
             <li class="nav-item">
               <a class="nav-link">Service Schedule</a>
@@ -119,11 +119,11 @@
               <a class="nav-link">My Setting</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Logout</a>
+              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=logout' ?>" onclick="logoutset()">Logout</a>
             </li>
             <hr />
             <li class="nav-item">
-              <a class="nav-link" href="prices.html">Prices & services</a>
+              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=prices'?>">Prices & services</a>
             </li>
             <li class="nav-item">
               <a class="nav-link">Warranty</a>
@@ -132,7 +132,7 @@
               <a class="nav-link">Blog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=contact'?>">Contact</a>
             </li>
             <hr />
             <div class="icon-social">

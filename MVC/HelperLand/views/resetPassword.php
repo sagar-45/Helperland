@@ -15,6 +15,7 @@
     <form method="POST" action='<?=$base_url."?controller=Home&&function=setPassword"?>'>
         <div class="newpassword">
             <span>New Password</span><br>
+            <input type="hidden" name="email" value="<?= $_SESSION['forgot_email'] ?>"/>
             <input type="text" name='new_password' class="cpassword" placeholder="Password" onblur="validate_cpassword()">
             <div class="errors error5">
                 <span></span>
