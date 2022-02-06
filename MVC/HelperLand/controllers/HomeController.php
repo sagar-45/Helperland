@@ -81,6 +81,7 @@ class HomeController
             {
                 $_SESSION['forgot_password_error']="Please Enter Valid Email Id";
             }
+            unset($_SESSION['forgot_password']);
             header('Location:' .$base_url."?controller=Home&&function=index");
         }
     }
