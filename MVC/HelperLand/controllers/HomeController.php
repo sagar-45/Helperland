@@ -230,9 +230,9 @@ class HomeController
         $mail->Password='helperland@123';
         $mail->SMTPSecure='tls';
         $mail->Port=587;
-        $mail->setFrom('rathodsagar1362001@gmail.com','HelperLand');
+        $mail->setFrom('helperland123@gmail.com','HelperLand');
         $mail->addAddress($email);
-        $mail->addReplyTo('rathodsagar1362001@gmail.com');
+        $mail->addReplyTo('helperland123@gmail.com');
         $mail->isHTML(true);
         $mail->Subject="Password Change";
         $mail->Body="This is link to Reset Password:<a href='http://localhost/HelperLand/?controller=Home&&function=resetPassword&email=$email'>http://localhost/HelperLand/?controller=Home&&function=resetPassword</a>";
