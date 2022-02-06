@@ -226,8 +226,8 @@ class HomeController
         $mail->isSMTP();
         $mail->Host="smtp.gmail.com";
         $mail->SMTPAuth=true;
-        $mail->Username='rathodsagar1362001@gmail.com';
-        $mail->Password='sagar2001@';
+        $mail->Username='helperland123@gmail.com';
+        $mail->Password='helperland@123';
         $mail->SMTPSecure='tls';
         $mail->Port=587;
         $mail->setFrom('rathodsagar1362001@gmail.com','HelperLand');
