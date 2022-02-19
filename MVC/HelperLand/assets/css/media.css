@@ -186,6 +186,12 @@
   #bookS .payment .accordion-body {
     width: 100%;
   }
+  #bookS .step_payment #your_details .address_card{
+    width: 100%;
+  }
+  #bookS .step_payment #your_details .favourite_sp{
+    width: 600px;
+  }
   #header .navbar .prices{
     width: 150px;
   }
@@ -330,11 +336,14 @@
     width: 610px;
     margin-top: 80px;
   }
-  #bookS .step_payment .nav-link {
-    width: 152px;
-  }
   #bookS .step_payment .when select {
     margin: 0px 2px 0px;
+  }
+  #bookS .step_payment #your_details{
+    width: 600px;
+  }
+  #bookS .step_payment #your_details .fav_sp_card{
+    width: 100px;
   }
   #list{
     display: none;
@@ -652,6 +661,19 @@
   #bookS .step_payment .step_payment {
     width: 100%;
   }
+  #bookS .step_payment .title_mobile{
+    display: block;
+  }
+  #bookS .step_payment #setup_service .input{
+    display: block;
+  }
+  #bookS .step_payment #setup_service button{
+    margin-left: 0px;
+    float: right;
+  }
+  #bookS .step_payment #setup_service input{
+    width: 100%;
+  }
   #bookS .step_payment .nav-tabs {
     flex-wrap: nowrap;
   }
@@ -666,7 +688,8 @@
   #bookS .step_payment .nav-link {
     height: 30px;
     background-position: center 15px;
-    max-width: 100px;
+    border-right: 1px solid #fff;
+    width: 100px;
   }
   #bookS .payment {
     display: none;
@@ -698,6 +721,19 @@
   #bookS .step_payment .date img {
     padding-top: 22px;
   }
+  #bookS .step_payment #your_details,#bookS .step_payment #make_payment{
+    width: 390px;
+  }
+  #bookS .step_payment #your_details .favourite_sp{
+    width: 400px;
+  }
+  #bookS .step_payment #your_details .address_card>div{
+    display: block;
+    width: 100%;
+  }
+  #bookS .step_payment #make_payment .promo_code input{
+    width: 60%;
+  }
   #Customer_signUp #create .title
   {
     font-size: 30px;
@@ -721,7 +757,7 @@
     padding-right: 0px;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 560px) {
   /* home page media query  */
   #news-letter .container-fluid .email-get {
     display: block;
@@ -772,6 +808,10 @@
   }
   #bookS .step_payment .nav-tabs {
     border: none;
+    justify-content: center;
+  }
+  #bookS .step_payment .step_p{
+    width: 90%;
   }
   #bookS .step_payment .nav-link {
     width: 80px;
@@ -779,16 +819,63 @@
   #bookS .triangle {
     left: 30%;
   }
+  #bookS .step_payment #your_details,#bookS .step_payment #make_payment{
+    width: 300px;
+  }
+  #bookS .step_payment #your_details li{
+    font-size: 14px;
+    padding-left: 3px;
+  }
+  #bookS .step_payment #your_details .add{
+    margin-right: 5px;
+  }
+  #bookS .step_payment #your_details .favourite_sp{
+    width: 300px;
+  }
+  #bookS .step_payment #your_details .phone_number{
+    margin-left: 25px;
+  } 
+  #bookS .step_payment #make_payment .card_no .card_no_input{
+    width: 140px;
+  }
+  #bookS .step_payment #make_payment .card_no{
+    width: 300px;
+  }
   .reset_password{
     width: 90%;
   }
 }
 @media (max-width: 350px) {
-  #bookS .step_payment .nav-link {
-    width: 60px;
+  #bookS .step_payment .nav-item{
+    width: 70px ;
+  }
+  #bookS .step_payment .nav-item .nav-link{
+    width: 70px;
+  }
+  #bookS .step_payment .step_p{
+    width: 90%;
+  }
+  #bookS .step_payment .errors{
+    width: 180px;
   }
   #bookS .triangle {
     left: 25%;
+  }
+  #bookS .step_payment #your_details .favourite_sp{
+    width: 250px;
+  }
+  #bookS .step_payment #your_details,#bookS .step_payment #make_payment{
+    width: 250px;
+  }
+  #bookS .step_payment #make_payment .card_no .card_no_input{
+    width: 100px;
+    padding-left: 0px;
+  }
+  #bookS .step_payment #make_payment .card_no{
+    width: 250px;
+  }
+  #bookS .step_payment #make_payment .card_no i{
+    display: none;
   }
   #sp_history .mobile-view .export_payment .btn{
     float: none;

@@ -25,7 +25,7 @@
   font-size: 16px;
   color: #fff;
 }
-#header .book_clean {
+#header .book_clean .btn{
   display: block;
   margin: 16px auto 0px;
   padding: 13px 25px 13px 25px;
@@ -37,7 +37,7 @@
   background-color: #006072;
   opacity: 0.6;
 }
-#header .btn a
+#header .book_clean
 {
   text-decoration: none;
   color:#fff;
@@ -72,122 +72,19 @@
   display: block;
   margin: 43px auto 0px;
 }
-#header .modal .modal-content .modal-header
-{
-  border-bottom: none;
-}
-#header .modal-content
-{
-  width: 350px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Roboto;
-  font-size: 15px;
-  padding: 10px 5px 40px;
-  line-height: 1.5;
-  border-radius: 5px;
-}
-#header #forgot_password .modal-content
-{
-  padding-bottom: 0px !important;
-}
-#header .modal-content div div
-{
-  height: 46px;
-  margin-bottom: 15px;
-}
-#header .modal-content div.errors
-{
-  height: 20px;
-  color:#a94442;
-  font-family: Roboto;
-  display: none;
-  margin-top: -13px;
-}
-#header .modal-content div div input
-{
-  width: 100%;
-  height: 100%;
-  margin-bottom: -10px;
-  border: 1px solid #e1e1e1;
-  padding: 0px 10px 0px 10px;
-  font-size: 15px;
-  border-radius: 4px;
-}
-input:focus
-{
-  outline: none !important;
-  border: 1px solid #1d7a8c !important;
-}
-#header .modal-content div div input::placeholder
-{
-  color:#c3c3c3;
-}
-#header .modal-content i
-{
-  position: relative;
-  right: auto;
-  left: 90%;
-  top:-30px;
-  color: #c3c3c3;
-  font-size: 22px;
-}
-#header .modal-content .login-modal
-{
-  width: 100%;
-  height: 45px;
-  margin: 10px 0px 20px;
-  padding: 0px;
-  background-color: #1d7a8c;
-  color: #fff;
-  border-radius: 40px;
-  font-weight: bold;
-}
-#header .modal-content .forgot
-{
-  text-align: center;
-  width: 80%;
-  margin: 0px auto;
-  font-size: 16px;
-}
-#header .modal-content .forgot a
-{
-  text-decoration: none;
-  color:#006072;
-}
-#header #forgot_password .modal-body
-{
-  padding-bottom: 0px;
-}
-#header .dark:hover 
+.dark:hover 
 {
   background-color: #fff !important;
   opacity: 1;
 }
-#header .book_clean:hover{
+.book_clean .btn:hover{
   background-color: #fff !important;
   opacity: 1;
+  color: #1d7a8c !important;
 }
-#header .book_clean:hover a
+ .dark .nav-link:hover 
 {
-  color: #1d7a8c;
-}
-#header .dark .nav-link:hover 
-{
-  color:#1d7a8c;
-}
-#header .alert
-{
-  width: 90% !important;
-  margin: 0px auto;
-  display: none;
-}
-#header .alert .btn-close
-{
-  font-size: 10px !important;
-}
-#header .logout{
-  display: none;
+  color:#1d7a8c !important;
 }
 /* why helperland section start */
 #why-helperland .title {

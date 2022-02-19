@@ -1,0 +1,103 @@
+ .modal .modal-content .modal-header
+{
+  border-bottom: none;
+}
+ .modal-content
+{
+  width: 350px !important;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Roboto;
+  font-size: 15px;
+  padding: 10px 5px 40px;
+  line-height: 1.5;
+  border-radius: 5px;
+}
+ #forgot_password .modal-content
+{
+  padding-bottom: 0px !important;
+}
+ .modal-content div div
+{
+  height: 46px;
+  margin-bottom: 15px;
+}
+ .modal-content div.errors
+{
+  height: 20px;
+  color:#a94442;
+  font-family: Roboto;
+  display: none;
+  margin-top: -13px;
+}
+ .modal-content div div input
+{
+  width: 100%;
+  height: 100%;
+  margin-bottom: -10px;
+  border: 1px solid #e1e1e1;
+  padding: 0px 10px 0px 10px;
+  font-size: 15px;
+  border-radius: 4px;
+}
+input:focus
+{
+  outline: none !important;
+  border: 1px solid #1d7a8c !important;
+}
+ .modal-content div div input::placeholder
+{
+  color:#c3c3c3;
+}
+ .modal-content i
+{
+  position: relative;
+  right: auto;
+  left: 90%;
+  top:-30px;
+  color: #c3c3c3;
+  font-size: 22px;
+}
+ .modal-content .login-modal
+{
+  width: 100%;
+  height: 45px;
+  margin: 10px 0px 20px;
+  padding: 0px;
+  background-color: #1d7a8c;
+  color: #fff;
+  border-radius: 40px;
+  font-weight: bold;
+}
+.modal-content .login-modal:hover{
+    color:#fff;
+}
+ .modal-content .forgot
+{
+  text-align: center;
+  width: 80%;
+  margin: 0px auto;
+  font-size: 16px;
+}
+ .modal-content .forgot a
+{
+  text-decoration: none;
+  color:#006072 !important;
+}
+ #forgot_password .modal-body
+{
+  padding-bottom: 0px;
+}
+ .alert
+{
+  width: 90% !important;
+  margin: 0px auto !important;
+  display: none;
+}
+ .alert .btn-close
+{
+  font-size: 10px !important;
+}
+ .logout{
+  display: none;
+}
