@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+#header .navbar {
+  padding: 12px 18px 8px 15px;
+  background-color: #1fb6ff;
+}
+#header .navbar-brand {
+  width: 197px;
+  height: 39px;
+  margin: 1px auto 0 0;
+  font-family: SwitzeraADF;
+  font-size: 37.5px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.65;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+}
+#header .navbar .user-img {
+  width: 36px;
+  height: 36px;
+  margin: 0 7px 0px auto;
+  color: #fff;
+}
+#header .navbar .username {
+  width: 93px;
+  height: 12px;
+  margin: 0px 18px 0px 0px;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 2;
+  text-align: left;
+  color: #fff;
+}
+#header .navbar .logout {
+  width: 26px;
+  height: 29px;
+  margin: 2px 0 9px 0px;
+  color: #fff;
+}
+.navbar-expand-md .navbar-nav .nav-link {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+/* header section end */
+.both {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f2f4f5;
+}
+#sidebar-admin {
+  width: 20%;
+  background-color: #fff;
+}
+#sidebar-admin .list-group-item {
+  padding: 18px 0px 17px 14px;
+  font-family: Roboto;
+  font-size: 16px;
+  color: #646464;
+}
+#sidebar-admin .accordion {
+  padding: 0px !important;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+  border-bottom: none;
+}
+#sidebar-admin .accordion:nth-last-child(1) {
+  border-bottom: 1px solid #e5e5e5;
+}
+.accordion-body {
+  font-family: Roboto;
+  font-size: 15px;
+  color: #646464;
+  padding: 0px 0px 17px 34px !important ;
+}
+#sidebar-admin .accordion .list-group-item {
+  border: none;
+}
+#sidebar-admin .accordion .heading .head_title {
+  position: relative;
+}
+#sidebar-admin .accordion .heading .head_title::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 90%;
+  bottom: 40%;
+  background: url("../images/down.png");
+  transform: rotate(0deg);
+  background-repeat: no-repeat;
+}
+#sidebar-admin .accordion .heading .head_title.collapsed::after {
+  background: url("../images/down.png");
+  transform: rotate(270deg);
+  background-repeat: no-repeat;
+}
+#sidebar-admin .accordion .heading .head_title:nth-child(1) {
+  padding-right: 30px;
+}
+/* table section start */
+
+#user_management {
+  padding-top: 34px;
+  padding-left: 24px;
+  width: 77.1%;
+  margin-bottom: 24px;
+}
+#user_management .UM_text {
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 2.05;
+  text-align: left;
+  color: #646464;
+}
+#user_management .add_user {
+  border-radius: 4px;
+  background-color: #1fb6ff;
+  float: right;
+}
+#user_management .add_user img {
+  width: 16px;
+  height: 16px;
+  margin: 0 7px 0 0;
+  object-fit: contain;
+  color: #fff;
+}
+#user_management .add_user span {
+  width: 89px;
+  height: 11px;
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+#user_management .select_thing {
+  width: 100%;
+  background-color: #fff;
+  height: 86px;
+  padding: 20px 21px 20px 15px;
+  margin-top: 10px;
+  border: solid 1px #e1e1e1;
+}
+#user_management .select_thing select {
+  width: 19.5%;
+  height: 46px;
+  border: solid 1px #dedddd;
+  background-color: #fff;
+  margin-right: 1.5%;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 2;
+  text-align: left;
+  color: #a0a0a0;
+  padding: 0px 11px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../images/down.png");
+  background-repeat: no-repeat;
+  background-position: 95%;
+}
+#user_management .select_thing .input-group {
+  display: inline-flex;
+  width: 21%;
+  height: 46px;
+  border: solid 1px #dedddd;
+  color: #fff;
+}
+#user_management .select_thing .input-group span {
+  width: 57px;
+  height: 46px;
+  font-family: Roboto;
+  font-size: 16px;
+  color: #646464;
+}
+#user_management .select_thing .input-group input {
+  width: 100%;
+  font-family: Roboto;
+  height: 46px;
+  font-size: 16px;
+  padding-left: 10px;
+  border: solid 1px #dedddd;
+}
+#user_management .select_thing .zipcode {
+  width: 14%;
+  height: 46px;
+  margin: 0% 1.5%;
+  padding-left: 11px;
+  font-family: Roboto;
+  font-size: 16px;
+  border: solid 1px #dedddd;
+  background-color: #fff;
+  color: #a0a0a0;
+}
+#user_management .select_thing .search {
+  width: 8%;
+  height: 46px;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  background-color: #1fb6ff;
+}
+#user_management .select_thing .clear {
+  border: solid 1px #dedddd;
+  width: 8%;
+  height: 46px;
+  margin-left: 0.9%;
+  float: right;
+  font-family: Roboto;
+  font-size: 16px;
+  color: #646464;
+}
+#user_management .user_table {
+  border: 1px solid #e1e1e1;
+  margin-top: 20px;
+  background-color: #fff;
+}
+#user_management .user_table thead {
+  height: 56px;
+  background-color: #f9f9f9;
+}
+#user_management .user_table th {
+  height: 15px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.63;
+  letter-spacing: normal;
+  text-align: left;
+  color: #646464;
+  padding-bottom: 14px;
+}
+#user_management .user_table thead th img {
+  width: 14px;
+  height: 14px;
+  margin: 0 auto auto 10px;
+  color: #9b9b9b;
+}
+#user_management .user_table tbody tr {
+  height: 64px;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.63;
+  text-align: left;
+  color: #646464;
+}
+#user_management .user_table tbody tr td {
+  padding-top: 22px;
+}
+#user_management .user_table tbody tr .active {
+  width: 58px;
+  height: 24px;
+  background-color: #67b644;
+  padding: 0px 8px 8px;
+  margin-left: 15px;
+  font-family: Roboto;
+  font-size: 13px;
+  color: #fff;
+  line-height: 1.85;
+}
+#user_management .user_table tbody tr .inactive {
+  width: 62px;
+  height: 24px;
+  background-color: #ff6b6b;
+  font-family: Roboto;
+  font-size: 13px;
+  color: #fff;
+  padding: 0px 8px 8px;
+  line-height: 1.85;
+  margin-left: 13px;
+}
+#user_management .user_table tbody tr .menu {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  margin-top: -10px;
+  border: 0px;
+  background-color: #fff;
+}
+#user_management .user_table tbody tr .menu:hover {
+  background-color: #f4f4f4;
+}
+#user_management .user_table tbody tr .menu img {
+  width: 4px;
+  height: 17px;
+}
+#user_management .dropdown .dropdown-menu {
+  width: 163px;
+  border-radius: 4px !important;
+  border: 1px solid #e5e5e5;
+  margin-top: 50px !important;
+  margin-right: -38px !important;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+}
+#user_management .dropdown .dropdown-menu a {
+  font-family: Roboto;
+  font-size: 16px;
+  color: #646464;
+}
+#user_management .dropdown .menu::before,
+#user_management .dropdown .menu::after {
+  content: none;
+}
+#user_management .dropdown .dropdown-menu:before {
+  position: fixed;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  right: 9px;
+  top: -8px;
+  transform: rotate(45deg);
+  z-index: -1;
+  border-right: none;
+  border-bottom: none;
+}
+/* table section end */
+.limit {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15px;
+}
+.limit .left span {
+  font-family: Roboto;
+  font-size: 14px;
+  color: #646464;
+  line-height: 1.71;
+}
+.limit select {
+  width: 58px;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #d6d6d6;
+  font-family: Roboto;
+  font-size: 14px;
+  color: #646464;
+  text-align: left;
+  margin: 0px 10px 0 10px;
+}
+.limit nav {
+  margin-right: 15px;
+  margin-left: auto;
+}
+.limit nav .next_p img {
+  transform: rotate(180deg);
+}
+.limit .pagination .page-item a {
+  color: #646464;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+.limit .active {
+  color: #fff !important;
+  background-color: #565656;
+}
+.right_r {
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 1.71;
+  margin: 24px 0px 0px;
+  text-align: left;
+  color: #a2a6a8;
+}
