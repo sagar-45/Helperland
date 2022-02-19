@@ -42,6 +42,11 @@ class HomeController
         $function='service-pro';
         include('./views/service.php');
     }
+    function book_service()
+    {
+        $function='bookS';
+        include('./views/book_service.php');
+    }
     function customer_service_history()
     {
         $function='serviceH';
@@ -54,10 +59,9 @@ class HomeController
     }
     function logout()
     {
-        $base_url="http://localhost/HelperLand/";
         session_unset();
-        session_destroy();
-        header('Location:' .$base_url."?controller=Home&&function=index");   
+        session_destroy(); 
+        echo "success";  
     }
     function resetPassword()
     {
@@ -67,22 +71,17 @@ class HomeController
     }
     function forgotPassword()
     {
-        $base_url="http://localhost/HelperLand/";
-        if(isset($_POST))
+        $email=$_POST['email'];
+        $check=$this->modal->checkEmail($email);
+        $msg="This is link to Reset Password:<a href='http://localhost/HelperLand/?controller=Home&&function=resetPassword&email=$email'>http://localhost/HelperLand/?controller=Home&&function=resetPassword</a>";
+        $sub="Password Change";
+        if($check)
         {
-            $_SESSION['forgot_password']=1;
-            $email=$_POST['email'];
-            $check=$this->modal->checkEmail($email);
-            if($check!="User Not Found")
-            {
-                $this->reset_password($email);
-            }
-            else
-            {
-                $_SESSION['forgot_password_error']="Please Enter Valid Email Id";
-            }
-            unset($_SESSION['forgot_password']);
-            header('Location:' .$base_url."?controller=Home&&function=index");
+            $this->modal->send_email($email,$sub,$msg);
+        }
+        else
+        {
+            echo "Please Enter Valid Email Id";
         }
     }
     function getTouchwithUs()
@@ -114,7 +113,6 @@ class HomeController
     }
     function customerSignup()
     {
-        $base_url="http://localhost/HelperLand/";
         if(isset($_POST))
         {
             $details=[
@@ -130,15 +128,13 @@ class HomeController
             'isactive'=>0
             ];
             $result=$this->modal->insert_user($details);
-            if($result==1)
+            if($result==0)
             {
-                $_SESSION['email_exist']=1;
-                header('Location:' .$base_url."?controller=Home&&function=Customer_signUp"); 
+                echo "Email exist"; 
             }
             else
             {
                 $_SESSION['register']=1;
-                header('Location:' .$base_url."?controller=Home&&function=index");
             }
         }
         else
@@ -148,44 +144,52 @@ class HomeController
     }
     function login()
     {
-        $base_url="http://localhost/HelperLand/";
-        if(isset($_POST))
+        $details=[
+        'email'=>$_POST['email'],
+        'password'=>$_POST['password']
+        ];
+        $message=$this->modal->select_user($details);
+        $this->createSession($message);
+        if(isset($_SESSION['UserTypeId']))
         {
-            $details=[
-            'email'=>$_POST['email'],
-            'password'=>$_POST['password']
-            ];
-            $message=$this->modal->select_user($details);
-            $this->createSession($message,$base_url);
+            if($_SESSION['UserTypeId']==1)
+            {
+                echo "customer";
+            }
+            else if($_SESSION['UserTypeId']==2)
+            {
+                echo "service provider";
+            }
+        }
+        else
+        {
+            echo $message;
         }
     }
     function sp_signUp()
     {
-        $base_url="http://localhost/HelperLand/";
         if(isset($_POST))
         {
             $details=[
-                'fname'=>$_POST['fname'],
-                'lname'=>$_POST['lname'],
-                'email'=>$_POST['email-add'],
-                'mobile_no'=>$_POST['mbno'],
-                'password'=>$_POST['password'],
-                'userType'=>2,
-                'create_date'=>date("Y-m-d H:i:a"),
-                'status'=>'New',
-                'isRegister'=>1,
-                'isactive'=>0
-                ];
+            'fname'=>$_POST['fname'],
+            'lname'=>$_POST['lname'],
+            'email'=>$_POST['email-add'],
+            'mobile_no'=>$_POST['mbno'],
+            'password'=>$_POST['password'],
+            'userType'=>2,
+            'create_date'=>date("Y-m-d H:i:a"),
+            'status'=>'New',
+            'isRegister'=>1,
+            'isactive'=>0
+            ];
             $result=$this->modal->insert_user($details);
-            if($result==1)
+            if($result==0)
             {
-                $_SESSION['email_exist']=1;
-                header('Location:' .$base_url."?controller=Home&&function=service"); 
+                echo "Email exist"; 
             }
             else
             {
                 $_SESSION['register']=1;
-                header('Location:' .$base_url."?controller=Home&&function=index");
             }
         }
         else
@@ -193,7 +197,7 @@ class HomeController
             echo 'Error Occured Try Again';
         }
     }
-    function createSession($message,$base_url)
+    function createSession($message)
     {
         if($message!="UserName or Password Incorrect" && $message!="User Not Found")
         {
@@ -203,48 +207,6 @@ class HomeController
             $_SESSION['password']=$message['Password'];
             $_SESSION['Mobile']=$message['Mobile'];
             $_SESSION['UserTypeId']=$message['UserTypeId'];
-            if($_SESSION['UserTypeId']==1)
-            {
-                header('Location:' .$base_url."?controller=Home&&function=customer_service_history");
-            }
-            else
-            {
-                header('Location:' .$base_url."?controller=Home&&function=sp_newService");
-            }
-        }
-        else
-        {
-            $_SESSION['error']=$message;
-            header('Location:' .$base_url."?controller=Home&&function=index");
-        }
-    }
-    function reset_password($email)
-    {
-        require_once('./PHPMailer/PHPMailerAutoload.php');
-        $mail=new PHPMailer;
-        $mail->SMTPDebug=0;
-        $mail->isSMTP();
-        $mail->Host="smtp.gmail.com";
-        $mail->SMTPAuth=true;
-        $mail->Username='helperland123@gmail.com';
-        $mail->Password='helperland@123';
-        $mail->SMTPSecure='tls';
-        $mail->Port=587;
-        $mail->setFrom('helperland123@gmail.com','HelperLand');
-        $mail->addAddress($email);
-        $mail->addReplyTo('helperland123@gmail.com');
-        $mail->isHTML(true);
-        $mail->Subject="Password Change";
-        $mail->Body="This is link to Reset Password:<a href='http://localhost/HelperLand/?controller=Home&&function=resetPassword&email=$email'>http://localhost/HelperLand/?controller=Home&&function=resetPassword</a>";
-        $mail->AltBody="";
-        if(!$mail->send())
-        {
-            return "message no sent";
-        }
-        else
-        {
-            $_SESSION['forgot_password_email']=$email;
-            return "message Sent";
         }
     }
     function setPassword()
@@ -257,6 +219,77 @@ class HomeController
             $this->modal->changePassword($email,$password);
             header('Location:' .$base_url."?controller=Home&&function=index");
         }
+    }
+    function check_sp_availability()
+    {
+        $postal_code=$_POST["postalCode_data"];
+        $ans=$this->modal->checkPostalCode($postal_code);
+        if($ans=="error")
+        {
+            echo 0;
+        }
+        else
+        {
+            $_SESSION["area_postal_code"]=$postal_code;
+            echo $ans;
+        }
+    }
+    function store_userAddress()
+    {
+        $details=[
+            "addressline1"=>$_POST['addressline1'],
+            "addressline2"=>$_POST['addressline2'],
+            "city"=>$_POST['city'],
+            "postalCode"=>$_POST['postalCode'],
+            "mobile"=>$_POST['mobile'],
+            "IsDeleted"=>0,
+            "UserId"=>$_SESSION['userId'],
+            "email"=>$_SESSION['email'],
+        ];
+        $this->modal->storeAddress($details);
+    }
+    function get_userAddress()
+    {
+        $ans=$this->modal->getAddress($_SESSION['userId']);
+        echo $ans;
+    }
+    function booking_service()
+    {
+        $details=[
+            "userId"=>$_SESSION['userId'],
+            "serviceStartDate"=>date("Y-m-d"),
+            "postalCode"=>$_POST['postalCode'] ,
+            "serviceHourlyrate"=>$_POST['serviceHourlyrate'],
+            "serviceHours"=>$_POST['serviceHours'],
+            "extraHours"=>$_POST['extraHours'],
+            "addressline1"=>$_POST['addressline1'],
+            "addressline2"=>$_POST['addressline2'],
+            "city"=>$_POST['city'],
+            "service_mobile"=>$_POST['service_mobile'],
+            "comments"=>$_POST['comments'],
+            "haspets"=>$_POST['haspets'],
+            "subtotal"=>$_POST['subtotal'],
+            "discount"=>$_POST['discount'],
+            "totalcost"=>$_POST['totalcost'],
+            "paymentDue"=>$_POST['paymentDue'],
+            "paymentDone"=>$_POST['paymentDone'],
+            "Email"=>$_SESSION['email']
+        ];
+        $sub="New Service Request";
+        if(!empty($_POST['extra_services']))
+        {
+            $details['extra_services']=$_POST['extra_services'];
+        }
+        $ans=$this->modal->booking_service_modal($details);
+        if(!empty($_POST['favourite_sp']))
+        {
+            $this->modal->send_mail_to_favoriteSp($_POST['favourite_sp'],$_SESSION['userId'],$sub,$ans);
+        }
+        if(empty($_POST['favourite_sp']))
+        {
+            $this->modal->send_mail_to_all_Sp($_POST['postalCode'],$sub,$ans);
+        }
+        echo $ans;
     }
 }
 ?>
