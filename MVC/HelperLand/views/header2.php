@@ -6,6 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/login_forgot_card.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/header2.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/<?php echo "$function"?>.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
@@ -37,7 +38,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item book-now l_line hoverw">
-              <a class="nav-link" href="book_service.html">Book now</a>
+              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=index'?>" onclick="login_set()">Book now</a>
             </li>
             <li class="nav-item prices l_line">
               <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=prices'?>">Prices & services</a>

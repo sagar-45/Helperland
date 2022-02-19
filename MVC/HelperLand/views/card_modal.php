@@ -1,25 +1,22 @@
 <div class="modal fade" id="login" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-        <form method="POST" action="<?= $base_url.'?controller=Home&&function=login' ?>">
           <div class="modal-header">
             <h4>Login to your account</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-labelledby="close"></button>
           </div>
           <div class="alert alert-danger alert-dismissible fade show login_alert" role="alert">
-            <?php echo $_SESSION['error']; ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" data-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="email-input">
-              <input type="email" name="email" class="email_input" placeholder="Email" onkeypress="login_enble()" onblur="outsideemail()">
+              <input type="email" name="email" class="email_input" placeholder="Email" onblur="outsideemail()" onclick="login_enble()">
               <i class="bi bi-person-fill"></i>
             </div>
             <div class="email_error errors">
               <span></span> 
             </div>
             <div class="password-input">
-              <input type="password" name="password" class="password_input" placeholder="Password" onkeypress="login_enble()" onblur="outsidepassword()">
+              <input type="password" name="password" class="password_input" placeholder="Password" onblur="outsidepassword()" onclick="login_enble()">
               <i class="bi bi-lock-fill"></i>
             </div>
             <div class="password_error errors">
@@ -32,39 +29,35 @@
               <span>Don't have an account?<a class="link" href="<?= $base_url.'?controller=Home&&function=Customer_signUp' ?>"> Create an account</a></span>
             </div>
           </div>
-        </form>
         </div>
       </div>
     </div>
     <div class="modal fade" id="forgot_password" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form method="POST" action="<?= $base_url.'?controller=Home&&function=forgotPassword' ?>">
                 <div class="modal-header">
                     <h4>Forgot Password</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-labelledby="close"></button>
                 </div>
                 <div class="alert alert-danger alert-dismissible fade show forgot_alert" role="alert">
-                    <?php echo $_SESSION['forgot_password_error'] ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" data-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div>
-                    <input class="link forgot_email_input" name='email' type="email" placeholder="Email Address" onblur="forgotemail()">
+                    <input class="link forgot_email_input" name='email' type="email" placeholder="Email Address">
                     </div>
                     <div class="email_error1 errors">
                     <span></span> 
                     </div>
-                    <button class="btn login-modal" onclick="login_module()">Send</button>
+                    <button class="btn login-modal" onclick="forgot_password()">Send</button>
                     <div class="forgot">
                     <a data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#login">Login now</a>
                     </div>
                 </div>
-            </form>
         </div>
       </div>
     </div>
-    <button type="button" class="btn logout" data-bs-toggle="modal" data-bs-target="#logout">Logout</button>
+    <button type="button" class="btn logout" data-bs-toggle="modal" data-bs-target="#logout"></button>
     <div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -84,3 +77,4 @@
             </div>
         </div>
     </div>
+    

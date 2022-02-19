@@ -9,32 +9,32 @@
       require_once("Email_exist_modal.php");
     ?>
     <section id="reg_form">
-      <form action="<?= $base_url.'?controller=Home&&function=sp_signUp'?>" method="POST">
+      <form>
         <div class="reg_title">Register Now!</div>
-        <input type="text" name="fname" class="cfname" placeholder="First name" onkeypress="register_btn_enble()" onblur="validate_fname()" />
+        <input type="text" name="fname" class="cfname" placeholder="First name" onclick="register_btn_enble()" onblur="validate_fname()" />
         <div class="errors error1">
           <span></span>
         </div>
-        <input type="text" name="lname" class="clname" placeholder="Last name" onkeypress="register_btn_enble()" onblur="validate_lname()" />
+        <input type="text" name="lname" class="clname" placeholder="Last name" onclick="register_btn_enble()" onblur="validate_lname()" />
         <div class="errors error2">
           <span></span>
         </div>
-        <input type="email" name="email-add" class="cemail" placeholder="Email address" onkeypress="register_btn_enble()" onblur="validate_cemail()" />
+        <input type="email" name="email-add" class="cemail" placeholder="Email address" onclick="register_btn_enble()" onblur="validate_cemail()" />
         <div class="errors error3">
           <span></span>
         </div>
         <div class="input-group flex-nowrap">
           <span class="input-group-text" id="addon-wrapping">+49</span>
-          <input type="number" name="mbno" class="cnumber" placeholder="Mobile number" onkeypress="register_btn_enble()" onblur="validate_cnumber()" />
+          <input type="number" name="mbno" class="cnumber" placeholder="Mobile number" onclick="register_btn_enble()" onblur="validate_cnumber()" />
         </div>
         <div class="errors error4">
           <span></span>
         </div>
-        <input type="password" name="password" class="cpassword" placeholder="Password" onkeypress="register_btn_enble()" onblur="validate_cpassword()" />
+        <input type="password" name="password" class="cpassword" placeholder="Password" onclick="register_btn_enble()" onblur="validate_cpassword()" />
         <div class="errors error5">
           <span></span>
         </div>
-        <input type="password" name="con-pass" class="ccpassword" placeholder="Confirm Password" onkeypress="register_btn_enble()" onblur="validate_ccpassword()" />
+        <input type="password" name="con-pass" class="ccpassword" placeholder="Confirm Password" onclick="register_btn_enble()" onblur="validate_ccpassword()" />
         <div class="errors error6">
           <span></span>
         </div>
@@ -52,7 +52,7 @@
           </label>
         </div>
         <img src="./assets/images/not_robot.png" class="img-fluid" alt="" />
-        <button class="btn get_started register_btn" onclick="register()">
+        <button class="btn get_started register_btn" type="button" onclick="spSignup()">
           <span>Get Started</span>
           <img src="./assets/images/arrow-white.png" class="img-fluid" alt="" />
         </button>
@@ -115,19 +115,7 @@
   include('footer2.php');
   ?>
   <script src="./assets/js/helperland.js"></script>
-  <script>
-  window.onload=function(){
-    <?php
-      if(isset($_SESSION['email_exist']))
-      {
-    ?>
-        document.querySelector(".email_exist").click();
-    <?php
-      unset($_SESSION['email_exist']);
-      }
-    ?>
-  }
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

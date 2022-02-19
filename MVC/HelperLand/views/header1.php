@@ -6,6 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="stylesheet" type="text/css" href="./assets/css/header1.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/login_forgot_card.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/<?php echo "$function" ?>.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
@@ -36,8 +37,8 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item home-book-now dark">
-              <a class="nav-link" href="#">Book a Cleaner</a>
+            <li class="nav-item home-book-now dark" data-bs-toggle="modal" data-bs-target="#login">
+              <a class="nav-link">Book a Cleaner</a>
             </li>
             <li class="nav-item home-prices">
               <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=prices' ?>">Prices</a>

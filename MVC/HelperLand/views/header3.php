@@ -14,12 +14,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-  <script>
-    function logoutset()
-    {
-      sessionStorage.setItem("logout",2);
-    }
-  </script>
 </head>
 
 <body id="<?php echo $function; ?>">
@@ -38,7 +32,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item book-now">
-              <a class="nav-link" href="book_service.html">Book now</a>
+              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=book_service' ?>">Book now</a>
             </li>
             <li class="nav-item prices">
               <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=prices'?>">Prices & services</a>
@@ -68,7 +62,7 @@
                 <li><a class="dropdown-item disabled" >Welcome,<br><b><?php echo $_SESSION['UserName'] ?></b></a></li><hr>
                   <li><a class="dropdown-item" href="#">My Dashboard</a></li>
                   <li><a class="dropdown-item" href="#">My Settings</a></li>
-                  <li><a class="dropdown-item" href="<?= $base_url.'?controller=Home&&function=logout' ?>" onclick="logoutset()">Logout</a></li>
+                  <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
                 </ul>
               </div>
             </li>
@@ -119,7 +113,7 @@
               <a class="nav-link">My Setting</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=logout' ?>" onclick="logoutset()">Logout</a>
+              <a class="nav-link" onclick="logout()">Logout</a>
             </li>
             <hr />
             <li class="nav-item">

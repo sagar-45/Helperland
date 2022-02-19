@@ -25,13 +25,19 @@ require_once('card_modal.php');
   </div>
 </div>
 <?php
-  if((isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']!=2) || !isset($_SESSION['UserTypeId']))
+  if((isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']!=2))
   {
 ?>
-    <button class="btn book_clean"><a href="book_service.html">Let’s Book a Cleaner</a></button>
+    <a href="<?= $base_url.'?controller=Home&&function=book_service'?>" class="book_clean"><button class="btn">Let’s Book a Cleaner</button></a>
 <?php
   }
+  if(!isset($_SESSION['UserTypeId']))
+  {
 ?>
+  <a data-bs-toggle="modal" data-bs-target="#login" class="book_clean"><button class="btn">Let’s Book a Cleaner</button></a>
+  <?php
+  }
+  ?>
 <div class="step">
   <div class="step-1">
     <img src="./assets/images/1-img.png" class="img-fluid" />
@@ -298,38 +304,11 @@ require_once('card_modal.php');
 <!-- footer section end-->
 <script>
   window.onload = function() {
-    <?php
-    if (isset($_SESSION['forgot_password_email'])) {
-    ?>
-      forgot_link_success();
-    <?php
-      unset($_SESSION['forgot_password_email']);
-    }
-    ?>
     if (sessionStorage.getItem("afterPages") == 2) {
       login_popup();
+      sessionStorage.setItem("afterPages",0);
     }
     <?php
-    if (isset($_SESSION["error"])) {
-    ?>
-      document.querySelector('.login_alert').style.display = 'block';
-      setTimeout(function() {
-        document.querySelector('.login_alert').style.display = 'none';
-      }, 5000);
-      <?php unset($_SESSION['error']); ?>
-      login_popup();
-    <?php
-    }
-    if (isset($_SESSION['forgot_password_error'])) {
-    ?>
-      document.querySelector('.forgot_alert').style.display = 'block';
-      setTimeout(function() {
-        document.querySelector('.forgot_alert').style.display = 'none';
-      }, 5000);
-      <?php unset($_SESSION['forgot_password_error']); ?>
-      forgot_password_popup();
-    <?php
-    }
     if (isset($_SESSION['register'])) {
     ?>
       login_popup();
@@ -342,21 +321,9 @@ require_once('card_modal.php');
       sessionStorage.setItem("logout", 0);
     }
   }
-
-  function login_popup() {
-    document.querySelector(".login").click();
-    sessionStorage.setItem('afterPages', 0);
-  }
-
-  function forgot_password_popup() {
-    document.querySelector(".forgot_btn").click();
-  }
-
-  function forgot_link_success() {
-    document.querySelector(".forgot_suceess").click();
-  }
 </script>
 <script src="./assets/js/helperland.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

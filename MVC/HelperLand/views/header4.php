@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="stylesheet" type="text/css" href="./assets/css/header4.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/sp_list.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/login_forgot_card.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/<?php echo $function; ?>.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/sp_mobile_pagination.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/sp_pagination.css" />
@@ -15,12 +16,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-  <script>
-    function logoutset()
-    {
-      sessionStorage.setItem("logout",2);
-    }
-  </script>
 </head>
 
 <body id="<?php echo $function; ?>">
@@ -65,7 +60,7 @@
                 <li><a class="dropdown-item disabled" >Welcome,<br><b><?php echo $_SESSION['UserName'] ?></b></a></li><hr>
                   <li><a class="dropdown-item" href="#">My Dashboard</a></li>
                   <li><a class="dropdown-item" href="#">My Settings</a></li>
-                  <li><a class="dropdown-item" href="<?= $base_url.'?controller=Home&&function=logout' ?>" onclick="logoutset()">Logout</a></li>
+                  <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
                 </ul>
               </div>
             </li>
@@ -123,7 +118,7 @@
               <a class="nav-link">My Setting</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=logout' ?>" onclick="logoutset()">Logout</a>
+              <a class="nav-link" onclick="logout()">Logout</a>
             </li>
             <hr />
             <li class="nav-item">
