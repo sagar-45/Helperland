@@ -17,6 +17,7 @@
 </head>
 
 <body id="<?php echo $function; ?>">
+ <div class="preloader"></div>
 <?php $base_url="http://localhost/HelperLand/" ;?>
   <section id="header">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
