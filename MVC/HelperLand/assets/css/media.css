@@ -122,17 +122,7 @@
   #price #services div.card-price:nth-child(5) {
     margin-right: 0px;
   }
-  #upcomingP #list {
-    width: 200px;
-    margin-right: 10px;
-  }
-  #upcomingP #list .list-group-item {
-    font-size: 14px;
-  }
-  #upcomingP #dashboard {
-    width: 750px;
-  }
-  #serviceH .table_page,
+  .table_page,
   .table_page .service_head,
   #service_history .table {
     width: 750px;
@@ -143,11 +133,12 @@
     width: 770px;
     margin-left: 0px;
   }
-  #serviceH #list,
-  #sp_new #list,
-  #sp_history #list {
+  #list{
     width: 200px;
     margin-right: 10px;
+  }
+  #service_history tr td:nth-child(2){
+    width: 120px;
   }
   
   #bookS .step_payment .step_p {
@@ -232,9 +223,6 @@
   #header .mobile-view{
     display: block;
   }
-  /* #header .mobile-view {
-    display: inline;
-  } */
   .mobile-card{
     display: none;
   }
@@ -642,7 +630,99 @@
   #service-pro #reg_form .get_started img {
     width: 20px;
   }
-  .tab-view {
+  .mid-dash{
+    display: block;
+  }
+  .table thead{
+    display: none;
+  }
+  #service_history .table,.table_page .service_head{
+    width: 90%;
+    margin: 20px auto;
+    border: none;
+  }
+  #my_settings .table_page{
+    width: 90%;
+    margin: 20px auto;
+  }
+  #my_settings .table_page .nav-item .nav-link span{
+    display: none;
+  }
+  #my_settings .table_page .nav-item .nav-link i{
+    display: block;
+  }
+  #my_settings .details > div{
+    display: block;
+    width: 100%;
+  }
+  #my_settings #my_addresses .table thead{
+    display: block;
+  }
+  #my_settings #my_addresses .table tr td{
+    display: inline-block !important;
+  }
+  #my_settings #my_addresses .table thead tr th:nth-child(1)
+  {
+    width: 90%;
+  }
+  #my_settings #my_addresses .table tr td:nth-child(1){
+    width: 80%;
+  }
+  #my_settings #change_password input{
+    width: 100%;
+  }
+  #my_settings .title{
+    display: block;
+  }
+  .table_page{
+    width: 90%;
+    margin: 10px auto;
+  }
+  #customer_dashboard .service_head a{
+    display: block;
+  }
+  #customer_dashboard .service_head .service_txt{
+    font-size: 18px;
+  }
+  #customer_dashboard .export{
+    float: left;
+    margin-top: 10px;
+  }
+  .table tbody tr td{
+    display: block !important;
+    border: #646464;
+    border-left: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    padding: 10px 8px;
+  }
+  #service_history tr td:nth-child(1)
+  {
+    margin-top: 30px;
+    border-top: 1px solid #e1e1e1;
+  }
+  #service_history tr td:nth-child(2){
+    width: inherit;
+  }
+  #service_history tr td{
+    margin-top: 0px;
+    border-bottom:1px solid #e1e1e1 ;
+    padding: 10px !important;
+  }
+  .buttons-excel{
+    float: left;
+    margin:-10px 0px 0px 5% !important ;
+  }
+  .table tbody tr td:nth-last-child(1){
+    border-bottom: 1px solid #e1e1e1;
+  }
+  .bottom .dataTables_length,.bottom .dataTables_info,.bottom .dataTables_paginate{
+    display: block;
+  }
+  .bottom .dataTables_paginate{
+    float: none;
+    margin-top: 20px !important;
+  }
+  /* .tab-view {
     display: none;
   }
   .table_page{
@@ -650,7 +730,7 @@
   }
   .mobile-card {
     display: inline;
-  }
+  } */
   #bookS #main-img {
     display: none;
   }
@@ -756,6 +836,14 @@
     padding-left: 0px;
     padding-right: 0px;
   }
+}
+@media(max-width:642px){
+  #my_settings #my_addresses .table{
+    width:580px;
+  }
+  #my_settings #my_addresses{
+    overflow-x: auto;
+  }    
 }
 @media (max-width: 560px) {
   /* home page media query  */
