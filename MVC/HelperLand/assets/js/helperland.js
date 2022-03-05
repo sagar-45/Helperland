@@ -40,10 +40,14 @@ function login_module()
                 "email":email_input,
                 "password":password_input,
             },
+            beforeSend:function(){
+                $(".preloader").css("display","block");
+            },
             success:function(response){
+                $(".preloader").css("display","none");
                 if(response == "customer")
                 {
-                    window.location.replace("http://localhost/HelperLand/?controller=Home&&function=customer_service_history");
+                    window.location.replace("http://localhost/HelperLand/?controller=Home&&function=customer_dashboard");
                 }
                 else if(response == "service provider" )
                 {
@@ -91,7 +95,11 @@ function forgot_password()
             data:{
                 "email":forgot_email.value,
             },
+            beforeSend:function(){
+                $(".preloader").css("display","block");
+            },
             success:function(response){
+                $(".preloader").css("display","none");
                 if(response == "Please Enter Valid Email Id")
                 {
                     document.querySelector(".forgot_alert").innerHTML=response;
@@ -317,7 +325,11 @@ function validate_postalcode()
             data:{
                 "postalCode_data":postal_code,
             },
+            beforeSend:function(){
+                $(".preloader").css("display","block");
+            },
             success:function(response){
+                $(".preloader").css("display","none");
                 if(response == 0)
                 {
                     document.querySelector(".postal_code_error").innerHTML="We are not providing service in this area. We’ll notify you if any helper would start working near your area.";
@@ -333,6 +345,7 @@ function validate_postalcode()
                     document.querySelector(".e_price").innerHTML="54";
                     document.querySelector(".add-postal_code").value=postal_code;
                     gonext("setup_service","schedule_plan");
+                    $("#schedule_plan .date input").datepicker({dateFormat:'dd/mm/yy',minDate: 0});
                 }
             }
         });
@@ -496,18 +509,7 @@ function enble_apply_btn()
         $("#make_payment .promo_code .btn").attr("disabled",false);
     }
 }
-// function book_service_complete()
-// {
-//     $card_no=$("#make_payment .card_no_input").val();
-//     $month=$("#make_payment .month_input").val();
-//     $year=$("#make_payment .year_input").val();
-//     $cvc=$("#make_payment .cvc_input").val();
-//     if($card_no=="" || $month=="" || $year=="" || $cvc=="")
-//     {
-//         $("#make_payment .payment_alert").css("display","block");
-//         setTimeout(function(){ $("#make_payment .payment_alert").css("display","none")},5000);
-//     }
-// }
+
 function book_service_complete()
 {
     $postalCode=$(".postal_code").val();
@@ -522,6 +524,7 @@ function book_service_complete()
     $("#your_details .fav_sp_row .fav_sp_card .active").each(function(){
         $favourite_sp.push($(this).attr("class").split(" ")[2]);
     });
+    $serviceStartDate=$(".payment .time").html().split("@")[0]+" "+$(".payment .time_label").html()+":00";
     $address_radio=$('input[name="address"]:checked');
     $service_address=$address_radio.siblings(".address").html();
     $addressline1=$service_address.split(" ")[0];
@@ -532,12 +535,15 @@ function book_service_complete()
     $haspets=($("#schedule_plan .comment #pet").is(":checked")?1:0);
     $subtotal=$(".total_time").html();
     $discount="0";
+    $status=0;
+    $serviceid=Math.random();
     $totalcost=$(".total_price").html();
     $.ajax({
         type:"POST",
         url:"http://localhost/HelperLand/?controller=Home&&function=booking_service",
         data:{
             "postalCode":$postalCode ,
+            "serviceStartDate":$serviceStartDate,
             "serviceHourlyrate":$serviceHourlyrate,
             "serviceHours":$serviceHours,
             "extraHours":$extraHours,
@@ -553,9 +559,15 @@ function book_service_complete()
             "discount":$discount,
             "totalcost":$totalcost,
             "paymentDue":0,
-            "paymentDone":1
+            "paymentDone":1,
+            "status":$status,
+            "Serviceid":$serviceid
+        },
+        beforeSend:function(){
+            $(".preloader").css("display","block");
         },
         success:function(response){
+            $(".preloader").css("display","none");
             $("#booking_sucess .id").html(response);
             $(".booking_sucess_popup").click();
         }
@@ -568,6 +580,463 @@ function isNumber(evt)
         evt.preventDefault();
     }
 }
+
+/* customer dashboard page ----> start */
+function loadnewServiceRequest($user,$status1,$status2)
+{
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/HelperLand/?controller=Home&&function=customer_dashboard_tableData",
+        data:{
+            "userId":$user,
+            "Status1":$status1,
+            "Status2":$status2,
+        },
+        success:function(response){
+            $("#service_history tbody").html(response);
+            $(".readOnly_data").rateYo({
+                readOnly: true,
+                starWidth:'15px'
+            });
+            $("#reschedule_request .date input").datepicker({dateFormat:'dd/mm/yy',minDate: 0});
+            $.fn.DataTable.ext.errMode='none';
+            $('.table').DataTable({
+                "pagingType": "full_numbers",
+                "searching":false,
+                "dom": '"B" <"top">rt<"bottom"lip><"clear">',
+                "ordering": false,
+                "oLanguage": {
+                    "oPaginate": {
+                        "sNext": '<i class="bi bi-chevron-right"></i>',
+                        "sPrevious": '<i class="bi bi-chevron-left"></i>',
+                        "sFirst":'<i class="bi bi-caret-left-fill"></i>',
+                        'sLast':'<i class="bi bi-caret-right-fill"></i>'
+                    }
+                },
+                "language": {
+                    "infoEmpty": "No entries available to show"
+                  },
+                buttons: [
+                    {
+                     extend:'excel',
+                     className:'btn',
+                     text:'Export'
+                    }
+                ]
+            });
+        }
+    });
+}
+function show_RequestDetails_Popup($id,$status1)
+{
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/HelperLand/?controller=Home&&function=show_request_popup",
+        data:{
+            "serviceId":$id,
+            "status1":$status1
+        },
+        success:function(response){
+            $("#details_request").html(response);
+            $("#details_request").modal('show');
+        }
+    });
+}
+function reschedule_request($serviceid)
+{
+    $("#reschedule_request .modal-content .reschedule_btn").attr("id",$serviceid);
+}
+function reschedule_request_date_time($serviceid,$userid)
+{
+    $date=$("#reschedule_request .reschedule_date_time .date input").val();
+    $time=$("#reschedule_request .reschedule_date_time #when_need").val();
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/HelperLand/?controller=Home&&function=reschedule_date_time",
+        data:{
+            "serviceId":$serviceid,
+            "date":$date,
+            "time":$time,
+            "userid":$userid
+        },
+        beforeSend:function(){
+            $(".preloader").css("display","block");
+        },
+        success:function(response){
+            $(".preloader").css("display","none");
+            $("#reschedule_request .alert").html(response);
+            $("#reschedule_request .alert").css("display","block");
+            setTimeout(function(){$("#reschedule_request .alert").css("display","none")},5000);
+            loadnewServiceRequest($userid,0,1);
+        }
+    });
+}
+function cancle_request($serviceid)
+{
+    $("#cancle_request .modal-content .cancle_btn").attr("id",$serviceid);
+}
+function cancle_btn($serviceid,$userid)
+{
+    if(!$(".reason textarea").val())
+    {
+        $(".reschedule_btn").css("disabled","true");
+        $(".reason textarea").focus();
+    }
+    else
+    {
+        $(".reschedule_btn").css("disabled","false");
+        $.ajax({
+            type:"POST",
+            url:"http://localhost/HelperLand/?controller=Home&&function=cancle_request",
+            data:{
+                "serviceId":$serviceid,
+                "userid":$userid,
+                "reason":$(".reason textarea").val()
+            },
+            beforeSend:function(){
+                $(".preloader").css("display","block");
+            },
+            success:function(response){
+                $(".preloader").css("display","none");
+                $("#cancle_request").modal("hide");
+                loadnewServiceRequest($userid,0,1);
+            }
+        });
+    }
+}
+function show_rating_card($serviceRequestid,$spid,$userid)
+{
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/HelperLand/?controller=Home&&function=show_rating",
+        data:{
+            "userid":$userid,
+            "serviceRequestid":$serviceRequestid,
+            "spid":$spid
+        },
+        success:function(response){
+            $("#rate_sp div").html(response);
+            $data=($(".table_page tbody .result").html()=='')?'0':$("#rate_sp .result").html();
+            $(".readOnly_data").rateYo({
+                readOnly: true,
+                starWidth:'15px',
+                rating:$data
+            });
+            $(".rateYo").rateYo();
+            $(".rateYo").rateYo("option", "starWidth", "15px");
+        }
+    });
+}
+function give_rating($userid,$serviceRequestid,$spid)
+{
+    $on_arrival=$(".rateYo").rateYo('rating')[1];
+    $friendly=$(".rateYo").rateYo('rating')[2];
+    $qos=$(".rateYo").rateYo('rating')[3];
+    $.ajax({
+        type:'POST',
+        url:"http://localhost/HelperLand/?controller=Home&&function=give_rating",
+        data:{
+            "userid":$userid,
+            "serviceRequestid":$serviceRequestid,
+            "spid":$spid,
+            "comments":$("#rate_sp .feedback textarea").val(),
+            "on_arrival":$on_arrival,
+            "friendly":$friendly,
+            "qos":$qos
+        },
+        success:function(response){
+            loadnewServiceRequest($userid,3,4);
+        }
+    });
+}
+function load_my_data($userid)
+{
+    $.ajax({
+        type:'POST',
+        url:"http://localhost/HelperLand/?controller=Home&&function=get_user_data",
+        dataType:'json',
+        data:{
+            "userid":$userid,
+        },
+        beforeSend:function(){
+            $(".preloader").css("display","block");
+        },
+        success:function(response){
+            $(".preloader").css("display","none");
+            $("#my_details .first_name input").val(response.FirstName);
+            $("#my_details .last_name input").val(response.LastName);
+            $("#my_details .email-address input").val(response.Email);
+            $("#my_details .mobile_number input").val(response.mobile); 
+            $("#my_details .dob input").val(response.DOB);            
+        }
+    });
+}
+function change_my_profile_data($userid)
+{
+    $firstName=$("#my_details .first_name input").val();
+    $lastName=$("#my_details .last_name input").val();
+    $email=$("#my_details .email-address input").val();
+    $mobile=$("#my_details .mobile_number input").val(); 
+    $date=$("#my_details .dob .date").val();
+    $month=$("#my_details .dob .month").val();
+    $year=$("#my_details .dob .year").val();
+    $("#my_details .alert").removeClass("alert-success").addClass('alert-danger');
+    $dob=$year+"-"+$month+"-"+$date;
+    if($firstName=="")
+    {
+        $("#my_details .alert").css("display","block");
+        $("#my_details .alert").html("Please Enter First Name");
+    }
+    else if($lastName=="")
+    {
+        $("#my_details .alert").css("display","block");
+        $("#my_details .alert").html("Please Enter Last Name");
+    }
+    else if($mobile=="")
+    {
+        $("#my_details .alert").css("display","block");
+        $("#my_details .alert").html("Please Enter Mobile Number");
+    }
+    else if($mobile.length!=10)
+    {
+        $("#my_details .alert").css("display","block");
+        $("#my_details .alert").html("Please Enter Valid Mobile Number");
+    }
+    else if($month=='04' || $month=='06' || $month=='09' || $month=='11')
+    {
+        if($date>30)
+        {
+            $("#my_details .alert").css("display","block");
+            $("#my_details .alert").html("Please Enter Valid Date of Birth");
+        }
+        else
+        {
+            send_data($userid,$firstName,$lastName,$email,$mobile,$dob);
+        }
+    }
+    else if($month=='02')
+    {
+        if($year%4==0)
+        {
+            if($date>29)
+            {
+                $("#my_details .alert").css("display","block");
+                $("#my_details .alert").html("Please Enter Valid Date of Birth");
+            }
+            else
+            {
+                send_data($userid,$firstName,$lastName,$email,$mobile,$dob);
+            }
+        }
+        if($year%4!=0)
+        {
+            if($date>28)
+            {
+                $("#my_details .alert").css("display","block");
+                $("#my_details .alert").html("Please Enter Valid Date of Birth");
+            }
+            else
+            {
+                send_data($userid,$firstName,$lastName,$email,$mobile,$dob);
+            }
+        }
+    }
+    else
+    {
+        send_data($userid,$firstName,$lastName,$email,$mobile,$dob);
+    }
+    setTimeout(function(){$(".alert").css("display","none")},2000);
+}
+function send_data($userid,$firstName,$lastName,$email,$mobile,$dob)
+{
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/HelperLand/?controller=Home&&function=change_my_profile",
+        data:{
+            'userid':$userid,
+            'firstName':$firstName,
+            'lastName':$lastName,
+            'email':$email,
+            'mobile':$mobile,
+            'dob':$dob
+        },
+        beforeSend:function(){
+            $(".preloader").css("display","block");
+        },
+        success:function(response){
+            $(".preloader").css("display","none");
+            $(".welcome b").html($firstName);
+            $("#my_details .alert").removeClass("alert-danger").addClass('alert-success');
+            $("#my_details .alert").css("display","block");
+            $("#my_details .alert").html("User details Updated Successfully !!");
+        }
+    });
+}
+function get_my_address($userid)
+{
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/HelperLand/?controller=Home&&function=my_addresses",
+        data:{
+            'userid':$userid
+        },
+        success:function(response){
+            $("#my_addresses .table tbody").html(response);
+        }
+    });
+}
+function edit_address($addressid,$streetname,$housenumber,$city,$postalcode,$mobile)
+{
+    $("#edit_address").modal("show");
+    $('#edit_address .edit').attr('id',$addressid);
+    $('#edit_address .details .street_name input').val($streetname);
+    $('#edit_address .details .house_number input').val($housenumber);
+    $('#edit_address .details .postal_code input').val($postalcode);
+    $('#edit_address .details .city input').val($city);
+    $('#edit_address .details .mobile_number input').val($mobile);
+}
+function change_address($userid)
+{
+    $addressid=$('#edit_address .edit').attr('id');
+    $street=$('#edit_address .details .street_name input').val();
+    $house_no=$('#edit_address .details .house_number input').val();
+    $postalCode=$('#edit_address .details .postal_code input').val();
+    $city=$('#edit_address .details .city input').val();
+    $mobile=$('#edit_address .details .mobile_number input').val();
+    if($street=='')
+    {
+        $("#edit_address .alert").css("display","block");
+        $("#edit_address .alert span").html("Please Enter Street Name");
+    }
+    else if($house_no=='')
+    {
+        $("#edit_address .alert").css("display","block");
+        $("#edit_address .alert span").html("Please Enter House Number");
+    }
+    else if($postalCode=='')
+    {
+        $("#edit_address .alert").css("display","block");
+        $("#edit_address .alert span").html("Please Enter Postal Code");
+    }
+    else if($city=='')
+    {
+        $("#edit_address .alert").css("display","block");
+        $("#edit_address .alert span").html("Please Enter City");
+    }
+    else if($mobile=='')
+    {
+        $("#edit_address .alert").css("display","block");
+        $("#edit_address .alert span").html("Please Enter Mobile Number");
+    }
+    else
+    {
+        $.ajax({
+            type:"POST",
+            url:"http://localhost/HelperLand/?controller=Home&&function=change_addresses",
+            data:{
+                'addressid':$addressid,
+                'streetname':$street,
+                'houseNumber':$house_no,
+                'postalCode':$postalCode,
+                'city':$city,
+                'mobile':$mobile
+            },
+            success:function(response){
+                if(response=='1')
+                {
+                    $("#edit_address").modal("hide");
+                    $("#my_addresses .alert").css("display","block");
+                    $("#my_addresses .alert").html("Address Update Successfully !!!!");
+                    get_my_address($userid);
+                }
+            }
+        });
+        
+    }
+    setTimeout(function(){$(".alert").css("display","none")},2000);
+}
+function delete_address_click($addressid){
+    $("#delete_address .btn").attr("id",$addressid);
+}
+function delete_address_confirm($addressid,$userid){
+    $.ajax({
+        type:"POST",
+        url:"http://localhost/HelperLand/?controller=Home&&function=delete_addresses",
+        data:{
+            'addressid':$addressid,
+        },
+        success:function(response){
+            if(response=='1')
+                {
+                    $("#delete_address").modal("hide");
+                    $("#my_addresses .alert").css("display","block");
+                    $("#my_addresses .alert").html("Delete Address Successfully !!!!");
+                    get_my_address($userid);
+                    setTimeout(function(){$(".alert").css("display","none")},2000);
+                }
+        }
+    });
+}
+function change_password($userid)
+{
+    $old_pass=$("#change_password .old_pass").val();
+    $new_pass=$("#change_password .new_pass").val();
+    $confirm_pass=$("#change_password .confirm_pass").val();
+    $("#change_password .alert").removeClass('alert-success').addClass('alert-danger');
+    if($old_pass=='')
+    {
+        $("#change_password .alert").html("Please enter Old Password.");
+        $("#change_password .alert").css("display","block");
+    }
+    else if($new_pass=='')
+    {
+        $("#change_password .alert").html("Please enter New Password.");
+        $("#change_password .alert").css("display","block");
+    }
+    else if($confirm_pass=='')
+    {
+        $("#change_password .alert").html("Please enter Confirm Password.");
+        $("#change_password .alert").css("display","block");
+    }
+    else if($new_pass.length < 6)
+    {
+        $("#change_password .alert").html("Password must be 6 letter.");
+        $("#change_password .alert").css("display","block");
+    }
+    else if($new_pass!=$confirm_pass)
+    {
+        $("#change_password .alert").html("Password and Confirm Password must be match.");
+        $("#change_password .alert").css("display","block");
+    }
+    else
+    {
+        $.ajax({
+            type:"POST",
+            url:"http://localhost/HelperLand/?controller=Home&&function=change_password",
+            data:{
+                'userid':$userid,
+                'old_pass':$old_pass,
+                'new_pass':$new_pass,
+                'confirm_pass':$confirm_pass
+            },
+            success:function(response){
+                if(response==1)
+                {
+                    $("#change_password .alert").html("You have successfully changed your password!");
+                    $("#change_password .alert").css("display","block");    
+                    $("#change_password .alert").removeClass('alert-danger').addClass('alert-success');
+                }
+                else
+                {
+                    $("#change_password .alert").html("Your current password is wrong!");
+                    $("#change_password .alert").css("display","block");
+                }
+            }
+        });
+    }
+    setTimeout(function(){$(".alert").css("display","none")},2000);
+}
+/* customer dashboard page ----> end */
 
 /* in home page when scroll is happen ----> start */
 const toTop=document.querySelector('.up-arrow');
@@ -602,7 +1071,6 @@ else{
 }
 });
 /* in home page when scroll is happen ----> end */
-
 // for popup
 function login_popup() {
     document.querySelector(".login").click();
