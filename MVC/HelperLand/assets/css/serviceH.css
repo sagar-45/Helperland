@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-/* header section end */
 .welcome {
   width: 100%;
   height: 119px;
@@ -23,6 +22,29 @@
   justify-content: center;
 }
 /* service history section start */
+#list {
+  width: 262px;
+  height: auto;
+  margin: 31px 0px 30px 0px;
+  background-color: #1d7a8c;
+}
+#list .list-group-item {
+  background-color: #1d7a8c;
+  border-color: #2f8f9f;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 2;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+#list .list-group-item:hover,
+#list .active {
+  background-color: #146371;
+}
 .table_page .service_head {
   margin: 33px 0px 0px 16px;
   width: 861px;
@@ -36,17 +58,20 @@
   text-align: left;
   color: #646464;
 }
-.table_page .export {
-  border-radius: 17px;
-  background-color: #146371;
-  color: #fff;
-  font-family: Roboto;
+.buttons-excel {
+  border-radius: 40px !important;
+  background-color: #146371 !important;
+  color: #fff !important;
+  font-family: Roboto !important;
   float: right;
+  width: 80px;
+  height: 40px;
+  margin: -40px 0px 10px 0px!important;
 }
 #service_history .table {
   width: 864px;
   height: auto;
-  padding: 1px 0 22px;
+  padding: 1px 0 0px;
   margin: 0px auto 10px 14px;
   border: solid 1px #e1e1e1;
   background-color: #fff;
@@ -57,16 +82,19 @@
   margin: 0 2px 0 1px;
 }
 #service_history th {
-  margin: 1px 9px 3px 0;
+  margin: 1px 0px 3px 0;
   font-family: Roboto;
   font-size: 16px;
   font-weight: bold;
   line-height: 1.63;
-  text-align: left;
+  text-align: center;
   color: #646464;
+  background-color: #64646410;
+  border-bottom: 1px solid #e1e1e1;
 }
-#service_history th img {
-  margin-left: 9px;
+#service_history tbody tr{
+  height: 80px;
+  vertical-align: middle;
 }
 #service_history tr td {
   padding-top: 0px !important;
@@ -74,21 +102,40 @@
   font-family: Roboto;
   font-size: 16px;
   line-height: 1.63;
-  text-align: left;
+  text-align: center;
   color: #646464;
 }
+#service_history th:nth-child(3)
+  {
+      text-align: left;
+  }
 #service_history tr td .date span {
   font-weight: bold;
 }
-#service_history tr .date {
-  margin: 25px auto 1.2% auto;
+#service_history tr td .calendar {
+  margin: 0px 7px 0px 0px;
+  width: 16px;
+  height: 19px;
+  object-fit: contain;
 }
-#service_history tr .rating,
+#service_history tr td .clock {
+  width: 17px;
+  height: 17px;
+  margin-right: 7px;
+}
+#service_history tr td:nth-child(2){
+  text-align: left;  
+  cursor: pointer;
+}
+#service_history .rateYo{
+  display: inline-block;
+}
+#service_history .rating,
 .mobile-view .card .rating {
   display: flex;
-  margin-top: 22px;
+  text-align: left;
 }
-#service_history tr .rating .cap,
+#service_history .rating .cap,
 .mobile-view .card .rating .cap {
   border-radius: 50%;
   width: 44px;
@@ -96,9 +143,9 @@
   padding: 12px 7px;
   border: solid 1px #aaa;
   background-color: #fff;
-  margin-right: 12px;
+  margin-right: 5px;
 }
-#service_history tr .rating .star p,
+#service_history .rating .star p,
 .mobile-view .card .rating .star p {
   margin-bottom: 0px;
 }
@@ -109,7 +156,6 @@
 #service_history tr .rupee,
 .mobile-view .rupee {
   height: 17px;
-  margin-top: 35px;
   font-family: Roboto;
   font-size: 24px;
   font-weight: bold;
@@ -117,20 +163,21 @@
   text-align: center;
   color: #1d7a8c;
 }
+#service_history tr .status{
+  padding: 0px 0px 0px 30px;
+}
 #service_history tr .status-c,
 .mobile-view .status-c {
   width: fit-content;
   height: 22px;
-  margin-top: 31px;
-  padding: 0px 10px 4px 9px;
+  padding: 0px 10px;
   background-color: #67b644;
 }
 #service_history tr .status-d,
 .mobile-view .status-d {
   width: fit-content;
   height: 22px;
-  margin-top: 32px;
-  padding: 0px 10px 7px;
+  padding: 0px 10px;
   background-color: #ff6b6b;
 }
 #service_history tr .status-c .text,
@@ -142,54 +189,130 @@
   font-family: Roboto;
   font-size: 13px;
   line-height: 1.85;
-  text-align: left;
+  text-align: center;
   color: #fff;
 }
 #service_history tr button {
   height: 34px;
-  margin-top: 25px;
   border-radius: 17px;
   color: #fff;
-  background-color: #6da9b5;
+  background-color: #1d7a8c;
 }
 /* service history section end */
 /* for mobile view  */
-.mobile-view .card_name {
-  width: 90%;
-  margin: 10px auto 0px;
-  color: #646464;
+.modal-dialog .modal-content{
   font-family: Roboto;
+  color:#646464;
+  padding: 20px 20px 10px;
+  font-size: 15px;
+}
+#details_request .modal_title{
   font-size: 18px;
-}
-.mobile-view .card {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin: 10px auto;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  font-family: Roboto;
-  color: #646464;
-  font-size: 16px;
-}
-.mobile-view .card .card_name {
-  margin-left: 25px;
-}
-.card-body {
-  padding: 10px 20px 10px !important;
-}
-.mobile-view .card .date {
   margin-bottom: 10px;
 }
-.mobile-view .card hr {
+#details_request hr{
   margin: 10px 0px !important;
 }
-.mobile-view .card button {
-  border-radius: 17px;
-  background-color: #6da9b5;
-  color: #fff;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.modal-header{
+  padding: 0px !important;
+  border-bottom: none !important;
 }
-/* pagination end */
-/* page navigation end */
+#details_request .modal_main{
+  font-weight: bold;
+}
+#details_request .modal_data{
+  font-weight: normal;
+}
+#details_request .bi-x{
+  background-color: #ff6b6b;
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px;
+  border-radius: 50%;
+  color: #fff;
+  margin-right: 5px;
+}
+#details_request .amount{
+  font-size: 18px;
+  color: #1d7a8c;
+  font-weight: bold;
+}
+#rate_sp .modal-content{
+  margin-top: -20px !important;
+  font-family: Roboto;
+  color: #646464;
+  max-width: 450px;
+  margin: 0px auto;
+}
+#rate_sp .modal-content .rating {
+  display: flex;
+  margin: 0px 0px 15px;
+}
+#rate_sp .modal-content .rating .cap{
+  width: 60px;
+  height:50px;
+  border:2px solid #c1c1c1;
+  padding:12px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+#rate_sp .modal-content .rating .star p{
+  font-size: 16px;
+  margin: 0px 0px 5px 5px;
+}
+#rate_sp .modal-content .rating .star .rateYo{
+  display: inline-block;
+}
+#rate_sp .modal-content .diff_rating > div{
+  display:  flex;
+  margin: 15px 0px 0px;
+}
+#rate_sp .modal-content .diff_rating > div span{
+  width: 120px;
+}
+#rate_sp .modal-content .feedback{
+  margin: 20px 0px 0px;
+  width: 100%;
+}
+#rate_sp .modal-content .feedback textarea{
+  border: 1px solid #c1c1c1;
+  width: 100%;
+  border-radius: 4px;
+}
+#rate_sp .modal-content .feedback textarea:focus{
+  outline: none;
+  border: 1px solid #1d7a8c;
+}
+#rate_sp .modal-content .rating_submit{
+  background-color: #1d7a8c;
+  border-radius: 40px;
+  color: #fff;
+  width: 100px;
+}
+.bottom .bi{
+  font-size: 12px;
+}
+.bottom .pagination .paginate_button a{
+  border-radius: 50%;
+  font-size: 15px;
+  margin: 0px 1px;
+  border: 1px solid #e1e1e1;
+  color: #646464;
+}
+.bottom .pagination .paginate_button.active a{
+  background-color: #1d7a8c;
+  border: 1px solid #1d7a8c;
+  color: #fff;
+}
+.bottom{
+  margin: 20px 0px 20px 16px;
+}
+.bottom .dataTables_length,.bottom .dataTables_info,.bottom .dataTables_paginate{
+  display: inline-block;
+}
+.bottom .dataTables_length{
+  margin: 0px 20px 0px 0px;
+}
+.bottom .dataTables_paginate{
+  float: right;
+}
