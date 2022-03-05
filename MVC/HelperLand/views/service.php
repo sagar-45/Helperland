@@ -1,4 +1,29 @@
-  <section id="service-page">
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Helperland</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/header1.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/service-pro.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/login_forgot_card.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+  <script>
+    function login_set()
+    {
+      sessionStorage.afterPages=2;
+    }
+  </script>
+</head>
+
+<body id="FAQ">
+
+<section id="service-page">
     <section id="header">
         <?php
         require_once('header1.php');
@@ -7,6 +32,7 @@
     </section>
     <?php
       require_once("Email_exist_modal.php");
+      require_once('card_modal.php');
     ?>
     <section id="reg_form">
       <form>
