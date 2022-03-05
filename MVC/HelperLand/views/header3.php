@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Helperland</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/header3.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/list.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/pagination.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/<?php echo $function; ?>.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-</head>
-
-<body id="<?php echo $function; ?>">
- <div class="preloader"></div>
 <?php $base_url="http://localhost/HelperLand/" ;?>
   <section id="header">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
@@ -62,7 +42,7 @@
                 <ul class="dropdown-menu" aria-labelledby="drop1">
                 <li><a class="dropdown-item disabled" >Welcome,<br><b><?php echo $_SESSION['UserName'] ?></b></a></li><hr>
                   <li><a class="dropdown-item" href="#">My Dashboard</a></li>
-                  <li><a class="dropdown-item" href="#">My Settings</a></li>
+                  <li><a class="dropdown-item" href="<?= $base_url.'?controller=Home&&function=my_settings'?>">My Settings</a></li>
                   <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
                 </ul>
               </div>
@@ -111,12 +91,15 @@
               <a class="nav-link">Notifications</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">My Setting</a>
+              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=my_settings'?>">My Setting</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" onclick="logout()">Logout</a>
             </li>
             <hr />
+            <li class="nav-item">
+              <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=book_service'?>">Book Now</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="<?= $base_url.'?controller=Home&&function=prices'?>">Prices & services</a>
             </li>
