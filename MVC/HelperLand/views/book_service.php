@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+    <html>
+
+    <head>
+      <title>Helperland</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <link rel="stylesheet" type="text/css" href="./assets/css/header3.css" />
+      <link rel="stylesheet" type="text/css" href="./assets/css/pagination.css" />
+      <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
+      <link rel="stylesheet" type="text/css" href="./assets/css/bookS.css" />
+      <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    </head>
+
+    <body id="bookS" onload="loadnewServiceRequest(<?php echo $_SESSION['userId'] ?>,0,1)">
+    <div class="preloader"></div>
 <?php
   require_once('header3.php');
 ?>
@@ -114,7 +134,7 @@
               <p class="select_title">When do you need the cleaner?</p>
               <div class="date">
                 <img src="./assets/images/admin_calendar.png">
-                <input type="text" value="<?php echo date("d/m/Y"); ?>" readonly />
+                <input type="text" value="<?php echo date("d/m/Y"); ?>" />
               </div>
               <select id="when_need" onchange="getTimeValue()">
                 <option value="08">8:00</option>
@@ -454,6 +474,8 @@ include("footer2.php");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./assets/js/book_service_schedule_plan.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 </body>
 
 </html>
