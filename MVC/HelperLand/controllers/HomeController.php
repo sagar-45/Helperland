@@ -138,6 +138,7 @@ class HomeController
             else
             {
                 $_SESSION['register']=1;
+                $this->modal->send_email($details['email'],"Created Account","Hello ".$details['fname']."<br>Your account has been successfully created");
             }
         }
         else
@@ -483,14 +484,6 @@ class HomeController
         $reason=$_POST['reason'];
         $this->modal->cancle_request($serviceid,$userid,$reason);
     }
-    // function get_pagination_details()
-    // {
-    //     $user=$_POST['userid'];
-    //     $status1=$_POST['status1'];
-    //     $status2=$_POST['status2'];
-    //     $ans=$this->modal->get_pagination_details($user,$status1,$status2);
-    //     echo $ans;
-    // }
     function show_rating()
     {
         $userid=$_POST['userid'];
