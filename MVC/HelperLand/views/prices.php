@@ -6,50 +6,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <?php
-    if(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==1)
-    {
-        echo '<link rel="stylesheet" type="text/css" href="./assets/css/header3.css" />'; 
-    }
-    elseif(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==2)
-    {
-        echo '<link rel="stylesheet" type="text/css" href="./assets/css/header4.css" />';
-    }
-    else
-    {
-        echo '<link rel="stylesheet" type="text/css" href="./assets/css/header2.css" />';
-    }
+  if (isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId'] == 1) {
+    echo '<link rel="stylesheet" type="text/css" href="./assets/css/header3.css" />';
+  } elseif (isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId'] == 2) {
+    echo '<link rel="stylesheet" type="text/css" href="./assets/css/header4.css" />';
+  } else {
+    echo '<link rel="stylesheet" type="text/css" href="./assets/css/header2.css" />';
+  }
   ?>
   <link rel="stylesheet" type="text/css" href="./assets/css/price.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
   <script>
-    function login_set()
-    {
-      sessionStorage.afterPages=2;
+    function login_set() {
+      sessionStorage.afterPages = 2;
     }
   </script>
 </head>
 
 <body id="price">
 
-<?php
-      if(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==1)
-      {
-          require_once('header3.php');
-      }
-      elseif(isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId']==2)
-      {
-        require_once('header4.php');
-      }
-      else
-      {
-        include('header2.php');
-        require_once('navbar_mobile_view.php');
-      }
- ?>
+  <?php
+  if (isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId'] == 1) {
+    require_once('header3.php');
+  } elseif (isset($_SESSION['UserTypeId']) && $_SESSION['UserTypeId'] == 2) {
+    require_once('header4.php');
+  } else {
+    include('header2.php');
+    require_once('navbar_mobile_view.php');
+  }
+  ?>
   </section>
   <!-- header section end -->
   <!-- img section start -->
@@ -285,11 +273,9 @@
   <a href="#" class="up-arrow">
     <img src="./assets/images/up-arrow.png" class="img-fluid" alt="" />
   </a>
-  <?php include('footer2.php');?>
+  <?php include('footer2.php'); ?>
   <script src="./assets/js/helperland.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
