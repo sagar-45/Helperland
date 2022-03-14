@@ -1,13 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-.modal_btn{
+.modal_btn {
   display: none !important;
 }
-.modal .modal-content .modal-header
-{
+.modal .modal-content .modal-header {
   border-bottom: none;
 }
- .modal-content
-{
+.modal-content {
   width: 350px !important;
   margin: 0px auto;
   font-family: Roboto;
@@ -17,46 +15,44 @@
   line-height: 1.5;
   border-radius: 5px;
 }
-.modal-content div div
-{
+.modal-content div div {
   height: 46px;
   margin-bottom: 15px;
 }
-.ok
-{
+.ok {
   width: 100%;
   background-color: #1d7a8c !important;
   color: #fff !important;
   border-radius: 40px !important;
   margin-top: 20px;
 }
-.ok_book{
+.ok_book {
   width: 80px !important;
   background-color: #1d7a8c !important;
   color: #fff !important;
   border-radius: 40px !important;
   margin: 10px auto;
 }
-#booking_sucess .modal-content{
+#booking_sucess .modal-content {
   text-align: center;
 }
-#booking_sucess .modal-content .text{
+#booking_sucess .modal-content .text {
   margin: 0px auto 10px;
   font-size: 18px;
   font-family: Roboto;
-  color:#646464;
+  color: #646464;
   width: 200px;
 }
-#booking_sucess .modal-content .true{
+#booking_sucess .modal-content .true {
   width: 80px;
   height: 80px;
   background-color: #67b644;
   border-radius: 50%;
-  padding:20px 10px 10px;
+  padding: 20px 10px 10px;
   text-align: center;
   margin: 20px auto;
 }
-#booking_sucess .modal-content .true img{
+#booking_sucess .modal-content .true img {
   width: 40px;
   height: 40px;
 }
@@ -155,37 +151,42 @@
   background-position: 21px center;
   width: 190px;
 }
-.step_payment .nav-link.active,.step_payment .nav-link.previous {
+.step_payment .nav-link.active,
+.step_payment .nav-link.previous {
   background-color: #1d7a8c !important;
   color: #fff !important;
 }
-.step_payment .step_p .nav .nav-item:nth-child(1) .nav-link.active,.step_payment .step_p .nav .nav-item:nth-child(1) .nav-link.previous {
+.step_payment .step_p .nav .nav-item:nth-child(1) .nav-link.active,
+.step_payment .step_p .nav .nav-item:nth-child(1) .nav-link.previous {
   background-image: url(../images/setup-service-white.png);
 }
-.step_payment .step_p .nav .nav-item:nth-child(2) .nav-link.active,.step_payment .step_p .nav .nav-item:nth-child(2) .nav-link.previous {
+.step_payment .step_p .nav .nav-item:nth-child(2) .nav-link.active,
+.step_payment .step_p .nav .nav-item:nth-child(2) .nav-link.previous {
   background-image: url(../images/schedule-white.png);
 }
-.step_payment .step_p .nav .nav-item:nth-child(3) .nav-link.active,.step_payment .step_p .nav .nav-item:nth-child(3) .nav-link.previous {
+.step_payment .step_p .nav .nav-item:nth-child(3) .nav-link.active,
+.step_payment .step_p .nav .nav-item:nth-child(3) .nav-link.previous {
   background-image: url(../images/details-white.png);
 }
-.step_payment .step_p .nav .nav-item:nth-child(4) .nav-link.active,.step_payment .step_p .nav .nav-item:nth-child(4) .nav-link.previous {
+.step_payment .step_p .nav .nav-item:nth-child(4) .nav-link.active,
+.step_payment .step_p .nav .nav-item:nth-child(4) .nav-link.previous {
   background-image: url(../images/payment-white.png);
 }
 .step_payment .nav-item .active .triangle {
   display: inline;
 }
-.step_payment .errors{
-  color:#a94442;
+.step_payment .errors {
+  color: #a94442;
   font-weight: normal;
   width: 300px;
 }
-.step_payment .tab-content{
+.step_payment .tab-content {
   font-family: Roboto;
   font-size: 16px;
   font-weight: bold;
   margin-top: 20px;
 }
-.step_payment #setup_service input{
+.step_payment #setup_service input {
   height: 46px;
   width: 300px;
   margin-top: 10px;
@@ -193,19 +194,19 @@
   border: 1px solid #e5e5e5;
   border-radius: 4px;
 }
-.step_payment #setup_service button{
+.step_payment #setup_service button {
   background-color: #1d7a8c;
   border-radius: 40px;
   color: #fff;
   height: 46px !important;
   padding: 0px 20px;
-  margin:10px 0px 10px 10px ;
+  margin: 10px 0px 10px 10px;
   display: inline;
 }
-.step_payment #setup_service .input{
+.step_payment #setup_service .input {
   display: flex;
 }
-.step_payment .title_mobile{
+.step_payment .title_mobile {
   font-size: 20px;
   font-family: Roboto;
   display: none;
@@ -288,7 +289,7 @@
   margin-top: 30px;
   display: flex;
 }
-.step_payment .extra .extra-1{
+.step_payment .extra .extra-1 {
   cursor: pointer;
 }
 .step_payment .extra .outer_border {
@@ -307,7 +308,7 @@
   margin: 0px;
   font-size: 15px;
   font-family: Roboto;
-  color:#646464;
+  color: #646464;
 }
 .step_payment .extra .extra-1:nth-child(5) {
   margin-right: 0px;
@@ -334,7 +335,7 @@
   margin-top: 15px;
   margin: 15px 0px 20px;
 }
-.step_payment .step_p .continue{
+.step_payment .step_p .continue {
   float: right;
   background-color: #1d7a8c;
   color: #fff;
@@ -342,26 +343,24 @@
   font-family: Roboto;
   border-radius: 30px;
 }
-input:focus,select:focus,textarea:focus{
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border: 1px solid #1d7a8c !important;
 }
 
 /* your details tab css */
-.step_payment #your_details{
+.step_payment #your_details {
   font-family: Roboto;
-  color:#535353;
+  color: #535353;
+  width: 750px;
 }
-.step_payment #your_details ul
-{
+.step_payment #your_details ul {
   list-style-type: none;
   padding-left: 0px;
 }
-.step_payment #your_details ul li:first-child
-{
-  display: none;
-}
-.step_payment #your_details li{
+.step_payment #your_details li {
   border: 1px solid #d0d0d0;
   height: 80px;
   padding: 15px 0px 0px 20px;
@@ -370,28 +369,28 @@ input:focus,select:focus,textarea:focus{
   font-weight: normal;
   margin: 10px 0px 15px;
 }
-.step_payment #your_details label{
+.step_payment #your_details label {
   width: 100%;
   cursor: pointer;
 }
-.step_payment #your_details .add{
+.step_payment #your_details .add {
   margin: 10px 20px 0px 0px;
   vertical-align: middle;
   width: 17px;
   height: 17px;
 }
-.step_payment #your_details .phone_number{
+.step_payment #your_details .phone_number {
   margin-left: 40px;
 }
-.step_payment #your_details .add_new_address_btn{
-  color:#1d7a8c;
+.step_payment #your_details .add_new_address_btn {
+  color: #1d7a8c;
   font-weight: bold;
   border-radius: 40px;
   border: 2px solid #1d7a8c;
   padding: 10px 20px;
   margin-bottom: 20px;
 }
-.step_payment #your_details .address_card{
+.step_payment #your_details .address_card {
   width: 100%;
   background-color: #f8f8f8;
   padding: 10px 10px;
@@ -402,116 +401,106 @@ input:focus,select:focus,textarea:focus{
   margin-bottom: 10px;
   display: none;
 }
-.step_payment .alert{
+.step_payment .alert {
   width: 100% !important;
   margin-bottom: 10px !important;
-  display: none ;
+  display: none;
 }
-.step_payment #your_details .address_card>div{
+.step_payment #your_details .address_card > div {
   width: 48%;
   margin: 0px 0px 10px;
   display: inline-block;
 }
-.step_payment #your_details .address_card>div input{
+.step_payment #your_details .address_card > div input {
   width: 100%;
   border-radius: 4px;
   border: 1px solid #a8a8a8;
   height: 46px;
   padding-left: 10px;
 }
-.step_payment #your_details .address_card>div input::placeholder{
-  color:#c1c1c1;
+.step_payment #your_details .address_card > div input::placeholder {
+  color: #c1c1c1;
   font-weight: normal;
   font-size: 17px;
 }
-.step_payment #your_details .address_card .house_number,.step_payment #your_details .address_card .city{
+.step_payment #your_details .address_card .house_number,
+.step_payment #your_details .address_card .city {
   float: right;
 }
-.step_payment #your_details .address_card .save_btn{
+.step_payment #your_details .address_card .save_btn {
   width: 80px;
   background-color: #1d7a8c;
   color: #fff;
   border-radius: 40px;
 }
-.step_payment #your_details .address_card .cancle_btn{
+.step_payment #your_details .address_card .cancle_btn {
   width: 80px;
   background-color: #fff;
   color: #535353;
   border-radius: 40px;
   border: 1px solid #a8a8a8;
 }
-.step_payment #your_details .favourite_sp hr{
+.step_payment #your_details .favourite_sp hr {
   margin: 5px 0px 10px;
 }
-.step_payment #your_details .text{
+.step_payment #your_details .text {
   font-weight: normal;
 }
-.step_payment #your_details .favourite_sp{
+.step_payment #your_details .favourite_sp {
   width: 800px;
 }
-.step_payment #your_details .fav_sp_row{
+.step_payment #your_details .fav_sp_row {
   display: flex;
   overflow-x: auto;
 }
-.step_payment #your_details .fav_sp_row .fav_sp_card:first-child{
-  display: none;
-}
-.step_payment #your_details .fav_sp_card{
+.step_payment #your_details .fav_sp_card {
   text-align: center;
   width: 100px;
   cursor: pointer;
   margin-right: 30px;
 }
-.step_payment #your_details .fav_sp_card .img{
-  border:1px solid #a8a8a8;
+.step_payment #your_details .fav_sp_card img {
   width: 80px;
   height: 80px;
-  padding:23px 20px 0px;
-  border-radius: 50%;
-  background-color: #f8f8f8;
   margin: 20px auto 8px;
 }
-.step_payment #your_details .fav_sp_card img{
-  width: 40px;
-  height: 30px;
-}
-.step_payment #your_details .fav_sp_card .name{
+.step_payment #your_details .fav_sp_card .name {
   font-size: 17px;
 }
-.step_payment #your_details .fav_sp_card .select_fav_sp{
+.step_payment #your_details .fav_sp_card .select_fav_sp {
   border: 1px solid #a8a8a8;
   width: 100%;
   margin-top: 10px;
 }
-.step_payment #your_details hr{
+.step_payment #your_details hr {
   margin: 16px 0px !important;
 }
-.step_payment #your_details .fav_sp_card .active{
+.step_payment #your_details .fav_sp_card .active {
   background-color: #1d7a8c;
   color: #fff;
 }
 /* your details tab css */
 
 /*make payment tab css */
-.step_payment #make_payment{
+.step_payment #make_payment {
   font-family: Roboto;
-  color:#535353;
+  color: #535353;
 }
-.step_payment #make_payment .promo_code{
+.step_payment #make_payment .promo_code {
   font-weight: normal;
   margin: 20px 0px 0px;
 }
-.step_payment #make_payment .promo_code input{
+.step_payment #make_payment .promo_code input {
   height: 46px;
   padding-left: 10px;
   width: 300px;
   border: 1px solid #e1e1e1;
   border-radius: 4px;
 }
-.step_payment #make_payment .promo_code input::placeholder{
-  color:#c1c1c1;
+.step_payment #make_payment .promo_code input::placeholder {
+  color: #c1c1c1;
 }
-.step_payment #make_payment .promo_code .btn{
+.step_payment #make_payment .promo_code .btn {
   color: #1d7a8c;
   border: 1px solid #1d7a8c;
   width: 80px;
@@ -519,75 +508,75 @@ input:focus,select:focus,textarea:focus{
   border-radius: 40px;
   margin-left: 10px;
 }
-.step_payment #make_payment .promo_code .btn:hover{
+.step_payment #make_payment .promo_code .btn:hover {
   background-color: #1d7a8c;
   color: #fff;
 }
-.step_payment #make_payment hr{
+.step_payment #make_payment hr {
   margin: 20px 0px 20px !important;
 }
-.step_payment #make_payment .card_no
-{
+.step_payment #make_payment .card_no {
   width: 100%;
   height: 46px;
   box-shadow: 0 1px 1px 1px #efefff;
   margin-top: 30px;
 }
-.step_payment #make_payment .card_no input{
+.step_payment #make_payment .card_no input {
   height: 40px;
   border: none;
   color: #646464;
 }
-.step_payment #make_payment .card_no .card_no_input{
+.step_payment #make_payment .card_no .card_no_input {
   padding-left: 40px;
 }
-.step_payment #make_payment .card_no .month_cvc{
+.step_payment #make_payment .card_no .month_cvc {
   float: right;
   padding-right: 20px;
 }
-.step_payment #make_payment .card_no .month_input,.step_payment #make_payment .card_no .year_input{
+.step_payment #make_payment .card_no .month_input,
+.step_payment #make_payment .card_no .year_input {
   width: 31px;
 }
-.step_payment #make_payment .card_no .cvc_input{
+.step_payment #make_payment .card_no .cvc_input {
   width: 34px;
 }
-.step_payment #make_payment .card_no input:focus{
+.step_payment #make_payment .card_no input:focus {
   border: none !important;
 }
-.step_payment #make_payment .card_no i{
+.step_payment #make_payment .card_no i {
   position: absolute;
   margin: 4px;
   font-size: 20px;
   color: #646464;
 }
-.step_payment #make_payment .accept_card{
+.step_payment #make_payment .accept_card {
   float: right;
   margin: 20px 0px 0px;
   text-align: right;
   font-weight: normal;
   font-size: 12px;
 }
-.step_payment #make_payment .accept_card img{
+.step_payment #make_payment .accept_card img {
   width: 40px;
   height: 25px;
 }
-.step_payment #make_payment .hr_line{
-  margin: 80px 0px 20px!important;
+.step_payment #make_payment .hr_line {
+  margin: 80px 0px 20px !important;
 }
-.step_payment #make_payment .privacy_check{
+.step_payment #make_payment .privacy_check {
   font-weight: normal;
   max-width: 730px;
   font-size: 14px;
   display: flex;
 }
-.step_payment #make_payment .privacy_check input{
-  height: 20px ;
+.step_payment #make_payment .privacy_check input {
+  height: 20px;
   margin-right: 10px;
 }
-.step_payment #make_payment .privacy_check .color_text{
+.step_payment #make_payment .privacy_check .color_text {
   color: #1d7a8c;
 }
-/*make payment tab css */ 
+/*make payment tab css */
 
 /* card section start */
 .payment {
@@ -637,7 +626,7 @@ input:focus,select:focus,textarea:focus{
 .payment .card-pay .right_t {
   float: right;
 }
-.payment .card-pay .card_extra{
+.payment .card-pay .card_extra {
   display: none;
 }
 .payment .card-pay .price {
@@ -713,15 +702,15 @@ input:focus,select:focus,textarea:focus{
   top: -7px;
   left: 0px;
 }
-.payment .question a{
+.payment .question a {
   padding: 0px !important;
   color: #1d7a8c;
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
 }
-.payment .question a:hover{
-  color:#3d9aac;
+.payment .question a:hover {
+  color: #3d9aac;
 }
 /* card section end */
 /*Newsletter section start*/
@@ -777,3 +766,4 @@ input:focus,select:focus,textarea:focus{
   text-align: left;
   color: #ffffff;
 }
+/*Newsletter section end*/
