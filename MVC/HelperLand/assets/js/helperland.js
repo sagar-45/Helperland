@@ -1,4 +1,4 @@
-/* item validate */
+/* email validate */
 function validate_value($value, $error, $string) {
     if ($value == '') {
         $("." + $error).html('Please enter ' + $string);
@@ -1280,12 +1280,18 @@ function change_sp_profile_data($userid) {
 const toTop = document.querySelector('.up-arrow');
 const navbar = document.querySelector(".nav-light");
 const logo = document.querySelector(".logo");
+const ws_navbrand = document.querySelector(".ws_navbrand");
 const dark_link = document.querySelectorAll(".dark");
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 1) {
+    if (window.pageYOffset > 0) {
         navbar.style.backgroundColor = "#525252";
         logo.style.height = "55px";
         logo.style.width = "73px";
+        if(ws_navbrand!=null)
+        {
+        ws_navbrand.style.width="73px";
+        ws_navbrand.style.height="55px";
+        }
         dark_link[0].style.backgroundColor = "#006072";
         dark_link[1].style.backgroundColor = "#006072";
         dark_link[2].style.backgroundColor = "#006072";
@@ -1294,6 +1300,11 @@ window.addEventListener('scroll', () => {
         navbar.style.backgroundColor = "transparent";
         logo.style.height = "100%";
         logo.style.width = "100%";
+        if(ws_navbrand!=null)
+        {
+        ws_navbrand.style.width="11.2%";
+        ws_navbrand.style.height="14%";
+        }
         dark_link[0].style.backgroundColor = "transparent";
         dark_link[1].style.backgroundColor = "transparent";
         dark_link[2].style.backgroundColor = "transparent";
