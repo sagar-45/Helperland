@@ -1,14 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-#create .email_exist
-{
+#create .email_exist {
   display: none;
 }
-#create .modal 
-{
+#create .modal {
   text-align: center;
 }
-#create .modal .false
-{
+#create .modal .false {
   background-color: #a94442;
   padding: 30px;
   width: 100px;
@@ -18,16 +15,14 @@
   border-radius: 50%;
   margin: 40px auto 20px;
 }
-#create .modal .false img
-{
+#create .modal .false img {
   width: 40px;
   height: 40px;
 }
-#create .modal p
-{
+#create .modal p {
   font-size: 20px;
 }
-#create .exist_btn{
+#create .exist_btn {
   background-color: #1d7a8c;
   color: #fff;
   width: 80px;
@@ -43,103 +38,103 @@
 /* header section end*/
 /* create account section start */
 #create {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  #create .title {
-    height: 30px;
-    margin-top: 45px;
-    font-family: Roboto;
-    font-size: 36px;
-    line-height: 0.67;
-    color: #4f4f4f;
-  }
-  #create .star {
-    display: flex;
-  }
-  #create .star .line1 {
-    width: 62px;
-    height: 1px;
-    margin: 26px 0px 49px auto;
-    background-color: #ccc;
-  }
-  #create .star img {
-    width: 24px;
-    height: 25px;
-    margin: 14px 8px 37px 9px;
-    color: #1d7a8c;
-  }
-  #create .star .line2 {
-    width: 62px;
-    height: 1px;
-    margin: 26px auto 49px 0px;
-    background-color: #ccc;
-  }
-  #create .contact-form
-  {
-    font-family: Roboto;
-    color: #4f4f4f;
-  }
-  #create .contact-form .name,#create .contact-form .password{
-    display: flex;
-  }
-  #create .contact-form .personal-detail input{
-    border: 1px solid #c8c8c8;
-    padding-left: 16px;
-    width: 299px;
-    height: 46px;
-    font-size: 16px;
-    border-radius: 4px;
-  }
-  #create .contact-form .personal-detail .n_e {
-    display: inline-flex;
-  }
-  #create .contact-form .personal-detail .n_e .mobile {
-    width: 299px;
-    height: 46px;
-    font-family: Roboto;
-  }
-  #create .contact-form .name div:nth-child(1),#create .contact-form .n_e > div:nth-child(1),#create .contact-form .password div:nth-child(1){
-    margin-right: 18px;
-    margin-bottom: 10px;
-  }
-  #create .contact-form .name div:nth-child(2),#create .contact-form .n_e > div:nth-child(2),#create .contact-form .password div:nth-child(2){
-    margin-bottom: 10px;
-  }  
-  #create .contact-form .errors{
-    color: #a94442;
-    display: none;
-    margin-bottom: 10px;
-  }
-  #create .contact-form .privacy
-  {
-      color:#1d7a8c;
-  }
-  #create .contact-form .reg
-  {
-      background-color: #1d7a8c;
-      opacity: 0.8;
-      width: 150px;
-      border-radius: 20px;
-      text-align: center;
-      margin: 15px auto;
-  }
-  #create .contact-form button
-  {
-      color: #fff;
-      font-weight: bold;
-  }
-  #create .contact-form p
-  {
-      text-align: center;
-      margin-bottom: 50px;
-  }
-  #create .contact-form .login
-  {
-      color: #1d7a8c;
-      text-decoration: none;  
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#create .title {
+  height: 30px;
+  margin-top: 45px;
+  font-family: Roboto;
+  font-size: 36px;
+  line-height: 0.67;
+  color: #4f4f4f;
+}
+#create .star {
+  display: flex;
+}
+#create .star .line1 {
+  width: 62px;
+  height: 1px;
+  margin: 26px 0px 49px auto;
+  background-color: #ccc;
+}
+#create .star img {
+  width: 24px;
+  height: 25px;
+  margin: 14px 8px 37px 9px;
+  color: #1d7a8c;
+}
+#create .star .line2 {
+  width: 62px;
+  height: 1px;
+  margin: 26px auto 49px 0px;
+  background-color: #ccc;
+}
+#create .contact-form {
+  font-family: Roboto;
+  color: #4f4f4f;
+}
+#create .contact-form .name,
+#create .contact-form .password {
+  display: flex;
+}
+#create .contact-form .personal-detail input {
+  border: 1px solid #c8c8c8;
+  padding-left: 16px;
+  width: 299px;
+  height: 46px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+#create .contact-form .personal-detail .n_e {
+  display: inline-flex;
+}
+#create .contact-form .personal-detail .n_e .mobile {
+  width: 299px;
+  height: 46px;
+  font-family: Roboto;
+}
+#create .contact-form .name div:nth-child(1),
+#create .contact-form .n_e > div:nth-child(1),
+#create .contact-form .password div:nth-child(1) {
+  margin-right: 18px;
+  margin-bottom: 10px;
+}
+#create .contact-form .name div:nth-child(2),
+#create .contact-form .n_e > div:nth-child(2),
+#create .contact-form .password div:nth-child(2) {
+  margin-bottom: 10px;
+}
+#create .contact-form .errors {
+  color: #a94442;
+  display: none;
+  margin-bottom: 10px;
+  width: 299px;
+}
+#create .contact-form .privacy {
+  color: #1d7a8c;
+}
+#create .contact-form .reg {
+  background-color: #1d7a8c;
+  opacity: 0.8;
+  width: 150px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 15px auto;
+}
+#create .contact-form button {
+  color: #fff;
+  font-weight: bold;
+}
+#create .contact-form p {
+  text-align: center;
+  margin-bottom: 50px;
+}
+#create .contact-form .login {
+  color: #1d7a8c;
+  text-decoration: none;
+}
 
-  
+/* create account section end */
