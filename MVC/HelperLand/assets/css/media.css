@@ -9,10 +9,10 @@
   #price #header .navbar .navbar-nav .nav-item,
   #contact #header .navbar .navbar-nav .nav-item,
   #service-pro #header .navbar-nav .nav-item,
-  #bookS #header .navbar-nav .nav-item ,
+  #bookS #header .navbar-nav .nav-item,
   #Customer_signUp #header .navbar-nav .nav-item,
   #sp_new #header .navbar-nav .nav-item,
-  #sp_history #header .navbar-nav .nav-item{
+  #sp_history #header .navbar-nav .nav-item {
     margin-right: 5px;
   }
   #home #header .text {
@@ -22,18 +22,18 @@
     width: 15%;
   }
   #home #header .navbar-nav .home-book-now {
-    width: 138px;
+    width: 132px;
   }
-  #header .tab-view .navbar-nav .home-prices{
-    width: 60px;
+  #header .tab-view .navbar-nav .home-prices {
+    width: 55px;
   }
-  #header .tab-view .navbar-nav .home-guarantee{
-    width: 130px;
+  #header .tab-view .navbar-nav .home-guarantee {
+    width: 125px;
   }
-  #header .tab-view .navbar-nav .home-blog{
+  #header .tab-view .navbar-nav .home-blog {
     width: 70px;
   }
-  #header .tab-view .navbar-nav .home-contact{
+  #header .tab-view .navbar-nav .home-contact {
     width: 108px;
   }
   #home #header .navbar-nav .login {
@@ -129,20 +129,23 @@
     margin-left: 0px;
   }
   #sp_new #filter,
-  #sp_history #filter{
+  #sp_history #filter,
+  #sp_blockC #filter .table {
     width: 770px;
     margin-left: 0px;
   }
-  #list{
+  #list {
     width: 200px;
     margin-right: 10px;
   }
-  #service_history tr td:nth-child(2){
-    width: 120px;
+  #service_history tr td:nth-child(2),
+  #sp_new tr td:nth-child(2) {
+    width: 110px;
   }
-  
-  #bookS .step_payment .step_p {
-    width: 610px;
+
+  #bookS .step_payment .step_p,
+  #bookS #your_details .details {
+    width: 607px;
   }
   #bookS .step_payment .nav-link {
     height: 90px;
@@ -177,30 +180,40 @@
   #bookS .payment .accordion-body {
     width: 100%;
   }
-  #bookS .step_payment #your_details .address_card{
+  #bookS .step_payment #your_details .address_card {
     width: 100%;
   }
-  #bookS .step_payment #your_details .favourite_sp{
+  #bookS .step_payment #your_details .favourite_sp {
     width: 600px;
   }
-  #header .navbar .prices{
+  #header .navbar .prices {
     width: 150px;
   }
-  #header .navbar .book-now{
+  #header .navbar .book-now {
     width: 130px;
   }
-  #header .navbar .blog{
+  #header .navbar .blog {
     width: 80px;
+  }
+  #my_details .dob select {
+    width: 30%;
+  }
+  #my_details .nationality {
+    width: 225px;
+  }
+  #header .navbar .ws_navbrand {
+    width: 10%;
+    height: 12%;
   }
 }
 @media (max-width: 1000px) {
   .footer .footer_head {
     display: block;
+    width: auto;
   }
-  .footer .footer_head .logo img {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+  .footer .footer_head .logo {
+    width: fit-content;
+    margin: 0px auto;
   }
   .footer .menu_footer ul {
     display: block;
@@ -217,13 +230,13 @@
   }
 }
 @media (max-width: 990px) {
-  .tab-view{
+  .tab-view {
     display: none;
   }
-  #header .mobile-view{
+  #header .mobile-view {
     display: block;
   }
-  .mobile-card{
+  .mobile-card {
     display: none;
   }
   #about #about-us .title,
@@ -234,10 +247,11 @@
   #about #about-us .about-text {
     width: 90%;
   }
-  #home #header{
+  #home #header {
     padding-top: 150px;
   }
-  #FAQ #header,#about #header{
+  #FAQ #header,
+  #about #header {
     padding-top: 77px;
   }
   #FAQ #faq .accordion {
@@ -302,11 +316,11 @@
   #upcomingP hr {
     margin: 3px 0px !important;
   }
-  #header .notification-mobile{
+  #header .notification-mobile {
     display: flex;
     margin-left: auto;
   }
- .Notification .notification-img {
+  .Notification .notification-img {
     margin-right: 5px;
     margin-top: 8px;
   }
@@ -327,23 +341,23 @@
   #bookS .step_payment .when select {
     margin: 0px 2px 0px;
   }
-  #bookS .step_payment #your_details{
+  #bookS .step_payment #your_details {
     width: 600px;
   }
-  #bookS .step_payment #your_details .fav_sp_card{
+  #bookS .step_payment #your_details .fav_sp_card {
     width: 100px;
   }
-  #list{
+  #list {
     display: none;
   }
-  #filter{
+  #filter {
     width: 760px;
   }
 }
 @media (max-width: 767px) {
   /* home page media query  */
   #home #header {
-    padding-top: 100px;
+    padding-top: 80px;
   }
   #home #header .text {
     margin-top: 0px;
@@ -480,7 +494,7 @@
     margin-bottom: 10px;
   }
   /* home page media query  */
-  #header .mobile-view{
+  #header .mobile-view {
     margin-left: 0px;
   }
   #about .aimg,
@@ -564,11 +578,12 @@
     width: 90%;
     margin-top: 15px;
   }
-  #contact #touch .contact-form .privacy,#contact #touch .contact-form .attech{
+  #contact #touch .contact-form .privacy,
+  #contact #touch .contact-form .attech {
     width: 80%;
     margin-left: 5%;
   }
-  #contact #touch .contact-form .privacy .policies{
+  #contact #touch .contact-form .privacy .policies {
     width: 90%;
   }
   #contact .hr {
@@ -630,107 +645,183 @@
   #service-pro #reg_form .get_started img {
     width: 20px;
   }
-  .mid-dash{
+  .mid-dash {
     display: block;
   }
-  .table thead{
+  .table thead {
     display: none;
   }
-  #service_history .table,.table_page .service_head{
+  #service_history .table,
+  .table_page .service_head {
     width: 90%;
     margin: 20px auto;
     border: none;
   }
-  #my_settings .table_page{
+  .only_mobile_view {
+    display: block;
+  }
+  #my_settings .table_page {
     width: 90%;
     margin: 20px auto;
   }
-  #my_settings .table_page .nav-item .nav-link span{
+  #my_settings .table_page .nav-item .nav-link span {
     display: none;
   }
-  #my_settings .table_page .nav-item .nav-link i{
+  #my_settings .table_page .nav-item .nav-link i {
     display: block;
   }
-  #my_settings .details > div{
+  #my_settings .details > div {
     display: block;
     width: 100%;
   }
-  #my_settings #my_addresses .table thead{
+  #my_settings #my_addresses .table thead {
     display: block;
   }
-  #my_settings #my_addresses .table tr td{
-    display: inline-block !important;
+  #my_settings #my_addresses .table thead th {
+    border: none;
   }
-  #my_settings #my_addresses .table thead tr th:nth-child(1)
-  {
+  #my_settings #my_addresses .table tr td {
+    display: inline-block !important;
+    border: none;
+  }
+  #my_settings #my_addresses .table thead tr th:nth-child(1) {
     width: 90%;
   }
-  #my_settings #my_addresses .table tr td:nth-child(1){
+  #my_settings #my_addresses .table tr {
+    border-bottom: 1px solid #e1e1e1;
+  }
+  #my_settings #my_addresses .table tr td:nth-child(1) {
     width: 80%;
   }
-  #my_settings #change_password input{
+  #my_settings #change_password input {
     width: 100%;
   }
-  #my_settings .title{
+  #my_settings .title {
     display: block;
   }
-  .table_page{
+  #my_details .nationality {
+    width: 100%;
+  }
+  #my_details .dob select {
+    width: 32%;
+  }
+  #my_all_details #edit_address > div {
+    display: block;
+    width: 100%;
+  }
+  #my_all_details #edit_address > div input {
+    width: 100%;
+  }
+  .table_page,
+  #sp_new #filter,
+  #sp_blockC #filter .table,
+  #sp_blockC #filter {
     width: 90%;
     margin: 10px auto;
   }
-  #customer_dashboard .service_head a{
+  #sp_blockC #filter .table tr {
+    display: block;
+    margin: 0px auto 10px;
+  }
+  #sp_blockC #filter .table tr td {
+    border: none !important;
+    width: 220px !important;
+  }
+  #sp_blockC #filter tr td:nth-child(1) {
+    margin-top: 0px;
+  }
+  #filter .table {
+    border: none !important;
+  }
+  #customer_dashboard .service_head a {
     display: block;
   }
-  #customer_dashboard .service_head .service_txt{
+  #customer_dashboard .service_head .service_txt {
     font-size: 18px;
   }
-  #customer_dashboard .export{
+  #customer_dashboard .export {
     float: left;
     margin-top: 10px;
   }
-  .table tbody tr td{
+  .table tbody tr td {
     display: block !important;
     border: #646464;
     border-left: 1px solid #e1e1e1;
     border-right: 1px solid #e1e1e1;
     padding: 10px 8px;
   }
-  #service_history tr td:nth-child(1)
-  {
+  #service_history tr td:nth-child(1),
+  #filter tr td:nth-child(1) {
     margin-top: 30px;
     border-top: 1px solid #e1e1e1;
   }
-  #service_history tr td:nth-child(2){
+  #service_history tr td:nth-child(2),
+  #filter tr td:nth-child(2) {
     width: inherit;
   }
-  #service_history tr td{
+  #filter tr td:nth-last-child(1),
+  #filter tr th:nth-last-child(1) {
+    float: none;
+  }
+  #service_history tr td,
+  #filter tr td {
     margin-top: 0px;
-    border-bottom:1px solid #e1e1e1 ;
+    border-bottom: 1px solid #e1e1e1;
     padding: 10px !important;
+    text-align: center;
   }
-  .buttons-excel{
+  #filter .rating_table tr td {
+    border: none !important;
+    margin: 0px !important;
+  }
+  #filter .rating {
+    border: none;
+    padding: 0px !important;
+  }
+  #filter .rating > div {
+    border: 1px solid #e1e1e1;
+    border-top: none;
+    width: 100%;
+    padding: 10px 0px;
+  }
+  #filter .rating .cust_comments {
+    margin-top: 0px;
+  }
+  #filter .rating > div:nth-child(1) {
+    border-top: 1px solid #e1e1e1;
+  }
+  #filter .rating div:nth-child(1) {
+    width: 100%;
+  }
+  .mydiv {
+    justify-content: center;
+    width: auto;
+  }
+  .mydiv .desc {
+    text-align: left;
+  }
+  .buttons-excel {
     float: left;
-    margin:-10px 0px 0px 5% !important ;
+    margin: -10px 0px 0px 5% !important ;
   }
-  .table tbody tr td:nth-last-child(1){
+  #sp_new .buttons-excel {
+    margin: 0px !important;
+  }
+  .table tbody tr td:nth-last-child(1) {
     border-bottom: 1px solid #e1e1e1;
   }
-  .bottom .dataTables_length,.bottom .dataTables_info,.bottom .dataTables_paginate{
+  #filter .table > :not(caption) > * > * {
+    border-bottom-width: 1px !important;
+  }
+  .bottom .dataTables_length,
+  .bottom .dataTables_info,
+  .bottom .dataTables_paginate {
     display: block;
   }
-  .bottom .dataTables_paginate{
+  .bottom .dataTables_paginate {
     float: none;
     margin-top: 20px !important;
   }
-  /* .tab-view {
-    display: none;
-  }
-  .table_page{
-    display: none;
-  }
-  .mobile-card {
-    display: inline;
-  } */
   #bookS #main-img {
     display: none;
   }
@@ -741,17 +832,17 @@
   #bookS .step_payment .step_payment {
     width: 100%;
   }
-  #bookS .step_payment .title_mobile{
+  #bookS .step_payment .title_mobile {
     display: block;
   }
-  #bookS .step_payment #setup_service .input{
+  #bookS .step_payment #setup_service .input {
     display: block;
   }
-  #bookS .step_payment #setup_service button{
+  #bookS .step_payment #setup_service button {
     margin-left: 0px;
     float: right;
   }
-  #bookS .step_payment #setup_service input{
+  #bookS .step_payment #setup_service input {
     width: 100%;
   }
   #bookS .step_payment .nav-tabs {
@@ -801,49 +892,67 @@
   #bookS .step_payment .date img {
     padding-top: 22px;
   }
-  #bookS .step_payment #your_details,#bookS .step_payment #make_payment{
+  #bookS .step_payment #your_details,
+  #bookS .step_payment #make_payment {
     width: 390px;
   }
-  #bookS .step_payment #your_details .favourite_sp{
+  #bookS .step_payment #your_details .favourite_sp,
+  #bookS #your_details .details {
     width: 400px;
   }
-  #bookS .step_payment #your_details .address_card>div{
+  #bookS .step_payment #your_details .address_card > div {
     display: block;
     width: 100%;
   }
-  #bookS .step_payment #make_payment .promo_code input{
+  #bookS .step_payment #make_payment .promo_code input {
     width: 60%;
   }
-  #Customer_signUp #create .title
-  {
+  #Customer_signUp #create .title {
     font-size: 30px;
   }
-  #Customer_signUp #create .contact-form .personal-detail input,#Customer_signUp #create .contact-form .personal-detail .n_e .mobile
-  {
+  #Customer_signUp #create .contact-form .personal-detail input,
+  #Customer_signUp #create .contact-form .personal-detail .n_e .mobile {
     width: 100%;
   }
-  #Customer_signUp #create .contact-form .personal-detail .n_e,#Customer_signUp #create .contact-form .name,#Customer_signUp #create .contact-form .password
-  {
+  #Customer_signUp #create .contact-form .errors {
+    width: 254px;
+  }
+  #Customer_signUp #create .contact-form .personal-detail .n_e,
+  #Customer_signUp #create .contact-form .name,
+  #Customer_signUp #create .contact-form .password {
     display: block;
   }
-  #Customer_signUp #create .contact-form .name div,#Customer_signUp #create .contact-form .n_e > div,#Customer_signUp #create .contact-form .password div{
+  #Customer_signUp #create .contact-form .name div,
+  #Customer_signUp #create .contact-form .n_e > div,
+  #Customer_signUp #create .contact-form .password div {
     margin: 0px auto 10px;
   }
-  #Customer_signUp #create .contact-form .n_e > div{
+  #Customer_signUp #create .contact-form .n_e > div {
     margin-bottom: 10px;
   }
-  .footer{
+  .footer {
     padding-left: 0px;
     padding-right: 0px;
   }
 }
-@media(max-width:642px){
-  #my_settings #my_addresses .table{
-    width:580px;
+@media (max-width: 642px) {
+  #my_settings #my_addresses .table {
+    width: 580px;
   }
-  #my_settings #my_addresses{
+  #my_settings #my_addresses {
     overflow-x: auto;
-  }    
+  }
+  #details_request .modal-dialog .modal-content .map {
+    display: block !important;
+    margin-top: 10px;
+  }
+  #details_request .modal-dialog .modal-content .text {
+    width: 100%;
+  }
+  .offcanvas {
+    width: 90% !important;
+    overflow-y: auto;
+  }
 }
 @media (max-width: 560px) {
   /* home page media query  */
@@ -898,7 +1007,7 @@
     border: none;
     justify-content: center;
   }
-  #bookS .step_payment .step_p{
+  #bookS .step_payment .step_p {
     width: 90%;
   }
   #bookS .step_payment .nav-link {
@@ -907,68 +1016,85 @@
   #bookS .triangle {
     left: 30%;
   }
-  #bookS .step_payment #your_details,#bookS .step_payment #make_payment{
+  #bookS .step_payment #your_details,
+  #bookS .step_payment #make_payment,
+  #bookS #your_details .details {
     width: 300px;
   }
-  #bookS .step_payment #your_details li{
+  #bookS .step_payment #your_details li {
     font-size: 14px;
     padding-left: 3px;
   }
-  #bookS .step_payment #your_details .add{
+  #bookS .step_payment #your_details .add {
     margin-right: 5px;
   }
-  #bookS .step_payment #your_details .favourite_sp{
+  #bookS .step_payment #your_details .favourite_sp {
     width: 300px;
   }
-  #bookS .step_payment #your_details .phone_number{
+  #bookS .step_payment #your_details .phone_number {
     margin-left: 25px;
-  } 
-  #bookS .step_payment #make_payment .card_no .card_no_input{
+  }
+  #bookS .step_payment #make_payment .card_no .card_no_input {
     width: 140px;
   }
-  #bookS .step_payment #make_payment .card_no{
+  #bookS .step_payment #make_payment .card_no {
     width: 300px;
   }
-  .reset_password{
+  .reset_password {
     width: 90%;
+  }
+  #filter .pet_filter {
+    display: block;
+    margin: 10px 0px -10px 0px;
+  }
+  #my_details .dob select {
+    width: 31%;
+  }
+  #my_details .gender span {
+    display: block;
   }
 }
 @media (max-width: 350px) {
-  #bookS .step_payment .nav-item{
-    width: 70px ;
-  }
-  #bookS .step_payment .nav-item .nav-link{
+  #bookS .step_payment .nav-item {
     width: 70px;
   }
-  #bookS .step_payment .step_p{
+  #bookS .step_payment .nav-item .nav-link {
+    width: 70px;
+  }
+  #bookS .step_payment .step_p {
     width: 90%;
   }
-  #bookS .step_payment .errors{
+  #bookS .step_payment .errors {
     width: 180px;
   }
   #bookS .triangle {
     left: 25%;
   }
-  #bookS .step_payment #your_details .favourite_sp{
+  #bookS .step_payment #your_details .favourite_sp {
     width: 250px;
   }
-  #bookS .step_payment #your_details,#bookS .step_payment #make_payment{
+  #bookS .step_payment #your_details,
+  #bookS .step_payment #make_payment,
+  #bookS #your_details .details {
     width: 250px;
   }
-  #bookS .step_payment #make_payment .card_no .card_no_input{
+  #bookS .step_payment #make_payment .card_no .card_no_input {
     width: 100px;
     padding-left: 0px;
   }
-  #bookS .step_payment #make_payment .card_no{
+  #bookS .step_payment #make_payment .card_no {
     width: 250px;
   }
-  #bookS .step_payment #make_payment .card_no i{
+  #bookS .step_payment #make_payment .card_no i {
     display: none;
   }
-  #sp_history .mobile-view .export_payment .btn{
+  #sp_history .mobile-view .export_payment .btn {
     float: none;
   }
-  #contact #touch .contact-form .privacy .policies{
+  #contact #touch .contact-form .privacy .policies {
     width: 85%;
+  }
+  #my_details .dob select {
+    width: 30%;
   }
 }
