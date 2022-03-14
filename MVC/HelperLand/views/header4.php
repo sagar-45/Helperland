@@ -1,7 +1,7 @@
 <?php $base_url = "http://localhost/HelperLand/"; ?>
 <section id="header">
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <a class="navbar-brand" href="<?= $base_url . '?controller=Home&&function=index' ?>">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top <?php echo $_GET['function'] == 'index' ? 'nav-light' : '' ?>">
+    <a class="navbar-brand <?php echo $_GET['function'] == 'index' ? 'ws_navbrand' : 'simple_navbrand' ?>" href="<?= $base_url . '?controller=Home&&function=index' ?>">
       <img src="./assets/images/white-logo-transparent-background.png" class="img-fluid nav_brand_img" alt="" />
     </a>
     <div class="tab-view tab-navbar">
