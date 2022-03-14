@@ -1,127 +1,108 @@
 <?php
-    require_once('header4.php');
+if (!isset($_SESSION['UserTypeId']) || $_SESSION['UserTypeId'] != 2) {
+  header('LOCATION:http://localhost/HelperLand/?controller=Home&&function=index');
+} else {
 ?>
-</section>
-<div class="welcome">
-    <p>Welcome,<b><?php echo $_SESSION['UserName'] ?></b></p>
-  </div>
-  <div class="hr-line"></div>
-<?php
-    require_once('sp_list.php');
-    ?>
-    <section id="filter" class="table_page">
-        <span>Service area</span>
-        <select class="km_select">
-            <option>2 km</option>
-            <option>5 km</option>
-            <option>10 km</option>
-            <option>20 km</option>
-            <option>25 km</option>
-            <option>50 km</option>
-        </select>
-        <input type="checkbox" id="pet">
-        <label for="pet">Include Pet at Home</label>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">
-                        Service ID<img src="./assets/images/cross.png" class="img-fluid" />
-                      </th>
-                      <th scope="col">
-                        Service date
-                      </th>
-                      <th scope="col">
-                        Customer details
-                      </th>
-                      <th scope="col">
-                        Payment
-                      </th>
-                      <th scope="col">
-                        Time conflict
-                      </th>
-                      <th scope="col">
-                        Actions
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>8488</td>
-                    <td>
-                        <img src="./assets/images/calendar.png" class="img-fluid calendar" /><b>07/10/2021</b><br />
-                        <img src="./assets/images/clock.png" class="img-fluid clock" />08:00 -
-                        11:00
-                    </td>
-                    <td>
-                        <span class="name">Gaurang Patel</span><br />
-                        <div class="mydiv">
-                            <img src="./assets/images/home.png" class="img-fluid home" />
-                            <div class="desc">Koenigstrasse 122 99897 Tambach-Dietharz</div>
-                        </div>
-                    </td>
-                    <td>
-                        56.25 €
-                    </td>
-                    <td></td>
-                    <td>
-                        <button class="btn accept">Accept</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    <?php
-    require_once('sp_pagination.php');
-    ?>
-    <div class="mobile-view mobile-card">
-    <div class="service_name">
-        <b>New Service Requests</b>
-    </div>
-    <div class="time_select">
-        <span>Service area</span>
-        <select class="km_select">
-            <option>2 km</option>
-            <option>5 km</option>
-            <option>10 km</option>
-            <option>20 km</option>
-            <option>25 km</option>
-            <option>50 km</option>
-        </select><br>
-        <input type="checkbox" id="pet">
-        <label for="pet">Include Pet at Home</label>
-    </div>
-    <div class="card">
-        <div class="card-body">
-          <span>8488</span>
-          <hr />
-          <div class="card_image">
-            <img src="./assets/images/calendar.png" class="img-fluid calendar" /><b>09/04/2018</b><br />
-            <img src="./assets/images/clock.png" class="img-fluid clock" /><b>12:00 - 18:00</b>
-          </div>
-          <hr />
-          <div>
-            <span class="card_name"><b>David Bough</b></span><br />
-            <div class="mydiv">
-              <img src="./assets/images/home.png" class="img-fluid home" />
-              <div class="desc">Musterstrabe 5,12345 Bonn</div>
-            </div>
-          </div>
-          <hr />
-          <span>56.25 €</span>
-          <hr />
-          <span></span>
-          <hr />
-          <span><button class="btn">Accept</button></span>
-        </div>
-    </div>
-    <?php
-    require_once('sp_mobile_pagination.php');
-    require_once("footer2.php");
-?>
-  <script src="./assets/js/helperland.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-</body>
+  <!DOCTYPE html>
+  <html>
 
-</html>
+  <head>
+    <title>Helperland</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/header4.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/sp_newService.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  </head>
+
+  <body id="sp_new" onload="data_of_this_page(0,<?php echo $_SESSION['userId'] ?>)">
+    <div class="preloader"></div>
+    <?php
+    require_once('header4.php');
+    ?>
+    </section>
+    <div class="welcome">
+      <p>Welcome,<b><?php echo $_SESSION['UserName'] ?></b></p>
+    </div>
+    <div class="hr-line"></div>
+    <?php
+    require_once("Email_exist_modal.php");
+    ?>
+    <div class="modal fade" id="details_request" tabindex="-1" aria-hidden="true">
+    </div>
+    <div class="mid-dash">
+      <section id="list">
+        <div class="list-group">
+          <a class="list-group-item">Dashboard</a>
+          <a class="list-group-item active" href="<?= $base_url . '?controller=Home&&function=sp_newService' ?>">New Service Requests</a>
+          <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_upComingService' ?>">Upcoming Services</a>
+          <a class="list-group-item">Service Schedule</a>
+          <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_serviceHistory' ?>">Service History</a>
+          <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_myRating' ?>">My Ratings</a>
+          <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_blockCustomer' ?>">Block Customer</a>
+        </div>
+      </section>
+      <section id="filter" class="table_page">
+        <div class="only_mobile_view">New Service Request</div>
+        <span>Service area</span>
+        <select class="km_select" onchange="data_of_this_page(0,<?php echo $_SESSION['userId'] ?>)">
+          <option value="2">2 km</option>
+          <option value="5">5 km</option>
+          <option value="10">10 km</option>
+          <option value="20">20 km</option>
+          <option value="25">25 km</option>
+          <option value="50" selected>50 km</option>
+        </select>
+        <div class="pet_filter">
+          <input type="checkbox" id="pet" onchange="data_of_this_page(0,<?php echo $_SESSION['userId'] ?>)">
+          <label for="pet">Include Pet at Home</label>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">
+                Service ID
+              </th>
+              <th scope="col">
+                Service date
+              </th>
+              <th scope="col">
+                Customer details
+              </th>
+              <th scope="col">
+                Payment
+              </th>
+              <th scope="col">
+                Time conflict
+              </th>
+              <th scope="col">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <?php
+    require_once("footer2.php");
+    ?>
+    <script src="./assets/js/helperland.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  </body>
+
+  </html>
+<?php
+}
+?>
