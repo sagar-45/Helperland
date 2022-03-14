@@ -150,7 +150,7 @@
   width: 614px;
   margin-bottom: 15px;
 }
-#touch .contact-form .message textarea{
+#touch .contact-form .message textarea {
   width: 614px;
   margin-bottom: 5px;
 }
@@ -169,17 +169,17 @@
   text-align: left;
   color: #a0a0a0;
 }
-input[type="file"]{
+input[type="file"] {
   display: none;
 }
-#touch .contact-form .attech{
+#touch .contact-form .attech {
   text-align: left;
   font-size: 17px;
   font-weight: bold;
   color: #646364;
   font-family: Roboto;
 }
-#touch .contact-form .attech label{
+#touch .contact-form .attech label {
   border: 1px solid #c8c8c8;
   border-radius: 20px;
   color: #646464;
@@ -191,7 +191,7 @@ input[type="file"]{
   font-weight: normal;
   padding: 8px;
 }
-#touch .contact-form .privacy{
+#touch .contact-form .privacy {
   text-align: left;
   width: 614px;
   display: flex;
@@ -199,16 +199,16 @@ input[type="file"]{
   font-family: Roboto;
   color: #646464;
 }
-#touch .contact-form .privacy input{
+#touch .contact-form .privacy input {
   width: 15px;
   height: 15px;
 }
-#touch .contact-form .privacy .policies{
+#touch .contact-form .privacy .policies {
   font-size: 15px;
   width: 550px;
   margin: 0px 0px 10px 10px;
 }
-#touch .contact-form .privacy .colortext{
+#touch .contact-form .privacy .colortext {
   color: #1d7a8c;
 }
 #touch .contact-form ::placeholder {
@@ -239,10 +239,10 @@ input[type="file"]{
 }
 /* touch with us section end */
 /* map image secton start */
-#map-img{
+#map-img {
   position: relative;
 }
-.m-img{
+.m-img {
   width: 100%;
   max-height: 370px;
 }
@@ -307,3 +307,4 @@ input[type="file"]{
   text-align: left;
   color: #ffffff;
 }
+/*Newsletter section end*/
