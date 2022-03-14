@@ -25,7 +25,7 @@
   font-size: 16px;
   color: #fff;
 }
-#header .book_clean .btn{
+#header .book_clean .btn {
   display: block;
   margin: 16px auto 0px;
   padding: 13px 25px 13px 25px;
@@ -37,10 +37,9 @@
   background-color: #006072;
   opacity: 0.6;
 }
-#header .book_clean
-{
+#header .book_clean {
   text-decoration: none;
-  color:#fff;
+  color: #fff;
 }
 #header .step {
   display: flex;
@@ -72,19 +71,17 @@
   display: block;
   margin: 43px auto 0px;
 }
-.dark:hover 
-{
+.dark:hover {
   background-color: #fff !important;
   opacity: 1;
 }
-.book_clean .btn:hover{
+.book_clean .btn:hover {
   background-color: #fff !important;
   opacity: 1;
   color: #1d7a8c !important;
 }
- .dark .nav-link:hover 
-{
-  color:#1d7a8c !important;
+.dark .nav-link:hover {
+  color: #1d7a8c !important;
 }
 /* why helperland section start */
 #why-helperland .title {
@@ -385,88 +382,3 @@
   left: 4.5%;
   bottom: 271px;
 }
-
-/*footer section start*/
-.footer .footer_wrapper {
-  background-color: #111111;
-}
-
-.footer .footer_bar {
-  margin: auto 110px;
-  padding: 21px 0;
-}
-
-.footer .footer_logo {
-  height: 78px;
-  width: 106px;
-}
-
-.footer .footer_menu ul {
-  list-style-type: none;
-  text-decoration: none;
-  display: flex;
-  padding: 36px 0 25px;
-  margin: 0;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.footer .row {
-  --bs-gutter-x: 0;
-}
-
-.footer .footer_menu ul li {
-  margin-left: 25px;
-  font-size: 14px;
-  line-break: 30px;
-}
-
-.footer .footer_menu ul a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.footer .social :first-child {
-  margin-right: 15px;
-}
-
-.footer .social {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.footer .copyright {
-  text-align: center;
-}
-
-.footer .copyright p {
-  margin: 10px 0;
-  text-align: center;
-  line-height: 40px;
-  width: 100%;
-  margin: 10px auto;
-}
-
-.footer .copyright .ok_btn {
-  width: 99px;
-  background-color: #eed507;
-  height: 40px;
-  float: right;
-  color: #4f4f4f;
-  border-radius: 20px;
-}
-
-.footer .copyright_wrapper {
-  background-color: #292929;
-  opacity: 80%;
-  color: #f1f1f1;
-  transition: all 0.5s linear;
-}
-.footer .privacypolicy {
-  color: #6eabef;
-}
-.footer .ok_btn_hide {
-  display: none;
-}
-/*footer section end*/
