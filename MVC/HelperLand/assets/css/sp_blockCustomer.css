@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+/* header section end */
+.welcome {
+  margin-top: 64px;
+  width: 100%;
+  height: 119px;
+  background-color: #f9f9f9;
+}
+.welcome p {
+  font-family: Roboto;
+  font-size: 30px;
+  padding-top: 44px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.8;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+}
+.hr-line {
+  height: 1px;
+  background-color: #e1e1e1;
+}
+.mid-dash {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 24px;
+}
+#list {
+  width: 262px;
+  height: auto;
+  margin: 0px 16px 30px 0px;
+  background-color: #1d7a8c;
+}
+#list .list-group-item {
+  background-color: #1d7a8c;
+  border-color: #2f8f9f;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 2;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+#list .list-group-item:hover,
+#list .active {
+  background-color: #146371;
+}
+#filter .table{
+    width: 847px;
+    font-family: Roboto;
+    color:#646464;
+}
+#filter .table thead{
+  display: none;
+}
+.only_mobile_view{
+  font-family: Roboto;
+  color:#646464;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: none;
+}
+#filter .table tbody tr{
+    width: 240px;
+    border: 1px solid #e1e1e1;
+    display: inline-block;
+    margin: 0px 15px 10px 0px;
+}
+#filter .table tbody tr td{
+    text-align: center;
+    width: 250px;
+    border-bottom: none;
+} 
+#filter .table tbody tr td .img{
+    border: 1px solid #c1c1c1;
+    padding: 17px 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin:10px auto ;
+}
+#filter .table tbody tr td img{
+    width: 45px;
+    height: 30px;
+}
+#filter .table tbody tr td .btn{
+    color:#fff;
+    border-radius: 40px;
+    margin: -5px auto 10px;
+}
+#filter .table tbody tr td .btn.unblock{
+    background-color:#ff6b6b;
+}
+#filter .table tbody tr td .btn.block{
+    background-color: #1d7a8c;
+}
+.bottom .bi{
+  font-size: 12px;
+}
+.bottom .pagination .paginate_button a{
+  border-radius: 50%;
+  font-size: 15px;
+  margin: 0px 1px;
+  border: 1px solid #e1e1e1;
+  color: #646464;
+}
+.bottom .pagination .paginate_button.active a{
+  background-color: #1d7a8c;
+  border: 1px solid #1d7a8c;
+  color: #fff;
+}
+.bottom{
+  margin: 20px 0px 20px 0px;
+}
+.bottom .dataTables_length,.bottom .dataTables_info,.bottom .dataTables_paginate{
+  display: inline-block;
+}
+.bottom .dataTables_length{
+  margin: 0px 20px 0px 0px;
+}
+.bottom .dataTables_paginate{
+  float: right;
+}

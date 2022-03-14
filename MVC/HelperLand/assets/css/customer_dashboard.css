@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+/* header section end */
+.welcome {
+  width: 100%;
+  height: 119px;
+  margin-top: 64px;
+  background-color: #f9f9f9;
+}
+.welcome p {
+  font-family: Roboto;
+  font-size: 30px;
+  padding-top: 44px;
+  line-height: 0.8;
+  text-align: center;
+  color: #4f4f4f;
+}
+.hr {
+  height: 1px;
+  background-color: #e1e1e1;
+}
+.mid-dash {
+  display: flex;
+  justify-content: center;
+}
+#list {
+  width: 262px;
+  height: auto;
+  margin: 31px 0px 30px 0px;
+  background-color: #1d7a8c;
+}
+#list .list-group-item {
+  background-color: #1d7a8c;
+  border-color: #2f8f9f;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 2;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+#list .list-group-item:hover,
+#list .active {
+  background-color: #146371;
+}
+
+.table_page .service_head {
+  margin: 33px 0px 0px 16px;
+  width: 861px;
+}
+.table_page .service_txt {
+  height: 20px;
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 2.05;
+  text-align: left;
+  color: #646464;
+}
+.table_page .export {
+  border-radius: 17px;
+  background-color: #146371;
+  color: #fff;
+  font-family: Roboto;
+  float: right;
+}
+#service_history .table {
+  width: 864px;
+  height: auto;
+  padding: 1px 0 0px;
+  margin: 10px auto 20px 14px;
+  border: solid 1px #e1e1e1;
+  background-color: #fff;
+}
+#service_history thead {
+  width: 861px;
+  height: 49px;
+  margin: 0 2px 0 1px;
+}
+#service_history th {
+  margin: 1px 0px 3px 0;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.63;
+  text-align: center;
+  color: #646464;
+  background-color: #64646410;
+  border-bottom: 1px solid #e1e1e1;
+}
+#service_history th:nth-child(3) {
+  text-align: left;
+}
+#service_history tbody tr {
+  height: 80px;
+  vertical-align: middle;
+}
+#service_history tr td:nth-child(2) {
+  text-align: left;
+  cursor: pointer;
+}
+#service_history tr td {
+  font-family: Roboto;
+  color: #646464;
+  text-align: center;
+  margin-top: 10px;
+}
+#service_history tr td .calendar {
+  margin: 0px 7px 0px 0px;
+  width: 16px;
+  height: 19px;
+  object-fit: contain;
+}
+#service_history tr td .clock {
+  width: 17px;
+  height: 17px;
+  margin-right: 7px;
+}
+#service_history tr .rating {
+  display: flex;
+}
+#service_history .rateYo {
+  display: inline-block;
+}
+#service_history tr .rating .cap {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border: solid 1px #aaa;
+  background-color: #fff;
+  margin-right: 12px;
+}
+#service_history tr .rating .star p {
+  margin-bottom: 0px;
+  text-align: left;
+}
+#service_history tr .rupee .uro {
+  font-size: 20px;
+}
+#service_history tr .rupee {
+  height: 17px;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  color: #1d7a8c;
+}
+.table_page .reschedule,
+#details_request .reschedule {
+  background-color: #1d7a8c;
+  color: #fff;
+  border-radius: 40px;
+  margin-left: 10px;
+}
+.table_page .cancle,
+#details_request .cancle {
+  background-color: #ff6b6b;
+  color: #fff;
+  border-radius: 40px;
+  margin-left: 10px;
+}
+.modal-dialog .modal-content {
+  font-family: Roboto;
+  color: #646464;
+  padding: 20px;
+  font-size: 15px;
+}
+#details_request .modal_title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+#details_request hr {
+  margin: 10px 0px !important;
+}
+.modal-header {
+  padding: 0px !important;
+  border-bottom: none !important;
+}
+#details_request .modal_main {
+  font-weight: bold;
+}
+#details_request .modal_data {
+  font-weight: normal;
+}
+#details_request .bi-x {
+  background-color: #ff6b6b;
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px;
+  border-radius: 50%;
+  color: #fff;
+  margin-right: 5px;
+}
+#details_request .amount {
+  font-size: 18px;
+  color: #1d7a8c;
+  font-weight: bold;
+}
+#reschedule_request .modal-content,
+#cancle_request .modal-content {
+  width: 350px;
+  margin: 0px auto 0px;
+}
+#reschedule_request .modal-content .alert {
+  display: none;
+}
+#reschedule_request .modal-content .reschedule_date_time .date {
+  display: inline-block;
+  width: 47%;
+  margin: 10px 0px 0px;
+}
+#reschedule_request .modal-content .reschedule_date_time .date input {
+  width: 100%;
+  height: 46px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  padding-left: 40px;
+  color: #646464;
+}
+#reschedule_request .modal-content .reschedule_date_time .date img {
+  position: absolute;
+  padding: 12px 0px 0px 10px;
+  align-items: center;
+}
+#reschedule_request .modal-content .reschedule_date_time select {
+  width: 47%;
+  float: right;
+  height: 46px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  color: #646464;
+  padding-left: 20px;
+  margin: 10px 0px 0px;
+}
+#reschedule_request .modal-content .reschedule_date_time .date input:focus {
+  border: 1px solid #1d7a8c;
+  outline: none;
+}
+#reschedule_request .modal-content .reschedule_date_time select:focus {
+  border: 1px solid #1d7a8c;
+  outline: none;
+}
+.modal-content .reschedule_btn {
+  background-color: #1d7a8c;
+  border-radius: 40px;
+  color: #fff;
+  margin: 15px 0px 0px;
+}
+#cancle_request .modal-content .reason {
+  margin: 10px 0px 0px;
+}
+#cancle_request .modal-content .reason textarea {
+  width: 100%;
+  margin: 5px 0px -5px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+}
+#cancle_request .modal-content .reason textarea:focus {
+  outline: none;
+  border: 1px solid #1d7a8c;
+}
+.btn:hover {
+  color: #fff !important;
+}
+.bottom .bi {
+  font-size: 12px;
+}
+.bottom .pagination .paginate_button a {
+  border-radius: 50%;
+  font-size: 15px;
+  margin: 0px 1px;
+  border: 1px solid #e1e1e1;
+  color: #646464;
+}
+.bottom .pagination .paginate_button.active a {
+  background-color: #1d7a8c;
+  border: 1px solid #1d7a8c;
+  color: #fff;
+}
+.bottom {
+  margin: 20px 0px 20px 16px;
+}
+.bottom .dataTables_length,
+.bottom .dataTables_info,
+.bottom .dataTables_paginate {
+  display: inline-block;
+}
+.bottom .dataTables_length {
+  margin: 0px 20px 0px 0px;
+}
+.bottom .dataTables_paginate {
+  float: right;
+}
