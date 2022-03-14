@@ -5,30 +5,24 @@
   background-image: url("../images/group-35.jpg");
   padding-top: 20px;
 }
-input:focus
-{
+input:focus {
   outline: none !important;
   border: 1px solid #1d7a8c !important;
 }
-#header .dark:hover 
-{
+#header .dark:hover {
   background-color: #fff !important;
   opacity: 1;
 }
-#header .dark .nav-link:hover 
-{
-  color:#1d7a8c;
+#header .dark .nav-link:hover {
+  color: #1d7a8c;
 }
-#header .email_exist
-{
+#header .email_exist {
   display: none;
 }
-#header .modal 
-{
+#header .modal {
   text-align: center;
 }
-#header .modal .false
-{
+#header .modal .false {
   background-color: #a94442;
   padding: 30px;
   width: 100px;
@@ -38,21 +32,22 @@ input:focus
   border-radius: 50%;
   margin: 40px auto 20px;
 }
-#header .modal .false img
-{
+#header .modal .false img {
   width: 40px;
   height: 40px;
 }
-#header .modal p
-{
+#header .modal p {
   font-size: 20px;
 }
-#header .exist_btn{
+#header .exist_btn {
   background-color: #1d7a8c;
   color: #fff;
   width: 80px;
   margin: 0px auto 30px;
   border-radius: 40px;
+}
+.modal-content i {
+  left: 45% !important;
 }
 /* registration form section start */
 #service-page form {
@@ -90,11 +85,11 @@ input:focus
   margin-bottom: 15px;
   border-radius: 4px;
 }
-input:focus{
+input:focus {
   outline: none;
   border: 1px solid #1d7a8c !important;
 }
-#reg_form .errors{
+#reg_form .errors {
   margin-bottom: 10px;
 }
 #reg_form .flex-nowrap > input {
@@ -102,7 +97,7 @@ input:focus{
   height: 46px;
   border-radius: 4px;
 }
-#reg_form .flex-nowrap{
+#reg_form .flex-nowrap {
   margin-bottom: 15px;
 }
 #reg_form form > div {
@@ -114,7 +109,7 @@ input:focus{
   width: 100%;
   padding-left: 16px;
 }
-#reg_form .errors{
+#reg_form .errors {
   font-family: Roboto;
   font-size: 14px;
   color: #a94442;
