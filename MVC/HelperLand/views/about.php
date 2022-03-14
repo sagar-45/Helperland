@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Helperland</title>
   <meta charset="utf-8" />
