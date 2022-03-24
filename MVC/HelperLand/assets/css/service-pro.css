@@ -46,10 +46,22 @@ input:focus {
   margin: 0px auto 30px;
   border-radius: 40px;
 }
-.modal-content i {
-  left: 45% !important;
-}
 /* registration form section start */
+#reg_form .text{
+  width: 270px;
+  color:#fff;
+  font-family: Roboto;
+  position: absolute;
+  top: 50%;
+  left:50px;
+}
+#reg_form .text .main_text{
+  font-size: 40px;
+  margin: 0px 0px 15px;
+}
+#reg_form .text .text_desc{
+  margin: 0px 0px 5px;
+}
 #service-page form {
   width: 430px;
   /* height: 71.6%; */
@@ -259,57 +271,4 @@ input:focus {
   color: #4f4f4f;
 }
 /* how it work section end */
-/*Newsletter section start*/
-#news-letter .container-fluid .news-letter-title {
-  height: 13px;
-  font-family: Roboto;
-  margin-top: 77px;
-  font-size: 18px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.22;
-  letter-spacing: normal;
-  text-align: center;
-  color: #353548;
-}
-#news-letter .container-fluid .email-get {
-  display: flex;
-  justify-content: center;
-}
-#news-letter .container-fluid .news-email {
-  width: 233px;
-  height: 40px;
-  margin: 20px 11px 53px 56px;
-  padding-left: 25px;
-  border-radius: 20px;
-  border: solid 1px #565656;
-  background-color: #f4f5f8;
-}
-#news-letter .container-fluid .news-email::placeholder {
-  text-transform: uppercase;
-}
 
-#news-letter .container-fluid .news-button {
-  width: 88px;
-  height: 40px;
-  margin: 20px 56px 53px 11px;
-  text-align: center;
-  padding-top: 5px;
-  border-radius: 20px;
-  background-color: #ff7b6d;
-}
-#news-letter .container-fluid .news-button .button-text {
-  width: 44px;
-  height: 11px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 2.29;
-  letter-spacing: normal;
-  text-align: left;
-  color: #ffffff;
-}
-/*Newsletter section end*/
