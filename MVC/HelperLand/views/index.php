@@ -38,18 +38,23 @@
 
   ?>
   <div class="text">
-    <div class="main-text">Lorem ipsum text</div>
+    <div class="main-text">Do not feel like housework?</div>
+    <div class="text_desc"><span>Great! Book now for Helperland and enjoy the benefits</span></div>
     <div class="text_desc">
       <img src="./assets/images/true.png" class="img-fluid" alt="" />
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+      <span>certified & insured helper</span>
     </div>
     <div class="text_desc">
       <img src="./assets/images/true.png" class="img-fluid" alt="" />
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+      <span>easy booking procedure</span>
     </div>
     <div class="text_desc">
       <img src="./assets/images/true.png" class="img-fluid" alt="" />
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+      <span>friendly customer service</span>
+    </div>
+    <div class="text_desc">
+      <img src="./assets/images/true.png" class="img-fluid" alt="" />
+      <span>secure online payment method</span>
     </div>
   </div>
   <?php
@@ -90,30 +95,27 @@
   <!-- home section end -->
   <!-- card section start -->
   <section id="why-helperland">
-    <p class="title">Why Helperland</p>
+    <p class="title">Convince yourself!</p>
     <div class="cards">
       <div class="card-1">
         <img src="./assets/images/group-21.png" alt="" class="img-fluid" />
-        <div class="card_head">Experience & Vetted Professionals</div>
+        <div class="card_head">Friendly & Certified Helpers</div>
         <div class="card_desc">
-          dominate the industry in scale and scope with an adaptable,
-          extensive network that consistently delivers exceptional results.
+          We want you to be completely satisfied with our service and feel comfortable at home. In order to guarantee this, our helpers go through a test procedure. Only when the cleaners meet our high standards, they may call themselves Helper.
         </div>
       </div>
       <div class="card-1">
         <img src="./assets/images/group-23.png" alt="" class="img-fluid" />
-        <div class="card_head">Secure Online Payment</div>
+        <div class="card_head">Transparent and secure payment</div>
         <div class="card_desc">
-          Payment is processed securely online. Customers pay safely online
-          and manage the booking.
+          We have transparent prices, you do not have to scratch money or money on the sideboard Leave it: Pay your helper easily and securely via the online payment method. You will also receive an invoice for each completed cleaning.
         </div>
       </div>
       <div class="card-1">
         <img src="./assets/images/group-24.png" alt="" class="img-fluid" />
-        <div class="card_head">Dedicated Customer Service</div>
+        <div class="card_head">We're here for you</div>
         <div class="card_desc">
-          to our customers and are guided in all we do by their needs. The
-          team is always happy to support you and offer all the information.
+          You have a question or need assistance with the booking process? Our customer service is happy to help and advise you. How you can reach us you will find out when you look under "Contact". We look forward to hearing from you or reading.
         </div>
       </div>
     </div>
@@ -125,20 +127,12 @@
       <img src="./assets/images/group-36.png" alt="" class="img-fluid" />
       <div class="img-text">
         <div class="section_head">
-          Lorem ipsum dolor sit amet, consectetur
+          We do not know what makes you happy, but ...
         </div>
         <div class="section_desc">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            nisi sapien, sus cipit ut accumsan vitae, pulvinar ac libero.
+            If it's not dusting off, our friendly helpers will free you from this burden - do not worry anymore about spending valuable time doing housework, but savor life, you're well worth your time with beautiful experiences. Free yourself and enjoy the gained time: Go celebrate, relax, play with your children, meet friends or dare to jump on the bungee.Other leisure ideas and exclusive events can be found in our blog - guaranteed free from dust and cleaning tips!
           </p>
-          <p>
-            Aliquam erat volutpat. Nullam quis ex odio. Nam bibendum cursus
-            purus, vel efficitur urna finibus vitae. Nullam finibus aliquet
-            pharetra. Morbi in sem dolor. Integer pretium hendrerit ante quis
-            vehicula.
-          </p>
-          <p>Mauris consequat ornare enim, sed lobortis quam ultrices sed.</p>
         </div>
       </div>
     </section>
@@ -289,6 +283,13 @@
 
   <script>
     window.onload = function() {
+      <?php
+      if (isset($_GET['token'])) {
+      ?>
+        user_active('<?php echo $_GET['token'] ?>');
+      <?php
+      }
+      ?>
       if (sessionStorage.getItem("afterPages") == 2) {
         login_popup();
         sessionStorage.setItem("afterPages", 0);
