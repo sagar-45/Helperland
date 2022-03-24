@@ -42,7 +42,7 @@ if (!isset($_SESSION['UserTypeId']) || $_SESSION['UserTypeId'] != 2) {
           <a class="list-group-item">Dashboard</a>
           <a class="list-group-item active" href="<?= $base_url . '?controller=Home&&function=sp_newService' ?>">New Service Requests</a>
           <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_upComingService' ?>">Upcoming Services</a>
-          <a class="list-group-item">Service Schedule</a>
+          <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_service_schedule' ?>">Service Schedule</a>
           <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_serviceHistory' ?>">Service History</a>
           <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_myRating' ?>">My Ratings</a>
           <a class="list-group-item" href="<?= $base_url . '?controller=Home&&function=sp_blockCustomer' ?>">Block Customer</a>
