@@ -68,6 +68,9 @@ function login_module($email_error, $password_error) {
                 else if (response == "service provider") {
                     window.location.replace("http://localhost/HelperLand/?controller=Home&&function=sp_newService");
                 }
+                else if (response == 'admin') {
+                    window.location.replace("http://localhost/HelperLand/?controller=Home&&function=admin_serviceRequests");
+                }
                 else {
                     $(".alert").html(response);
                     $(".alert").css("display", 'block');
@@ -75,6 +78,30 @@ function login_module($email_error, $password_error) {
                 }
             }
         });
+    }
+}
+function user_active($str) {
+    $token = $str.split(":")[0].substring(0, 24);
+    $userid = $str.split(':')[1];
+    if (check_link($token)) {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/HelperLand/?controller=Home&&function=active_user",
+            data: {
+                'token': $token,
+                'userid': $userid
+            },
+            beforeSend: function () {
+                $(".preloader").css("display", "block");
+            },
+            success: function (response) {
+                $(".preloader").css("display", "none");
+                window.location.replace("http://localhost/HelperLand/?controller=Home&&function=index");
+            }
+        });
+    }
+    else {
+        window.location.replace("http://localhost/HelperLand/?controller=Home&&function=error");
     }
 }
 /* forgot password function */
@@ -105,10 +132,31 @@ function forgot_password($error) {
     }
 }
 /* check forgot password link is available or not */
-function check_link_is_available($token) {
+function check_link_is_available($str, $curr_date, $curr_time) {
+    $token = $str.split(":")[0];
+    $date = $str.split(":")[1];
+    $time = $str.split(":")[2];
+    if ($curr_date == $date) {
+        if (($curr_time - $time) <= 5000) {
+            if(!check_link($token))
+            {
+                window.location.replace("http://localhost/HelperLand/?controller=Home&&function=error");
+            }
+        }
+        else {
+            window.location.replace("http://localhost/HelperLand/?controller=Home&&function=error");
+        }
+    }
+    else {
+        window.location.replace("http://localhost/HelperLand/?controller=Home&&function=error");
+    }
+}
+function check_link($token) {
+    var $ans;
     $.ajax({
         type: "POST",
         url: "http://localhost/HelperLand/?controller=Home&&function=check_forgot_link",
+        async: false,
         data: {
             "token": $token
         },
@@ -119,9 +167,14 @@ function check_link_is_available($token) {
             $(".preloader").css("display", "none");
             if (response == '0') {
                 window.location.replace("http://localhost/HelperLand/?controller=Home&&function=error");
+                $ans = 0;
+            }
+            else {
+                $ans = 1;
             }
         }
     });
+    return $ans;
 }
 /* password change */
 function reset_password($token) {
@@ -303,6 +356,7 @@ function from_your_details_to_payment() {
 function add_new_address() {
     $(".add_new_address_btn").css("display", 'none');
     $(".address_card").css("display", 'block');
+    $(".address_card .add-postal_code").val($("#setup_service .postal_code").val());
 }
 /* in book service page in your details tab hide add address card */
 function hide_card_new_address() {
@@ -312,6 +366,8 @@ function hide_card_new_address() {
 /* in book service page in your details tab select favourite sp  */
 function select_fav_sp(clicked) {
     var $element = $("." + clicked);
+    $(".favourite_sp .fav_sp_row .select_fav_sp").removeClass('active');
+    $(".favourite_sp .fav_sp_row .select_fav_sp").html("Select");
     if ($element.hasClass("active")) {
         $element.removeClass("active");
         $element.html("Select");
@@ -400,10 +456,10 @@ function book_service_complete() {
     $(".duration .active").each(function () {
         $extra_services.push($(this).attr("class")[8]);
     });
-    $favourite_sp = [];
-    $("#your_details .fav_sp_row .fav_sp_card .active").each(function () {
-        $favourite_sp.push($(this).attr("class").split(" ")[2]);
-    });
+    $favourite_sp = null;
+    if ($("#your_details .fav_sp_row .fav_sp_card .btn").hasClass("active")) {
+        $favourite_sp = $("#your_details .fav_sp_row .fav_sp_card .active").attr("class").split(" ")[2];
+    }
     $serviceStartDate = $(".payment .time .service_date").html() + " " + $(".payment .time_label").html() + ":00";
     $address_radio = $('input[name="address"]:checked');
     $service_address = $address_radio.siblings(".address").html();
@@ -415,7 +471,6 @@ function book_service_complete() {
     $haspets = ($("#schedule_plan .comment #pet").is(":checked") ? 1 : 0);
     $subtotal = $(".total_time").html();
     $discount = "0";
-    $status = 0;
     $serviceid = Math.floor(1000 + Math.random() * 9000);
     $totalcost = $(".total_price").html();
     $.ajax({
@@ -440,7 +495,6 @@ function book_service_complete() {
             "totalcost": $totalcost,
             "paymentDue": 0,
             "paymentDone": 1,
-            "status": $status,
             "Serviceid": $serviceid
         },
         beforeSend: function () {
@@ -482,31 +536,7 @@ function loadnewServiceRequest($user, $status1, $status2) {
                 starWidth: '15px'
             });
             $("#reschedule_request .date input").datepicker({ dateFormat: 'dd/mm/yy', minDate: 0 });
-            $.fn.DataTable.ext.errMode = 'none';
-            $('.table').DataTable({
-                "pagingType": "full_numbers",
-                "searching": false,
-                "dom": '"B" <"top">rt<"bottom"lip><"clear">',
-                "ordering": false,
-                "oLanguage": {
-                    "oPaginate": {
-                        "sNext": '<i class="bi bi-chevron-right"></i>',
-                        "sPrevious": '<i class="bi bi-chevron-left"></i>',
-                        "sFirst": '<i class="bi bi-caret-left-fill"></i>',
-                        'sLast': '<i class="bi bi-caret-right-fill"></i>'
-                    }
-                },
-                "language": {
-                    "infoEmpty": "No entries available to show"
-                },
-                buttons: [
-                    {
-                        extend: 'excel',
-                        className: 'btn',
-                        text: 'Export'
-                    }
-                ]
-            });
+            pagination();
         }
     });
 }
@@ -554,7 +584,7 @@ function reschedule_request_date_time($serviceid, $userid) {
 function cancle_request($serviceid) {
     $("#cancle_request .modal-content .cancle_btn").attr("id", $serviceid);
 }
-function cancle_btn($serviceid, $userid) {
+function cancle_btn($serviceid, $userid, $usertypeid) {
     if (!$(".reason textarea").val()) {
         $(".reschedule_btn").css("disabled", "true");
         $(".reason textarea").focus();
@@ -575,7 +605,12 @@ function cancle_btn($serviceid, $userid) {
             success: function (response) {
                 $(".preloader").css("display", "none");
                 $("#cancle_request").modal("hide");
-                loadnewServiceRequest($userid, 0, 1);
+                if ($usertypeid == '3') {
+                    load_data_of_admin_service_request();
+                }
+                else if ($usertypeid == '1') {
+                    loadnewServiceRequest($userid, 0, 1);
+                }
             }
         });
     }
@@ -620,6 +655,63 @@ function give_rating($userid, $serviceRequestid, $spid) {
         },
         success: function (response) {
             loadnewServiceRequest($userid, 3, 4);
+        }
+    });
+}
+function customer_fav_sp($userid) {
+    $.ajax({
+        type: 'POST',
+        url: "http://localhost/HelperLand/?controller=Home&&function=fav_block_sp",
+        data: {
+            "userid": $userid
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            $(".table_page tbody").html(response);
+            $(".readOnly_data").rateYo({
+                readOnly: true,
+                starWidth: '15px'
+            });
+            pagination();
+        }
+    });
+}
+function set_favorite_sp($spid, $custid, $isfav) {
+    $.ajax({
+        type: 'POST',
+        url: "http://localhost/HelperLand/?controller=Home&&function=set_fav_sp",
+        data: {
+            "spid": $spid,
+            "custid": $custid,
+            "isfav": $isfav
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            customer_fav_sp($custid);
+        }
+    });
+}
+function set_block_sp($spid, $custid, $isblock) {
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/HelperLand/?controller=Home&&function=set_block_sp",
+        data: {
+            'custid': $custid,
+            'spid': $spid,
+            "isblock": $isblock
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            customer_fav_sp($custid);
         }
     });
 }
@@ -913,31 +1005,7 @@ function data_of_this_page($status, $userid) {
         },
         success: function (response) {
             $(".table tbody").html(response);
-            $.fn.DataTable.ext.errMode = 'none';
-            $('.table').DataTable({
-                "pagingType": "full_numbers",
-                "searching": false,
-                "dom": '"B" <"top">rt<"bottom"lip><"clear">',
-                "ordering": false,
-                "oLanguage": {
-                    "oPaginate": {
-                        "sNext": '<i class="bi bi-chevron-right"></i>',
-                        "sPrevious": '<i class="bi bi-chevron-left"></i>',
-                        "sFirst": '<i class="bi bi-caret-left-fill"></i>',
-                        'sLast': '<i class="bi bi-caret-right-fill"></i>'
-                    }
-                },
-                "language": {
-                    "infoEmpty": "No entries available to show"
-                },
-                buttons: [
-                    {
-                        extend: 'excel',
-                        className: 'btn',
-                        text: 'Export'
-                    }
-                ]
-            });
+            pagination();
         }
     });
 }
@@ -987,31 +1055,7 @@ function data_of_upcoming_page($userid, $status) {
         },
         success: function (response) {
             $(".table tbody").html(response);
-            $.fn.DataTable.ext.errMode = 'none';
-            $('.table').DataTable({
-                "pagingType": "full_numbers",
-                "searching": false,
-                "dom": '"B" <"top">rt<"bottom"lip><"clear">',
-                "ordering": false,
-                "oLanguage": {
-                    "oPaginate": {
-                        "sNext": '<i class="bi bi-chevron-right"></i>',
-                        "sPrevious": '<i class="bi bi-chevron-left"></i>',
-                        "sFirst": '<i class="bi bi-caret-left-fill"></i>',
-                        'sLast': '<i class="bi bi-caret-right-fill"></i>'
-                    }
-                },
-                "language": {
-                    "infoEmpty": "No entries available to show"
-                },
-                buttons: [
-                    {
-                        extend: 'excel',
-                        className: 'btn',
-                        text: 'Export'
-                    }
-                ]
-            });
+            pagination();
         }
     });
 }
@@ -1072,6 +1116,31 @@ function cancle_request_by_sp($serviceid, $userid) {
         }
     });
 }
+function sp_serive_schedule($userid) {
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/HelperLand/?controller=Home&&function=get_sp_serviceSchedule",
+        data: {
+            'userid': $userid
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            $(".calendar").fullCalendar({
+                header: {
+                    left: 'prev,next,title',
+                    right: 'button'
+                },
+                events: JSON.parse(response),
+                eventClick: function (event) {
+                    show_sp_RequestDetails_Popup(event.id, 3, $userid);
+                }
+            });
+        }
+    });
+}
 function load_my_rating($userid, $rating_status) {
     $.ajax({
         type: "POST",
@@ -1090,31 +1159,7 @@ function load_my_rating($userid, $rating_status) {
                 readOnly: true,
                 starWidth: '13px'
             });
-            $.fn.DataTable.ext.errMode = 'none';
-            $('.table').DataTable({
-                "pagingType": "full_numbers",
-                "searching": false,
-                "dom": '"B" <"top">rt<"bottom"lip><"clear">',
-                "ordering": false,
-                "oLanguage": {
-                    "oPaginate": {
-                        "sNext": '<i class="bi bi-chevron-right"></i>',
-                        "sPrevious": '<i class="bi bi-chevron-left"></i>',
-                        "sFirst": '<i class="bi bi-caret-left-fill"></i>',
-                        'sLast': '<i class="bi bi-caret-right-fill"></i>'
-                    }
-                },
-                "language": {
-                    "infoEmpty": "No entries available to show"
-                },
-                buttons: [
-                    {
-                        extend: 'excel',
-                        className: 'btn',
-                        text: 'Export'
-                    }
-                ]
-            });
+            pagination();
         }
     });
 }
@@ -1134,31 +1179,7 @@ function block_customer_page_details($userid) {
         success: function (response) {
             $(".preloader").css("display", "none");
             $("#filter tbody").html(response);
-            $.fn.DataTable.ext.errMode = 'none';
-            $('.table').DataTable({
-                "pagingType": "full_numbers",
-                "searching": false,
-                "dom": '"B" <"top">rt<"bottom"lip><"clear">',
-                "ordering": false,
-                "oLanguage": {
-                    "oPaginate": {
-                        "sNext": '<i class="bi bi-chevron-right"></i>',
-                        "sPrevious": '<i class="bi bi-chevron-left"></i>',
-                        "sFirst": '<i class="bi bi-caret-left-fill"></i>',
-                        'sLast': '<i class="bi bi-caret-right-fill"></i>'
-                    }
-                },
-                "language": {
-                    "infoEmpty": "No entries available to show"
-                },
-                buttons: [
-                    {
-                        extend: 'excel',
-                        className: 'btn',
-                        text: 'Export'
-                    }
-                ]
-            });
+            pagination();
         }
     });
 }
@@ -1237,7 +1258,6 @@ function change_sp_profile_data($userid) {
     $postalCode = $('#edit_address .postalcode input').val();
     $city = $('#edit_address .city input').val();
     $ans = validate_user_data($firstName, $lastName, $email, $mobile, $date, $month, $year);
-    alert($gender);
     if ($ans == 0) {
         $ans2 = validate_address($street, $house_no, $postalCode, $city);
         if ($ans2 == 0) {
@@ -1275,7 +1295,306 @@ function change_sp_profile_data($userid) {
     setTimeout(function () { $(".alert").css("display", "none") }, 2000);
 }
 /* service provider pages ----> end */
+/* admin pages */
+function load_data_of_admin_service_request() {
+    $serviceid = $(".table_content .service_id").val();
+    $postalcode = $(".table_content .postal_code").val();
+    $email = $(".table_content .email ").val();
+    $customer = $(".table_content .select_customer ").val();
+    $sp = $(".table_content .select_sp ").val();
+    $status = $(".table_content .select_status ").val();
+    $sppayment = $(".table_content .select_sp_payment ").val();
+    $pstatus = $(".table_content .select_p_status ").val();
+    $issue = $(".table_content #issue ").prop("checked") == true ? 1 : 0;
+    $startdate = $(".table_content .start_date").val();
+    $enddate = $(".table_content .end_date").val();
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/HelperLand/?controller=Home&&function=get_servicerequest_admin",
+        data: {
+            'serviceid': $serviceid,
+            'postalcode': $postalcode,
+            'email': $email,
+            'customer': $customer,
+            'sp': $sp,
+            'status': $status,
+            'sppayment': $sppayment,
+            'pstatus': $pstatus,
+            'issue': $issue,
+            "startdate": $startdate,
+            'enddate': $enddate
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            $(".table_content .start_date").datepicker({ dateFormat: 'yy-mm-dd' });
+            $(".table_content .end_date").datepicker({ dateFormat: 'yy-mm-dd' });
+            $(".table_data tbody").html(response);
+            $(".readOnly_data").rateYo({
+                readOnly: true,
+                starWidth: '15px'
+            });
+            pagination();
+        }
+    });
+}
+function open_edit_sr($serviceid) {
+    $address = $(".table_data tbody #" + $serviceid + " .details .desc span").html();
+    $street = $address.split(" ")[0];
+    $house = $address.split(" ")[1];
+    $postacode = $address.split(" ")[2];
+    $city = $address.split(" ")[3];
+    $date = $(".table_data tbody #" + $serviceid + " td:nth-child(2) b").html();
+    $starttime = $(".table_data tbody #" + $serviceid + " .starttime").html().replace(":", ".");
+    $("#reschedule_request .date input").val($date);
+    $("#reschedule_request #when_need").val($starttime);
+    $("#reschedule_request .street_name input").val($street);
+    $("#reschedule_request .house_number input").val($house);
+    $("#reschedule_request .city input").val($city);
+    $("#reschedule_request .postal_code input").val($postacode);
+    $("#reschedule_request .reschedule_btn").attr('id', $serviceid);
+    $("#reschedule_request .date input").datepicker({ dateFormat: 'yy-mm-dd', minDate: 0 });
+    $("#reschedule_request").modal("show");
+}
+function edit_sr_admin($serviceid, $userid) {
+    $date = $("#reschedule_request .date input").val();
+    $time = $("#reschedule_request #when_need").val().replace(".", ":");
+    $street = $("#reschedule_request .street_name input").val();
+    $house_no = $("#reschedule_request .house_number input").val();
+    $city = $("#reschedule_request .city input").val();
+    $postalcode = $("#reschedule_request .postal_code input").val();
+    $spid = null;
+    if ($(".table_data tbody #" + $serviceid + " td:nth-child(4) div").attr('id')) {
+        $spid = $(".table_data tbody #" + $serviceid + " td:nth-child(4) div").attr('id');
+    }
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/HelperLand/?controller=Home&&function=changeSR_admin",
+        data: {
+            'serviceid': $serviceid,
+            'date': $date,
+            'time': $time,
+            'street': $street,
+            'house_no': $house_no,
+            'city': $city,
+            'postalcode': $postalcode,
+            'spid': $spid,
+            'userid': $userid
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            $("#reschedule_request").modal("hide");
+            if (response != 1) {
+                $("#failed_edit .text").html(response);
+                $("#failed_edit").modal("show");
+            }
+            else {
+                load_data_of_admin_service_request();
+                $(".table_content .alert").css("display", "block");
+                $(".table_content .alert").html("Service request edited successfully!!");
+                setTimeout(function () { $(".alert").css("display", 'none') }, 5000);
+            }
+        }
+    });
+}
+function clear_filter() {
+    $(".table_content .filter input").val("");
+    if ($(".table_content #issue").length != 0) {
+        $(".table_content #issue").prop('checked', false);
+        $(".table_content .filter select").val('-1');
+        $(".table_content .filter .select_customer").select2().val('-1');
+        $(".table_content .filter .select_sp").select2().val('-1');
+        load_data_of_admin_service_request();
+    }
+    else {
+        $(".table_content .filter select").val('-1');
+        $(".table_content .filter .select_username").select2().val('-1');
+        load_admin_userManagement();
+    }
+}
+function load_admin_userManagement() {
+    $username = $(".table_content .select_username ").val();
+    $usertype = $(".table_content .select_usertype ").val();
+    $postalcode = $(".table_content .postal_code").val();
+    $email = $(".table_content .email ").val();
+    $startdate = $(".table_content .start_date").val();
+    $enddate = $(".table_content .end_date").val();
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/HelperLand/?controller=Home&&function=get_userManagement_admin",
+        data: {
+            'postalcode': $postalcode,
+            'email': $email,
+            'username': $username,
+            'usertype': $usertype,
+            "startdate": $startdate,
+            'enddate': $enddate
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            $(".table_content .start_date").datepicker({ dateFormat: 'yy-mm-dd' });
+            $(".table_content .end_date").datepicker({ dateFormat: 'yy-mm-dd' });
+            $(".table_data tbody").html(response);
+            pagination();
+        }
+    });
+}
+function create_option($classname, $typeid1, $typeid2 = null) {
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/HelperLand/?controller=Home&&function=get_filter_SelectOption",
+        data: {
+            "typeid1": $typeid1,
+            "typeid2": $typeid2
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            $(".filter ." + $classname).append(response);
+            if ($typeid2 == null) {
+                $(".select_customer").select2();
+                $(".select_sp").select2();
+            }
+            else {
+                $(".select_username").select2();
+            }
+        }
+    });
+}
+function change_userstatus($userid, $status) {
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/HelperLand/?controller=Home&&function=change_userStatus",
+        data: {
+            'userid': $userid,
+            'status': $status
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            load_admin_userManagement();
+        }
+    });
 
+}
+function approved_sp($userid) {
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/HelperLand/?controller=Home&&function=approved_sp",
+        data: {
+            'userid': $userid
+        },
+        beforeSend: function () {
+            $(".preloader").css("display", "block");
+        },
+        success: function (response) {
+            $(".preloader").css("display", "none");
+            $(".table_content .alert").css("display", "block");
+            $(".table_content .alert").html("User Approved successfully !!");
+            setTimeout(function () { $(".alert").css("display", 'none') }, 2000);
+            load_admin_userManagement();
+        }
+    });
+}
+function refun_modal($serviceid) {
+    $("#refund_modal .refund_btn").attr('id', $serviceid);
+    $("#refund_modal .all_amount .paid_amount .figure").html($(".table_content #" + $serviceid + " td:nth-child(5)").html());
+    $("#refund_modal").modal("show");
+}
+function calculate_amount() {
+    $total_amount = $("#refund_modal .paid_amount .figure").html().split(" ")[0];
+    $given_amount = $("#refund_modal .calculate .amount input").val();
+    $type_amount = $("#refund_modal .calculate .amount select").val();
+    if ($type_amount == 0) {
+        $refund_amount = $total_amount * $given_amount / 100;
+    }
+    else {
+        $refund_amount = $given_amount
+    }
+    $("#refund_modal .refund_amount .figure").html($refund_amount + " €");
+    $("#refund_modal .calculate .calculation input").val($refund_amount + " €");
+}
+function refund_amount($serviceid) {
+    $total_amount = parseFloat($("#refund_modal .paid_amount .figure").html().split(" ")[0]);
+    $refund_amount = parseFloat($("#refund_modal .refund_amount .figure").html().split(" ")[0]);
+    if ($refund_amount > $total_amount) {
+        $("#refund_modal .alert").html("Refunded amount must not be greater than the service amount paid by customer");
+        $("#refund_modal .alert").css("display", "block");
+    }
+    else if ($refund_amount == '') {
+        $("#refund_modal .alert").html("Please enter amount");
+        $("#refund_modal .alert").css("display", "block");
+    }
+    else if ($("#refund_modal .reason").val() == '') {
+        $("#refund_modal .alert").html("Please enter a reason");
+        $("#refund_modal .alert").css("display", "block");
+    }
+    else if ($("#refund_modal .notes").val() == '') {
+        $("#refund_modal .alert").html("Please enter a note");
+        $("#refund_modal .alert").css("display", "block");
+    }
+    else {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/HelperLand/?controller=Home&&function=refund_amount",
+            data: {
+                'serviceid': $serviceid,
+                'refundAmount': $refund_amount
+            },
+            beforeSend: function () {
+                $(".preloader").css("display", "block");
+            },
+            success: function (response) {
+                $(".preloader").css("display", "none");
+                $("#refund_modal").modal("hide");
+                $(".table_content .alert").html("Service request amount has been successfully refunded");
+                $(".table_content .alert").css("display", "block");
+                setTimeout(function () { $(".table_content .alert").css("display", "none") }, 5000);
+            }
+        });
+    }
+    setTimeout(function () { $("#refund_modal .alert").css("display", "none") }, 5000);
+}
+function pagination() {
+    $.fn.dataTable.ext.errMode = 'none';
+    $('.table').DataTable({
+        "pagingType": "full_numbers",
+        "searching": false,
+        "dom": '"B" <"top">rt<"bottom"lip><"clear">',
+        "ordering": false,
+        "info": false,
+        "oLanguage": {
+            "oPaginate": {
+                "sNext": '<i class="bi bi-chevron-right"></i>',
+                "sPrevious": '<i class="bi bi-chevron-left"></i>',
+                "sFirst": '<i class="bi bi-caret-left-fill"></i>',
+                'sLast': '<i class="bi bi-caret-right-fill"></i>'
+            }
+        },
+        "language": {
+            "infoEmpty": "No entries available to show"
+        },
+        buttons: [
+            {
+                extend: 'excel',
+                className: 'btn',
+                text: 'Export'
+            }
+        ]
+    });
+}
 /* in home page when scroll is happen ----> start */
 const toTop = document.querySelector('.up-arrow');
 const navbar = document.querySelector(".nav-light");
@@ -1287,10 +1606,9 @@ window.addEventListener('scroll', () => {
         navbar.style.backgroundColor = "#525252";
         logo.style.height = "55px";
         logo.style.width = "73px";
-        if(ws_navbrand!=null)
-        {
-        ws_navbrand.style.width="73px";
-        ws_navbrand.style.height="55px";
+        if (ws_navbrand != null) {
+            ws_navbrand.style.width = "73px";
+            ws_navbrand.style.height = "55px";
         }
         dark_link[0].style.backgroundColor = "#006072";
         dark_link[1].style.backgroundColor = "#006072";
@@ -1300,10 +1618,9 @@ window.addEventListener('scroll', () => {
         navbar.style.backgroundColor = "transparent";
         logo.style.height = "100%";
         logo.style.width = "100%";
-        if(ws_navbrand!=null)
-        {
-        ws_navbrand.style.width="11.2%";
-        ws_navbrand.style.height="14%";
+        if (ws_navbrand != null) {
+            ws_navbrand.style.width = "11.2%";
+            ws_navbrand.style.height = "14%";
         }
         dark_link[0].style.backgroundColor = "transparent";
         dark_link[1].style.backgroundColor = "transparent";
