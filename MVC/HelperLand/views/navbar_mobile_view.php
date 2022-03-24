@@ -20,7 +20,7 @@
         <a class="nav-link" href="<?= $base_url . '?controller=Home&&function=contact'; ?>">Contact us</a>
       </li>
       <li class="nav-item" data-bs-toggle="modal" data-bs-target="#login" data-bs-dismiss="offcanvas">
-        <a class="nav-link" onclick="login_set()">Login</a>
+        <a class="nav-link" <?php echo $_GET['function'] != 'index' ? 'href="http://localhost/HelperLand/?controller=Home&&function=index"' : "" ?> onclick="login_set()">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?= $base_url . '?controller=Home&&function=service' ?>">Become a Helper</a>
