@@ -63,6 +63,10 @@ class HomeController
     {
         include('./views/sp_upComingService.php');
     }
+    function sp_service_schedule()
+    {
+        include('./views/sp_service_schedule.php');
+    }
     function sp_serviceHistory()
     {
         include('./views/sp_serviceHistory.php');
@@ -93,6 +97,14 @@ class HomeController
     {
         include('./views/resetPassword.php');
     }
+    function admin_serviceRequests()
+    {
+        include('./views/admin_serviceRequests.php');
+    }
+    function admin_user_man()
+    {
+        include('./views/admin_user_man.php');
+    }
     function send_email($email, $sub, $msg)
     {
         require_once('./PHPMailer/PHPMailerAutoload.php');
@@ -101,13 +113,13 @@ class HomeController
         $mail->isSMTP();
         $mail->Host = "smtp.gmail.com";
         $mail->SMTPAuth = true;
-        $mail->Username = 'abc123@gmail.com';
+        $mail->Username = 'rathodsagar1362001@gmail.com';
         $mail->Password = 'sagar2001@';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
-        $mail->setFrom('abc123@gmail.com', 'HelperLand');
+        $mail->setFrom('rathodsagar1362001@gmail.com', 'HelperLand');
         $mail->addAddress($email);
-        $mail->addReplyTo('abc123@gmail.com');
+        $mail->addReplyTo('rathodsagar1362001@gmail.com');
         $mail->isHTML(true);
         $mail->Subject = $sub;
         $mail->Body = $msg;
@@ -124,7 +136,10 @@ class HomeController
         $check = $this->modal->checkEmail($email);
         if ($check->num_rows > 0) {
             $row = $check->fetch_assoc();
-            $msg = "This is link to Reset Password:<a href='http://localhost/HelperLand/?controller=Home&&function=resetPassword&token=" . $row['Token'] . "'>Reset Password</a>";
+            date_default_timezone_set("Asia/Calcutta");
+            $date = date('ymd');
+            $time = date("His");
+            $msg = "This is link to Reset Password:<a href='http://localhost/HelperLand/?controller=Home&&function=resetPassword&token=" . $row['Token'] . ":" . $date . ":" . $time . "'>Reset Password</a>";
             $sub = "Password Change";
             $this->send_email($email, $sub, $msg);
         } else {
@@ -156,18 +171,21 @@ class HomeController
     }
     function customerSignup()
     {
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $token = bin2hex(random_bytes(24));
         if (isset($_POST)) {
             $details = [
                 'fname' => $_POST['fname'],
                 'lname' => $_POST['lname'],
                 'email' => $_POST['email-add'],
                 'mobile_no' => $_POST['mbno'],
-                'password' => $_POST['password'],
+                'password' => $password,
                 'userType' => 1,
                 'create_date' => date("Y-m-d H:i:a"),
                 'status' => 'New',
                 'isRegister' => 1,
-                'isactive' => 0
+                'isactive' => 0,
+                'token' => $token
             ];
             $result = $this->modal->insert_user($details);
             if ($result == 0) {
@@ -175,6 +193,7 @@ class HomeController
             } else {
                 $_SESSION['register'] = 1;
                 $this->send_email($details['email'], "Created Account", "Hello " . $details['fname'] . "<br>Your account has been successfully created");
+                $this->send_email($details['email'], "Active Account", 'Please Click Link to Active account: <a href="http://localhost/HelperLand/?controller=Home&&function=index&token=' . $token . ':' . $result . '">Click Here</a>');
             }
         } else {
             echo 'Error Occured Try Again';
@@ -187,12 +206,16 @@ class HomeController
             'password' => $_POST['password']
         ];
         $message = $this->modal->select_user($details);
-        $this->createSession($message);
-        if (isset($_SESSION['UserTypeId'])) {
-            if ($_SESSION['UserTypeId'] == 1) {
-                echo "customer";
-            } else if ($_SESSION['UserTypeId'] == 2) {
-                echo "service provider";
+        if (is_array($message)) {
+            $this->createSession($message);
+            if (isset($_SESSION['UserTypeId'])) {
+                if ($_SESSION['UserTypeId'] == 1) {
+                    echo "customer";
+                } else if ($_SESSION['UserTypeId'] == 2) {
+                    echo "service provider";
+                } elseif ($_SESSION['UserTypeId'] == 3) {
+                    echo 'admin';
+                }
             }
         } else {
             echo $message;
@@ -200,29 +223,40 @@ class HomeController
     }
     function sp_signUp()
     {
+        $token = bin2hex(random_bytes(24));
         if (isset($_POST)) {
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $details = [
                 'fname' => $_POST['fname'],
                 'lname' => $_POST['lname'],
                 'email' => $_POST['email-add'],
                 'mobile_no' => $_POST['mbno'],
-                'password' => $_POST['password'],
+                'password' => $password,
                 'userType' => 2,
                 'create_date' => date("Y-m-d H:i:a"),
                 'status' => 'New',
                 'isRegister' => 1,
-                'isactive' => 0
+                'isactive' => 0,
+                'token' => $token
             ];
             $result = $this->modal->insert_user($details);
-            if ($result == 0) {
+            if ($result == -1) {
                 echo "Email exist";
             } else {
                 $_SESSION['register'] = 1;
                 $this->send_email($details['email'], "Created Account", "Hello " . $details['fname'] . "<br>Your account has been successfully created");
+                $this->send_email($details['email'], "Active Account", 'Please Click Link to Active account: <a href="http://localhost/HelperLand/?controller=Home&&function=index&token=' . $token . ':' . $result . '">Click Here</a>');
             }
         } else {
             echo 'Error Occured Try Again';
         }
+    }
+    function active_user()
+    {
+        $new_token = bin2hex(random_bytes(24));
+        $token = $_POST['token'];
+        $userid = $_POST['userid'];
+        $this->modal->user_active($token, $userid, $new_token);
     }
     function createSession($message)
     {
@@ -238,7 +272,7 @@ class HomeController
     {
         if (isset($_POST)) {
             $token = $_POST['token'];
-            $password = $_POST['new_password'];
+            $password = password_hash($_POST['new_password'], PASSWORD_BCRYPT);
             $ans = $this->modal->changePassword($token, $password);
             if ($ans == 1) {
                 echo 1;
@@ -251,6 +285,8 @@ class HomeController
         $ans = $this->modal->check_link($token);
         if ($ans->num_rows <= 0) {
             echo 0;
+        } else {
+            echo 1;
         }
     }
     function check_sp_availability()
@@ -299,13 +335,13 @@ class HomeController
     {
         $postal_code = $_POST['postalCode_data'];
         $userid = $_POST['userid'];
-        $ans = $this->modal->checkPostalCode($postal_code, $userid);
+        $ans = $this->modal->get_fav_sp_list($userid);
         foreach ($ans as $row) {
             ?>
-            <div class="fav_sp_card" id="<?php echo $row['UserId'] ?>" onclick="select_fav_sp(this.id)">
+            <div class="fav_sp_card" id="<?php echo $row['TargetUserId'] ?>" onclick="select_fav_sp(this.id)">
                 <img src="./assets/images/avatar-<?php echo $row['UserProfilePicture'] == null ? 'hat' : $row['UserProfilePicture'] ?>.png" />
                 <span class="name"><?php echo $row['FirstName'] . " " . $row['LastName'] ?></span>
-                <button class="btn select_fav_sp <?php echo $row['UserId'] ?>" type="button">Select</button>
+                <button class="btn select_fav_sp <?php echo $row['TargetUserId'] ?>" type="button">Select</button>
             </div>
             <?php
         }
@@ -330,22 +366,24 @@ class HomeController
             "totalcost" => $_POST['totalcost'],
             "paymentDue" => $_POST['paymentDue'],
             "paymentDone" => $_POST['paymentDone'],
-            "status" => $_POST['status'],
             "Email" => $_SESSION['email'],
             "createDate" => date('Y-m-d'),
             "Serviceid" => $_POST['Serviceid'],
+            "HasIssue" => 0
         ];
         $sub = "New Service Request";
         if (!empty($_POST['extra_services'])) {
             $details['extra_services'] = $_POST['extra_services'];
         }
+        if ($_POST['favourite_sp'] != null) {
+            $details['spid'] = $_POST['favourite_sp'];
+        }
         $ans = $this->modal->booking_service_modal($details);
-        if (!empty($_POST['favourite_sp'])) {
-            $this->modal->insert_favoriteSp($_POST['favourite_sp'], $_SESSION['userId']);
+        if ($_POST['favourite_sp'] != null) {
             $msg = "A service request " . $ans . " has been directly assigned to you";
             $this->send_mail_to_favorite_Sp($_POST['favourite_sp'], $sub, $msg);
         }
-        if (empty($_POST['favourite_sp'])) {
+        if ($_POST['favourite_sp'] == null) {
             $this->send_mail_to_all_Sp($_POST['postalCode'], $sub, "A service request " . $ans . " has created", $_SESSION['userId']);
         }
         echo $ans;
@@ -566,6 +604,7 @@ class HomeController
         if ($row['ServiceProviderId'] != null) {
             $this->send_mail_to_favorite_Sp($row['ServiceProviderId'], $sub, $msg);
         }
+        $this->send_mail_to_favorite_Sp($row['UserId'], $sub, "Service Request $serviceid has been cancelled by Admin");
     }
     function show_rating()
     {
@@ -623,6 +662,62 @@ class HomeController
         $date = date("Y-m-d H:i:s");
         $this->modal->give_rating_sp($userid, $spid, $serviceRequestid, $comments, $on_arrival, $friendly, $qos, $date);
     }
+    function fav_block_sp()
+    {
+        $userid = $_POST['userid'];
+        $ans = $this->modal->fav_block_sp($userid);
+        foreach ($ans as $row) {
+            $ans2 = $this->modal->get_rating_info($row[`user` . 'UserId']);
+            $row2 = $ans2->fetch_assoc();
+            $ans3 = $this->modal->get_total_number_data($row[`user` . 'UserId']);
+            $row3 = $ans3->fetch_assoc();
+        ?>
+            <tr>
+                <td>
+                    <div class="favorite_card">
+                        <img src="./assets/images/avatar-<?php echo $row['UserProfilePicture'] == null ? 'hat' : $row['UserProfilePicture'] ?>.png" />
+                        <b>
+                            <p class="name"><?php echo $row['FirstName'] . " " . $row['LastName'] ?></p>
+                        </b>
+                        <div class="rating">
+                            <div class="star">
+                                <div class="rateYo readOnly_data" data-rateyo-rating="<?php echo $row2['Ratings'] == null ? 0 : $row2['Ratings'] ?>"></div>
+                                <span class="result"><?php echo $row2['Ratings'] == null ? 0 : $row2['Ratings'] ?></span>
+                            </div>
+                        </div>
+                        <p class="total_cleaning"><?php echo $row3['number'] ?> Cleanings</p>
+                        <button class="btn favorite_btn" id="<?php echo $row[`user` . 'UserId'] ?>" onclick="set_favorite_sp(this.id,<?php echo $_SESSION['userId'] . ',', $row['IsFavorite'] ?>)"><?php echo $row['IsFavorite'] == 1 ? "Unfavorite" : "Favorite" ?></button>
+                        <button class="btn block_btn" id="<?php echo $row[`user` . 'UserId'] ?>" onclick="set_block_sp(this.id,<?php echo $_SESSION['userId'] . ',' . $row['IsBlocked'] ?>)"><?php echo $row['IsBlocked'] == 1 ? "Unblock" : "Block" ?></button>
+                    </div>
+                </td>
+            </tr>
+            <?php
+        }
+    }
+    function set_fav_sp()
+    {
+        $spid = $_POST['spid'];
+        $custid = $_POST['custid'];
+        $isfav = $_POST['isfav'];
+        if ($isfav == 1) {
+            $isfav = 0;
+        } else {
+            $isfav = 1;
+        }
+        $this->modal->set_fav_sp($spid, $custid, $isfav);
+    }
+    function set_block_sp()
+    {
+        $spid = $_POST['spid'];
+        $custid = $_POST['custid'];
+        $isblock = $_POST['isblock'];
+        if ($isblock == 1) {
+            $isblock = 0;
+        } else {
+            $isblock = 1;
+        }
+        $this->modal->set_block_sp($spid, $custid, $isblock);
+    }
     function get_user_data()
     {
         $userid = $_POST['userid'];
@@ -645,10 +740,10 @@ class HomeController
     function my_addresses()
     {
         $userid = $_POST['userid'];
-        $ans = $this->modal->get_my_address($userid);
+        $ans = $this->modal->getAddress($userid);
         if ($ans->num_rows > 0) {
             foreach ($ans as $row) {
-        ?>
+            ?>
                 <tr>
                     <td>
                         <b>Address: </b><span><?php echo $row['AddressLine1'] . " " . $row['AddressLine2'] . " , " . $row['City'] . " " . $row['PostalCode'] ?></span><br>
@@ -682,7 +777,7 @@ class HomeController
     {
         $userid = $_POST['userid'];
         $old_pass = $_POST['old_pass'];
-        $new_pass = $_POST['new_pass'];
+        $new_pass = password_hash($_POST['new_pass'], PASSWORD_BCRYPT);
         echo $this->modal->change_password($userid, $old_pass, $new_pass);
     }
     /* service provider pages */
@@ -692,7 +787,9 @@ class HomeController
         $haspets = $_POST['haspets'];
         $distance = $_POST['distance'];
         $userid = $_POST['userid'];
-        $ans = $this->modal->get_data_of_requests_modal($status, $haspets, $distance, $userid);
+        date_default_timezone_set("Asia/Calcutta");
+        $curr_date = date("Y-m-d", time());
+        $ans = $this->modal->get_data_of_requests_modal($status, $haspets, $distance, $userid, $curr_date);
         if ($ans->num_rows > 0) {
             foreach ($ans as $row) {
                 $starttime = date('H:i', strtotime($row['ServiceStartDate']));
@@ -827,6 +924,7 @@ class HomeController
                             <?php
                             }
                             ?>
+
                             <button class="btn cancle" data-bs-toggle="modal" data-bs-target="#cancle_request" data-bs-dismiss="modal" onclick="cancle_request(<?php echo $row['ServiceId'] ?>)">Cancle</button>
                         </td>
                     <?php
@@ -937,6 +1035,32 @@ class HomeController
         $msg2 = "A service request " . $serviceid . " has created";
         $this->send_mail_to_all_sp($row['ZipCode'], $sub2, $msg2, $userid);
     }
+    function get_sp_serviceSchedule()
+    {
+        $userid = $_POST['userid'];
+        $ans = $this->modal->get_sp_requests($userid);
+        $data = array();
+        foreach ($ans as $row) {
+            $starttime = date('H:i', strtotime($row['ServiceStartDate']));
+            $totalMin = $this->HourtoMinute($starttime) + ($row['SubTotal'] * 60);
+            $totaltime = $this->MintoHour($totalMin);
+            $curr_date = date("Y-m-d");
+            if ($row['Status'] == '0' || $row['Status'] == '1') {
+                $color = "#1d7a8c";
+            }
+            if ($row['Status'] == '3' || $row['Status'] == '4') {
+                $color = "#c1c1c1";
+            }
+            $data[] = array(
+                'id' => $row['ServiceId'],
+                'title' => "$starttime" . " - " . "$totaltime",
+                'start' => date("Y-m-d", strtotime($row['ServiceStartDate'])),
+                'end' => date("Y-m-d", strtotime($row['ServiceStartDate'])),
+                'color' => "$color"
+            );
+        }
+        echo json_encode($data);
+    }
     function load_my_rating()
     {
         $userid = $_POST['userid'];
@@ -1006,7 +1130,7 @@ class HomeController
                     <button class="btn <?php echo $row['IsBlocked'] == 1 ? 'block' : 'unblock' ?>" id="<?php echo $row['UserId'] ?>" onclick="block_unblock_cust(this.id,<?php echo $_SESSION['userId'] ?>)"><?php echo $row['IsBlocked'] == 1 ? 'Unblock' : 'Block' ?></button>
                 </td>
             </tr>
-<?php
+        <?php
         }
     }
     function block_unblock_customer()
@@ -1046,5 +1170,221 @@ class HomeController
         $this->modal->set_sp_profile_data_modal($userid, $firstName, $lastName, $email, $mobile, $dob, $nationality, $gender, $avatar, $addressid, $street, $house_no, $postalCode, $city, $date);
     }
     /* service provider pages */
+    /* admin pages */
+    function get_servicerequest_admin()
+    {
+        $serviceid = $_POST['serviceid'];
+        $postalcode = $_POST['postalcode'];
+        $email = $_POST['email'];
+        $customer = $_POST['customer'];
+        $sp = $_POST['sp'];
+        $status = $_POST['status'];
+        $sppayment = $_POST['sppayment'];
+        $pstatus = $_POST['pstatus'];
+        $issue = $_POST['issue'];
+        $startdate = $_POST['startdate'];
+        $enddate = $_POST['enddate'];
+        $ans = $this->modal->get_servicerequest_admin($serviceid, $postalcode, $email, $customer, $sp, $status, $sppayment, $pstatus, $issue, $startdate, $enddate);
+        foreach ($ans as $row) {
+            if ($row[`servicerequest` . 'Status'] == 0) {
+                $status_text = "New";
+            } else if ($row[`servicerequest` . 'Status'] == 1) {
+                $status_text = "Pending";
+            } else if ($row[`servicerequest` . 'Status'] == 3) {
+                $status_text = "Completed";
+            } else if ($row[`servicerequest` . 'Status'] == 4) {
+                $status_text = "Cancelled";
+            }
+            if ($row['ServiceProviderId'] != null) {
+                $res = $this->modal->show_rating($row['ServiceProviderId']);
+                $res = $res->fetch_assoc();
+            }
+            $starttime = date('H:i', strtotime($row['ServiceStartDate']));
+            $totalMin = $this->HourtoMinute($starttime) + ($row['SubTotal'] * 60);
+            $totaltime = $this->MintoHour($totalMin);
+        ?>
+            <tr id='<?php echo $row['ServiceId'] ?>'>
+                <td><?php echo $row['ServiceId'] ?></td>
+                <td>
+                    <img src="./assets/images/calendar.png" class="img-fluid calendar"><b><?php echo date("Y-m-d", strtotime($row['ServiceStartDate'])) ?></b><br>
+                    <img src="./assets/images/clock.png" class="img-fluid clock"><span class="starttime"><?php echo $starttime ?></span> - <p class="total_time"><?php echo $totaltime ?></p>
+                </td>
+                <td class="details">
+                    <p class="name"><?php echo $row['FirstName'] . " " . $row['LastName'] ?></p>
+                    <div class="mydiv">
+                        <img src="./assets/images/home.png" class="img-fluid home">
+                        <div class="desc">
+                            <span><?php echo $row['AddressLine1'] . " " . $row['AddressLine2'] . " " . $row['City'] . " " . $row['PostalCode'] ?></span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <?php
+                    if ($row['ServiceProviderId'] != null) {
+                    ?>
+                        <div class="rating" id="<?php echo $row['ServiceProviderId'] ?>">
+                            <img src="./assets/images/avatar-<?php echo $res['UserProfilePicture'] == null ? 'hat' : $res['UserProfilePicture'] ?>.png" class="img-fluid cap" />
+                            <div class="star">
+                                <p><?php echo $res['FirstName'] . " " . $res['LastName'] ?></p>
+                                <div class="rateYo readOnly_data" data-rateyo-rating="<?php echo $res['Ratings'] == null ? 0 : $res['Ratings'] ?>"></div>
+                                <span class="result"><?php echo $res['Ratings'] == null ? 0 : $res['Ratings'] ?></span>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </td>
+                <td><?php echo $row['TotalCost'] . " €" ?></td>
+                <td><?php echo $row['TotalCost'] . " €" ?></td>
+                <td>0.00 €</td>
+                <td><span class="status <?php echo $status_text ?> "><?php echo $status_text ?></span></td>
+                <td><span class="status <?php echo $row[`servicerequest` . 'Status'] == 3 ? 'Completed' : 'Cancelled' ?>"><?php echo $row[`servicerequest` . 'Status'] == 3 ? 'Settled' : 'Not Applicable' ?></span></td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn menu dropdown-toggle" id="drop1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./assets/images/menu.png">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="drop1">
+                            <?php
+                            if ($row[`servicerequest` . 'Status'] != 3) {
+                            ?>
+                                <li><a class="dropdown-item" onclick="open_edit_sr(<?php echo $row['ServiceId'] ?>)">Edit & Reschedule</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#cancle_request" data-bs-dismiss="modal" onclick="cancle_request('<?php echo $row['ServiceId'] ?>')">Cancle SR by Cust</a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li><a class="dropdown-item" onclick="refun_modal('<?php echo $row['ServiceId'] ?>')">Refund</a></li>
+                            <?php
+                            }
+                            ?>
+                            <li><a class="dropdown-item" href="#">Inquiry</a></li>
+                            <li><a class="dropdown-item" href="#">History Log</a></li>
+                            <li><a class="dropdown-item" href="#">Download Invoice</a></li>
+                            <li><a class="dropdown-item" href="#">Other Transactions</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        <?php
+        }
+    }
+    function changeSR_admin()
+    {
+        $serviceid = $_POST['serviceid'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $street = $_POST['street'];
+        $house_no = $_POST['house_no'];
+        $city = $_POST['city'];
+        $postalcode = $_POST['postalcode'];
+        $spid = $_POST['spid'];
+        $userid = $_POST['userid'];
+        $datetime = date("Y-m-d H:i:s", strtotime($date . " " . $time));
+        $sub = "Reschedule Service Request";
+        $msg = "Service Request " . $serviceid . " has been rescheduled by Admin. New date and time are " . $datetime . " and Address : " . $street . " " . $house_no . " " . $city . " " . $postalcode;
+        $ans = $this->modal->reschedule_date_time($serviceid);
+        $row = $ans->fetch_assoc();
+        if ($spid != null) {
+            $starttime = date('H:i', strtotime($time));
+            $totalMin = $this->HourtoMinute($starttime) + ($row['SubTotal'] * 60);
+            $totaltime = $this->MintoHour($totalMin);
+            $ans2 = $this->modal->check_sp_available_modal($row['ServiceProviderId'], $date, $serviceid);
+            $res = $this->check_sp_available($ans2, $starttime, $totaltime);
+            if (!empty($res)) {
+                echo ("Another service request has been assigned to the service provider on " . $date . " from " . $res['ServiceStarttime'] . " to " . $res['ServiceEndtime'] . ". Either choose another date or pick up a different time slot.");
+            } else {
+                $this->modal->change_sr_admin($serviceid, $datetime, $street, $house_no, $city, $postalcode, $userid, 1);
+                $this->send_mail_to_favorite_Sp($spid, $sub, $msg);
+                $this->send_mail_to_favorite_Sp($row['UserId'], $sub, $msg);
+                echo "1";
+            }
+        } else {
+            $this->modal->change_sr_admin($serviceid, $datetime, $street, $house_no, $city, $postalcode, $userid, 0);
+            $this->send_mail_to_favorite_Sp($row['UserId'], $sub, $msg);
+            echo "1";
+        }
+    }
+    function get_filter_SelectOption()
+    {
+        $typeid1 = $_POST['typeid1'];
+        $typeid2 = $_POST['typeid2'];
+        $ans = $this->modal->get_filter_option($typeid1, $typeid2);
+        foreach ($ans as $row) {
+        ?>
+            <option value="<?php echo $row['FirstName'] . ' ' . $row['LastName'] ?>"><?php echo $row['FirstName'] . ' ' . $row['LastName'] ?></option>
+        <?php
+        }
+    }
+    function get_userManagement_admin()
+    {
+        $postalcode = $_POST['postalcode'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $usertype = $_POST['usertype'];
+        $startdate = $_POST['startdate'];
+        $enddate = $_POST['enddate'];
+        $ans = $this->modal->get_userManagement_admin($postalcode, $email, $username, $usertype, $startdate, $enddate);
+        foreach ($ans as $row) {
+        ?>
+            <tr>
+                <td><?php echo $row['FirstName'] . " " . $row['LastName'] ?></td>
+                <td></td>
+                <td>
+                    <img src="./assets/images/calendar.png" />
+                    <b><?php echo date("d/m/Y", strtotime($row['CreatedDate'])) ?></b>
+                </td>
+                <td><?php echo $row['UserTypeId'] == 1 ? 'Customer' : 'Service provider' ?></td>
+                <td><?php echo $row['Mobile'] ?></td>
+                <td><?php echo $row['ZipCode'] ?></td>
+                <td><span class="status <?php echo $row['IsActive'] == 1 ? 'Active' : 'Inactive' ?>"><?php echo $row['IsActive'] == 1 ? 'Active' : 'Inactive' ?></span></td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn menu dropdown-toggle" id="drop1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./assets/images/menu.png">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="drop1">
+                            <li><a class="dropdown-item" onclick="change_userstatus(<?php echo $row['UserId'] . ',' . $row['IsActive'] ?>)"><?php echo $row['IsActive'] == 1 ? 'Inactive' : 'Active' ?></a></li>
+                            <?php
+                            if ($row['UserTypeId'] == 2 && $row['IsApproved'] == 0) {
+                            ?>
+                                <li><a class="dropdown-item" onclick="approved_sp(<?php echo $row['UserId'] ?>)">Approved</a></li>
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+<?php
+        }
+    }
+    function change_userStatus()
+    {
+        $userid = $_POST['userid'];
+        $status = $_POST['status'];
+        $ans = $this->modal->get_user_data($userid);
+        $res = $ans->fetch_assoc();
+        if ($status == 1) {
+            $status = 0;
+            $this->send_email($res['Email'], "Active Account", 'Please Click Link to Active account: <a href="http://localhost/HelperLand/?controller=Home&&function=index&token=' . $res['Token'] . ':' . $userid . '">Click Here</a>');
+        } else {
+            $status = 1;
+        }
+        $this->modal->change_userStatus($userid, $status);
+    }
+    function approved_sp()
+    {
+        $userid = $_POST['userid'];
+        $this->modal->approved_sp($userid);
+    }
+    function refund_amount()
+    {
+        $serviceid = $_POST['serviceid'];
+        $amount = $_POST['refundAmount'];
+        $this->modal->refund_to_customer($serviceid, $amount);
+        $ans = $this->modal->check_request_accept_or_not($serviceid);
+        $row = $ans->fetch_assoc();
+        $this->send_mail_to_favorite_Sp($row['UserId'], "Refund Amount", "Amount " . $amount . " refunded for service " . $serviceid);
+    }
 }
 ?>
