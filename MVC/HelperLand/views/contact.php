@@ -16,6 +16,7 @@
   ?>
   <link rel="stylesheet" type="text/css" href="./assets/css/contact.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/news_letter.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
@@ -83,19 +84,19 @@
     <div class="contact-form">
       <form action="<?= $base_url . '?controller=Home&&function=getTouchwithUs' ?>" method="POST" enctype="multipart/form-data">
         <div class="personal-detail">
-          <input type="text" name="fname" placeholder="First name" />
-          <input type="text" name="lname" placeholder="Last name" />
+          <input type="text" name="fname" placeholder="First name" required />
+          <input type="text" name="lname" placeholder="Last name" required />
           <br />
           <div class="n_e">
             <div class="input-group mobile flex-nowrap">
               <span class="input-group-text" id="addon-wrapping">+49</span>
-              <input type="number" name="mbno" placeholder="Mobile number" />
+              <input type="number" name="mbno" placeholder="Mobile number" required />
             </div>
-            <input type="email" name="email-add" placeholder="Email address" />
+            <input type="email" name="email-add" placeholder="Email address" required />
           </div>
         </div>
         <div class="subject">
-          <select name="subject">
+          <select name="subject" required>
             <option value="" selected disabled hidden>Subject</option>
             <option value="subject-value">Subject 1</option>
             <option value="subject-value">Subject 2</option>
@@ -104,7 +105,7 @@
           </select>
         </div>
         <div class="message">
-          <textarea name='message' placeholder="Message"></textarea>
+          <textarea name='message' placeholder="Message" required></textarea>
         </div>
         <div class="attech">
           Attachment<br />
