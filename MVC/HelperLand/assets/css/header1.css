@@ -16,6 +16,8 @@
   font-family: Roboto;
   font-size: 17px;
   color: #fff;
+  padding-right: 1px !important;
+  padding-left: 1px !important;
 }
 
 #header .nav-item:nth-last-child(1):hover {
