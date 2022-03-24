@@ -58,20 +58,20 @@
         <span>One Time</span>
       </div>
       <div class="rupee">
-        <span class="uro">€</span><strong class="rs">20</strong>/hr
+        <b>18 €/hr</b>
       </div>
       <div class="true-symbol">
         <div class="lower-prices">
           <img src="./assets/images/true-box.png" class="img-fluid" alt="" />
-          <span class="text-price">Lower prices</span>
+          <span class="text-price">CheckmarkLower prices</span>
         </div>
         <div class="secure-payment div2">
           <img src="./assets/images/true-box.png" class="img-fluid" alt="" />
-          <span class="secure-payment">Easy online & secure payment </span>
+          <span class="secure-payment">CheckmarkEasy online & secure payment</span>
         </div>
         <div class="easy-amendment div2">
           <img src="./assets/images/true-box.png" class="img-fluid" alt="" />
-          <span class="text-east">Easy amendment</span>
+          <span class="text-east">CheckmarkEasy amendment</span>
         </div>
       </div>
     </div>
@@ -141,19 +141,27 @@
         <div class="card-head">Bedroom and Living Room</div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Dust all accessible surfaces</span>
+          <span>Included Dust all accessible surfaces</span>
         </div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Wipe down all mirrors and glass fixtures</span>
+          <span>Included Wipe down all mirrors and glass fixtures</span>
         </div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Clean all floor surfaces</span>
+          <span>Not Included Clean all floor surfaces</span>
         </div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Take out garbage and recycling</span>
+          <span>Included Take out garbage and recycling</span>
+        </div>
+        <div class="card-desc">
+          <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
+          <span>Included To clean up</span>
+        </div>
+        <div class="card-desc">
+          <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
+          <span>Included Make beds</span>
         </div>
       </div>
       <div class="cleaning-card col-12 col-md-3">
@@ -163,23 +171,23 @@
         <div class="card-head">Bathrooms</div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Wash and sanitize the toilet, shower, tub, sink</span>
+          <span>Included Wash and sanitize the toilet, shower, tub, sink</span>
         </div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Dust all accessible surfaces</span>
+          <span>Not Included Dust all accessible surfaces</span>
         </div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Wipe down all mirrors and glass fixtures</span>
+          <span>Included Wipe down all mirrors and glass fixtures</span>
         </div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Clean all floor surfaces</span>
+          <span>Not Included Clean all floor surfaces</span>
         </div>
         <div class="card-desc">
           <img src="./assets/images/right-arrow.png" class="img-fluid" alt="" />
-          <span>Take out garbage and recycling</span>
+          <span>Included Take out garbage and recycling</span>
         </div>
       </div>
       <div class="cleaning-card col-12 col-md-3">
@@ -224,15 +232,13 @@
         <div class="top-left">
           <div class="top-head">Experienced and vetted professionals</div>
           <div class="top-desc">
-            dominate the industry in scale and scope with an adaptable,
-            extensive network that consistently delivers exceptional results.
+            dominate the industry in scale and scope with an adaptable, extensive network that consistently delivers exceptional results.
           </div>
         </div>
         <div class="bottom-left">
           <div class="top-head">Dedicated customer service</div>
           <div class="top-desc">
-            to our customers and are guided in all we do by their needs. The
-            team is always happy to support you and offer all the information.
+            to our customers and are guided in all we do by their needs. The team is always happy to support you and offer all the information. you need.
           </div>
         </div>
       </div>
@@ -241,15 +247,13 @@
         <div class="top-left">
           <div class="top-head">Every cleaning is insured</div>
           <div class="top-desc">
-            and seek to provide exceptional service and engage in proactive
-            behavior. We‘d be happy to clean your homes.
+            and seek to provide exceptional service and engage in proactive behaviour. We'd be happy to clean your homes.
           </div>
         </div>
         <div class="top-left">
           <div class="top-head">Secure online payment</div>
           <div class="top-desc">
-            Payment is processed securely online. Customers pay safely online
-            and manage the booking.
+            Payment is processed securely online. Customers pay safely online and manage the booking.
           </div>
         </div>
       </div>
