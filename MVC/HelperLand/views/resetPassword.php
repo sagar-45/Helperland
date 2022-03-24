@@ -17,8 +17,14 @@
     }
   </script>
 </head>
+<?php
+date_default_timezone_set("Asia/Calcutta");
+$time = date("His");
+$date = date("ymd");
+$token = explode(":", $_GET['token'])[0];
+?>
 
-<body id="resetPassword" onload="check_link_is_available('<?php echo $_GET['token'] == null ? '0' : $_GET['token'] ?>')">
+<body id="resetPassword" onload="check_link_is_available('<?php echo $_GET['token'] == null ? '0' : $_GET['token'] ?>','<?php echo $date ?>','<?php echo $time ?>')">
   <div class="preloader"></div>
   <?php
   require_once('header2.php');
@@ -36,7 +42,7 @@
   <div class="reset_password">
     <div class="newpassword">
       <span>New Password</span><br>
-      <input type="hidden" name="token" value="<?php echo $_GET['token'] ?>" />
+      <input type="hidden" name="token" value="<?php echo $token ?>" />
       <input type="text" name='new_password' class="cpassword" placeholder="Password" onblur="passwordValidate(this.value,'error5')">
       <div class="errors error5">
         <span></span>
@@ -49,7 +55,7 @@
         <span></span>
       </div>
     </div>
-    <button type="submit" class="btn save" onclick=" reset_password('<?php echo $_GET['token'] ?>')">Save</button>
+    <button type="submit" class="btn save" onclick=" reset_password('<?php echo $token ?>')">Save</button>
   </div>
   <?php
   require_once('footer2.php');
