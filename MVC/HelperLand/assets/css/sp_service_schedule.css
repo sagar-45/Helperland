@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+.welcome {
+  margin-top: 64px;
+  width: 100%;
+  height: 119px;
+  background-color: #f9f9f9;
+}
+.welcome p {
+  font-family: Roboto;
+  font-size: 30px;
+  padding-top: 44px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.8;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4f4f4f;
+}
+.hr-line {
+  height: 1px;
+  background-color: #e1e1e1;
+}
+.mid-dash {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 24px;
+}
+#list {
+  width: 262px;
+  height: auto;
+  margin: 0px 16px 30px 0px;
+  background-color: #1d7a8c;
+}
+#list .list-group-item {
+  background-color: #1d7a8c;
+  border-color: #2f8f9f;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 2;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+#list .list-group-item:hover,
+#list .active {
+  background-color: #146371;
+}
+.mid-dash .calendar{
+    width: 861px;
+    margin: 0px 0px 10px 0px;
+}
+.fc-view{
+    font-family: Roboto !important;
+}
+.fc th{
+    background-color: rgb(235,235,235);
+    height: 40px;
+    vertical-align: middle !important;
+    color:#646464 !important;
+}
+.fc td{
+    color: #646464 !important;
+    font-size: 14px ;
+}
+.fc-left h2{
+    font-size: 20px !important;
+    display: inline;
+    margin-left: 10px !important;
+    color:#646464 !important;
+}
+.fc-event{
+ height: 20px;
+ border-radius: 0px !important;
+ text-align: center;
+}
+.fc-content{
+  margin-top: 4px;
+}
+#details_request .modal-dialog .modal-content {
+  font-family: Roboto;
+  color: #646464;
+  padding: 20px;
+  font-size: 15px;
+  text-align: left;
+  width: 600px !important;
+  display: block;
+}
+#details_request .modal-dialog .modal-content .text {
+  width: 250px;
+  display: inline-block !important;
+}
+#details_request .modal-dialog .modal-content .map{
+  display: inline-block !important;
+  margin-top: -300px;
+  height: 340px;
+  width: 200px;
+}
+#details_request .modal-dialog .modal-content .map iframe{
+  height: 100%;
+  width: 200px;
+}
+#details_request .modal_title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+#details_request hr {
+  margin: 10px 0px !important;
+}
+.modal-header {
+  padding: 0px !important;
+  border-bottom: none !important;
+}
+#details_request .modal_main {
+  font-weight: bold;
+}
+#details_request .modal_data {
+  font-weight: normal;
+}
+#details_request .bi-x {
+  background-color: #ff6b6b;
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px;
+  border-radius: 50%;
+  color: #fff;
+  margin-right: 5px;
+}
+#details_request .amount {
+  font-size: 18px;
+  color: #1d7a8c;
+  font-weight: bold;
+}
+.mid-dash .calendar{
+  position: relative;
+}
+.mid-dash .calendar ul{
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  right: 0px;
+  top: 6px;
+}
+.mid-dash .calendar ul li{
+  display: inline;
+  padding-left: 30px;
+  margin-right: 10px;
+  font-family: Roboto;
+  color:#646464;
+  font-size: 14px;
+}
+.mid-dash .calendar ul li::before{
+  content: '';
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  background-color: red;
+  top: 4px;
+  border: 1px solid #b1b1b1;
+}
+.mid-dash .calendar ul li.completed:before{
+  display: block;
+  background-color: #c1c1c1;
+  margin: 0px 0px 0px 7px;
+}
+.mid-dash .calendar ul li.upcoming:before{
+  margin: 0px 0px 0px -23px;
+  background-color: #1d7a8c;
+}
+.ss_title{
+  font-family: Roboto;
+  color:#646464;
+  font-size: 20px;
+  margin: 20px 0px -10px;
+  text-align: center;
+  font-weight: bold;
+  display: none;
+}
