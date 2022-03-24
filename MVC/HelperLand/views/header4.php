@@ -78,7 +78,7 @@
             <a class="nav-link" href="<?= $base_url . '?controller=Home&&function=sp_upComingService' ?>">Upcoming Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Service Schedule</a>
+            <a class="nav-link" href="<?= $base_url . '?controller=Home&&function=sp_service_schedule' ?>">Service Schedule</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?= $base_url . '?controller=Home&&function=sp_serviceHistory' ?>">Service History</a>
