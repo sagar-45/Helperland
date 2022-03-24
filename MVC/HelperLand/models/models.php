@@ -40,39 +40,43 @@ class Models
         $status = $details['status'];
         $isRegister = $details['isRegister'];
         $isactive = $details['isactive'];
-        $token = bin2hex(random_bytes(24));
+        $token = $details['token'];
         $ans = $this->checkEmail($email);
         if ($ans->num_rows <= 0) {
-            $sql = "INSERT INTO `user` (`FirstName`,`LastName`,`Email`,`Password`,`Mobile`,`UserTypeId`,`CreatedDate`,`Status`,`isRegisteredUser`,`isActive`,`Token`) VALUES ('$fname','$lname','$email','$password','$mobile_no','$userType','$create_date','$status','$isRegister','$isactive','$token')";
+            $sql = "INSERT INTO `user` (`FirstName`,`LastName`,`Email`,`Password`,`Mobile`,`UserTypeId`,`CreatedDate`,`Status`,`isRegisteredUser`,`isActive`,`Token`) VALUES ('$fname','$lname','$email','$password','$mobile_no','$userType','$create_date','$status','$isRegister',$isactive,'$token')";
             mysqli_query($this->conn, $sql);
-            return 1;
+            return mysqli_insert_id($this->conn);
         } else {
-            return 0;
+            return -1;
         }
     }
     function select_user($details)
     {
         $email = $details['email'];
         $result = $this->checkEmail($email);
-        if ($result) {
-            if (isset($_SESSION['forgot_password'])) {
-                return $result;
-            } else {
-                $password = $details['password'];
-                return $this->selectUserByPassword($result, $password);
+        $ans = $result->fetch_assoc();
+        if (!empty($ans)) {
+            $password = $details['password'];
+            if ($ans['IsActive'] == 0) {
+                return 'Please active your account from Gmail';
             }
+            if ($ans['UserTypeId'] == 2) {
+                if ($ans['IsApproved'] == 0) {
+                    return 'Sorry,Admin not Approved';
+                }
+            }
+            if (password_verify($password, $ans['Password'])) {
+                return $ans;
+            }
+            return "UserName or Password Incorrect";
         } else {
             return "User Not Found";
         }
     }
-    function selectUserByPassword($result, $password)
+    function user_active($token, $userid, $new_token)
     {
-        foreach ($result as $res1) {
-            if ($res1['Password'] == $password) {
-                return $res1;
-            }
-        }
-        return "UserName or Password Incorrect";
+        $sql = "UPDATE `user` SET `IsActive`=1,`Token`='$new_token' WHERE `UserId`='$userid' AND `Token`='$token' ";
+        mysqli_query($this->conn, $sql);
     }
     function checkEmail($email)
     {
@@ -120,6 +124,11 @@ class Models
         $sql = "SELECT * FROM `useraddress` WHERE `UserId`= '$userid' and `IsDeleted`=0";
         return mysqli_query($this->conn, $sql);
     }
+    function get_fav_sp_list($userid)
+    {
+        $sql = "SELECT * FROM `favoriteandblocked` LEFT JOIN `user` ON `favoriteandblocked`.`TargetUserId`=`user`.`UserId` WHERE `favoriteandblocked`.`UserId`='$userid'";
+        return mysqli_query($this->conn, $sql);
+    }
     function booking_service_modal($details)
     {
         $userId = $details['userId'];
@@ -139,11 +148,16 @@ class Models
         $totalcost = $details['totalcost'];
         $paymentDue = $details['paymentDue'];
         $paymentDone = $details['paymentDone'];
-        $status = $details['status'];
         $email = $details['Email'];
         $createDate = $details['createDate'];
         $serviceid = $details['Serviceid'];
-        $sql = "INSERT INTO `servicerequest`(`UserId`,`ServiceId`,`ServiceStartDate`,`ZipCode`,`ServiceHourlyRate`,`ServiceHours`,`ExtraHours`,`SubTotal`,`Discount`,`TotalCost`,`Comments`,`PaymentDue`,`HasPets`,`CreatedDate`,`PaymentDone`,`Status`) VALUES ('$userId','$serviceid','$serviceStartDate','$postalCode','$serviceHourlyrate','$serviceHours','$extraHours','$subtotal','$discount','$totalcost','$comments',$paymentDue,$haspets,'$createDate',$paymentDone,'$status')";
+        $hasissue = $details['HasIssue'];
+        if (array_key_exists("spid", $details)) {
+            $spid = $details['spid'];
+            $sql = "INSERT INTO `servicerequest`(`UserId`,`ServiceId`,`ServiceStartDate`,`ZipCode`,`ServiceHourlyRate`,`ServiceHours`,`ExtraHours`,`SubTotal`,`Discount`,`TotalCost`,`Comments`,`PaymentDue`,`HasPets`,`CreatedDate`,`PaymentDone`,`Status`,`HasIssue`,`ServiceProviderId`) VALUES ('$userId','$serviceid','$serviceStartDate','$postalCode','$serviceHourlyrate','$serviceHours','$extraHours','$subtotal','$discount','$totalcost','$comments',$paymentDue,$haspets,'$createDate',$paymentDone,1,$hasissue,'$spid')";
+        } else {
+            $sql = "INSERT INTO `servicerequest`(`UserId`,`ServiceId`,`ServiceStartDate`,`ZipCode`,`ServiceHourlyRate`,`ServiceHours`,`ExtraHours`,`SubTotal`,`Discount`,`TotalCost`,`Comments`,`PaymentDue`,`HasPets`,`CreatedDate`,`PaymentDone`,`Status`,`HasIssue`) VALUES ('$userId','$serviceid','$serviceStartDate','$postalCode','$serviceHourlyrate','$serviceHours','$extraHours','$subtotal','$discount','$totalcost','$comments',$paymentDue,$haspets,'$createDate',$paymentDone,0,$hasissue)";
+        }
         mysqli_query($this->conn, $sql);
         $serviceRequestId = mysqli_insert_id($this->conn);
 
@@ -158,11 +172,6 @@ class Models
             }
         }
         return $serviceRequestId;
-    }
-    function insert_favoriteSp($favourite_sp, $userId)
-    {
-        $sql = "INSERT INTO `favoriteandblocked` (`UserId`,`TargetUserId`,`IsFavorite`) VALUES ('$userId','$favourite_sp',1)";
-        mysqli_query($this->conn, $sql);
     }
     // get customer dashboard table data
     function customer_dashboard_tableData_modal($user, $status1, $status2)
@@ -194,7 +203,7 @@ class Models
     }
     function cancle_request($serviceid, $userid, $reason)
     {
-        $sql = "UPDATE `servicerequest` SET `Status`=4 WHERE `ServiceId`='$serviceid'";
+        $sql = "UPDATE `servicerequest` SET `Status`=4,`HasIssue`=1 WHERE `ServiceId`='$serviceid'";
         mysqli_query($this->conn, $sql);
         $sql2 = "SELECT * FROM `servicerequest` WHERE `ServiceId`='$serviceid' ";
         return mysqli_query($this->conn, $sql2);
@@ -217,6 +226,43 @@ class Models
             mysqli_query($this->conn, $sql2);
         }
     }
+    function fav_block_sp($userid)
+    {
+        $sql = "SELECT *,`user`.`UserId` FROM `user` LEFT JOIN `favoriteandblocked` ON `favoriteandblocked`.`UserId`='$userid' AND `favoriteandblocked`.`TargetUserId`=`user`.`UserId` WHERE `user`.`UserId` IN (SELECT `ServiceProviderId` FROM `servicerequest` WHERE `UserId`='$userid' AND `Status`=3)";
+        return mysqli_query($this->conn, $sql);
+    }
+    function get_rating_info($spid)
+    {
+        $sql = "SELECT ROUND(AVG(`rating`.`Ratings`),2) as `Ratings`  FROM `rating` WHERE `RatingTo`='$spid'";
+        return mysqli_query($this->conn, $sql);
+    }
+    function get_total_number_data($spid)
+    {
+        $sql = "SELECT COUNT(*) as `number` FROM `servicerequest` WHERE `ServiceProviderId`='$spid' AND `Status`=3";
+        return mysqli_query($this->conn, $sql);
+    }
+    function set_fav_sp($spid, $custid, $isfav)
+    {
+        $sql = "SELECT * FROM `favoriteandblocked` WHERE `UserId`=$custid AND `TargetUserId`=$spid ";
+        $ans = mysqli_query($this->conn, $sql);
+        if ($ans->num_rows > 0) {
+            $sql2 = "UPDATE `favoriteandblocked` SET `IsFavorite`=$isfav WHERE `UserId`=$custid AND `TargetUserId`=$spid";
+        } else {
+            $sql2 = "INSERT INTO `favoriteandblocked` (`UserId`,`TargetUserId`,`IsFavorite`) VALUES ($custid,$spid,$isfav)";
+        }
+        mysqli_query($this->conn, $sql2);
+    }
+    function set_block_sp($spid, $custid, $isblock)
+    {
+        $sql = "SELECT * FROM `favoriteandblocked` WHERE `UserId`=$custid AND `TargetUserId`=$spid ";
+        $ans = mysqli_query($this->conn, $sql);
+        if ($ans->num_rows > 0) {
+            $sql2 = "UPDATE `favoriteandblocked` SET `IsBlocked`=$isblock WHERE `UserId`=$custid AND `TargetUserId`=$spid";
+        } else {
+            $sql2 = "INSERT INTO `favoriteandblocked` (`UserId`,`TargetUserId`,`IsBlocked`) VALUES ($custid,$spid,$isblock)";
+        }
+        mysqli_query($this->conn, $sql2);
+    }
     function get_user_data($userid)
     {
         $sql = "SELECT * FROM `user` WHERE `UserId`='$userid'";
@@ -227,11 +273,6 @@ class Models
         $dob = date("Y-m-d", strtotime($dob));
         $sql = "UPDATE `user` SET `FirstName`='$firstName',`LastName`='$lastName',`Email`='$email',`Mobile`='$mobile',`DateOfBirth`='$dob' WHERE `UserId`=$userid";
         mysqli_query($this->conn, $sql);
-    }
-    function get_my_address($userid)
-    {
-        $sql = "SELECT * FROM `useraddress` WHERE `UserId`= '$userid'";
-        return (mysqli_query($this->conn, $sql));
     }
     function change_addresses($addressid, $streetname, $houseNumber, $postalCode, $city, $mobile)
     {
@@ -251,20 +292,20 @@ class Models
     }
     function change_password($userid, $old_pass, $new_pass)
     {
-        $sql = "SELECT * FROM `user` WHERE `UserId`=$userid and `Password`='$old_pass'";
+        $sql = "SELECT * FROM `user` WHERE `UserId`=$userid";
         $ans = mysqli_query($this->conn, $sql);
-        if ($ans->num_rows > 0) {
-            $row = $ans->fetch_assoc();
-            $this->changePassword($row['Email'], $new_pass);
+        $row = $ans->fetch_assoc();
+        if (password_verify($old_pass, $row['Password'])) {
+            $this->changePassword($row['Token'], $new_pass);
             return 1;
         } else {
             return 0;
         }
     }
     /* service provider pages */
-    function get_data_of_requests_modal($status, $haspets, $distance, $userid)
+    function get_data_of_requests_modal($status, $haspets, $distance, $userid, $curr_date)
     {
-        $sql = "SELECT * FROM `servicerequest` LEFT JOIN `user` ON `servicerequest`.`UserId`=`user`.`UserId` LEFT JOIN `servicerequestaddress` ON `servicerequest`.`ServiceRequestId`=`servicerequestaddress`.`ServiceRequestId` WHERE `servicerequest`.`Status`=$status AND `servicerequest`.`HasPets`=$haspets AND `servicerequest`.`Distance`<=$distance AND NOT EXISTS (SELECT `TargetUserId` FROM `favoriteandblocked` WHERE `user`.`UserId`=`favoriteandblocked`.`TargetUserId` AND `favoriteandblocked`.`IsBlocked`=1 AND `favoriteandblocked`.`UserId`=$userid) AND NOT EXISTS (SELECT `UserId` FROM `favoriteandblocked` WHERE `user`.`UserId`=`favoriteandblocked`.`UserId` AND `favoriteandblocked`.`IsBlocked`=1 AND `favoriteandblocked`.`TargetUserId`=$userid)";
+        $sql = "SELECT * FROM `servicerequest` LEFT JOIN `user` ON `servicerequest`.`UserId`=`user`.`UserId` LEFT JOIN `servicerequestaddress` ON `servicerequest`.`ServiceRequestId`=`servicerequestaddress`.`ServiceRequestId` WHERE `servicerequest`.`Status`=$status AND `servicerequest`.`HasPets`=$haspets AND `servicerequest`.`Distance`<=$distance AND NOT EXISTS (SELECT `TargetUserId` FROM `favoriteandblocked` WHERE `user`.`UserId`=`favoriteandblocked`.`TargetUserId` AND `favoriteandblocked`.`IsBlocked`=1 AND `favoriteandblocked`.`UserId`=$userid) AND NOT EXISTS (SELECT `UserId` FROM `favoriteandblocked` WHERE `user`.`UserId`=`favoriteandblocked`.`UserId` AND `favoriteandblocked`.`IsBlocked`=1 AND `favoriteandblocked`.`TargetUserId`=$userid) AND DATE(`servicerequest`.`ServiceStartDate`)>='$curr_date'";
         return mysqli_query($this->conn, $sql);
     }
     function check_sp_available_modal($userid, $date, $serviceid)
@@ -300,6 +341,11 @@ class Models
     function get_all_sp($zipcode, $userid)
     {
         $sql = "SELECT * FROM `user` WHERE `ZipCode`='$zipcode' AND `UserId`<>'$userid'";
+        return mysqli_query($this->conn, $sql);
+    }
+    function get_sp_requests($userid)
+    {
+        $sql = "SELECT * FROM `servicerequest` WHERE `ServiceProviderId`='$userid'";
         return mysqli_query($this->conn, $sql);
     }
     function load_my_rating_modal($userid, $rating_status)
@@ -348,4 +394,93 @@ class Models
         mysqli_query($this->conn, $sql2);
     }
     /* service provider pages */
+    /* admin pages */
+    function get_servicerequest_admin($serviceid, $postalcode, $email, $customer, $sp, $status, $sppayment, $pstatus, $issue, $startdate, $enddate)
+    {
+        $sql = "SELECT *,`servicerequest`.`Status` FROM `servicerequest` LEFT JOIN `servicerequestaddress` ON `servicerequest`.`ServiceRequestId`=`servicerequestaddress`.`ServiceRequestId` LEFT JOIN `user` ON `user`.`UserId`=`servicerequest`.`UserId` WHERE `servicerequest`.`HasIssue`=$issue ";
+        if ($serviceid != '') {
+            $sql = $sql . " AND `servicerequest`.`ServiceId`='$serviceid'";
+        }
+        if ($postalcode != '') {
+            $sql = $sql . " AND `servicerequest`.`ZipCode`='$postalcode'";
+        }
+        if ($email != '') {
+            $sql = $sql . " AND `servicerequestaddress`.`Email`='$email'";
+        }
+        if ($customer != null) {
+            $sql = $sql . " AND `servicerequest`.`UserId` In (SELECT `UserId` from `user` WHERE CONCAT(`FirstName`,' ',`LastName`)='$customer')";
+        }
+        if ($sp != null) {
+            $sql = $sql . " AND `servicerequest`.`ServiceProviderId` In (SELECT `UserId` from `user` WHERE CONCAT(`FirstName`,' ',`LastName`)='$sp')";
+        }
+        if ($status != null) {
+            $sql = $sql . " AND `servicerequest`.`Status`='$status' ";
+        }
+        if ($sppayment != null) {
+            if ($sppayment == 3) {
+                $sql = $sql . " AND `servicerequest`.`Status`=$sppayment";
+            } else {
+                $sql = $sql . " AND `servicerequest`.`Status`!=3";
+            }
+        }
+        if ($startdate != '') {
+            $sql = $sql . " AND DATE(`servicerequest`.`ServiceStartDate`) >= '$startdate'";
+        }
+        if ($enddate != '') {
+            $sql = $sql . " AND DATE(`servicerequest`.`ServiceStartDate`) <= '$enddate'";
+        }
+        return mysqli_query($this->conn, $sql);
+    }
+    function change_sr_admin($serviceid, $datetime, $street, $house_no, $city, $postalcode, $userid, $status)
+    {
+        $sql = "UPDATE `servicerequest` LEFT JOIN `servicerequestaddress` ON `servicerequest`.`ServiceRequestId`=`servicerequestaddress`.`ServiceRequestId` SET `servicerequest`.`ServiceStartDate`='$datetime',`servicerequest`.`Status`='$status',`servicerequest`.`ModifiedDate`='$datetime',`servicerequest`.`ModifiedBy`='$userid',`servicerequestaddress`.`AddressLine1`='$street',`servicerequestaddress`.`AddressLine2`='$house_no',`servicerequestaddress`.`City`='$city',`servicerequestaddress`.`PostalCode`='$postalcode' WHERE `servicerequest`.`ServiceId`='$serviceid' ";
+        mysqli_query($this->conn, $sql);
+    }
+    function get_filter_option($typeid1, $typeid2)
+    {
+        if ($typeid2 != null) {
+            $sql = "SELECT `FirstName`,`LastName` FROM `user` WHERE `UserTypeId` IN ($typeid1,$typeid2)";
+        } else {
+            $sql = "SELECT `FirstName`,`LastName` FROM `user` WHERE `UserTypeId` IN ($typeid1)";
+        }
+        return mysqli_query($this->conn, $sql);
+    }
+    function get_userManagement_admin($postalcode, $email, $username, $usertype, $startdate, $enddate)
+    {
+        $sql = "SELECT * FROM `user` WHERE `UserTypeId` IN (1,2)";
+        if ($postalcode != '') {
+            $sql = $sql . " AND `ZipCode`='$postalcode'";
+        }
+        if ($email != '') {
+            $sql = $sql . " AND `Email`='$email'";
+        }
+        if ($username != null) {
+            $sql = $sql . " AND CONCAT(`FirstName`,' ',`LastName`)='$username'";
+        }
+        if ($usertype != null) {
+            $sql = $sql . " AND `UserTypeId`='$usertype'";
+        }
+        if ($startdate != '') {
+            $sql = $sql . " AND DATE(`CreatedDate`) >= '$startdate'";
+        }
+        if ($enddate != '') {
+            $sql = $sql . " AND DATE(`CreatedDate`) <= '$enddate'";
+        }
+        return mysqli_query($this->conn, $sql);
+    }
+    function change_userStatus($userid, $status)
+    {
+        $sql = "UPDATE `user` SET `IsActive`=$status WHERE `UserId`='$userid'";
+        mysqli_query($this->conn, $sql);
+    }
+    function approved_sp($userid)
+    {
+        $sql = "UPDATE `user` SET `IsApproved`=1 WHERE `UserId`='$userid'";
+        mysqli_query($this->conn, $sql);
+    }
+    function refund_to_customer($serviceid, $amount)
+    {
+        $sql = "UPDATE `servicerequest` SET `RefundedAmount`='$amount' WHERE `ServiceId`='$serviceid'";
+        mysqli_query($this->conn, $sql);
+    }
 }
