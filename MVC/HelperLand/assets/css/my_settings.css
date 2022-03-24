@@ -45,169 +45,172 @@
 #list .active {
   background-color: #146371;
 }
-.table_page{
-    font-family: Roboto;
-    color: #646464;
-    width: 861px;
-    margin: 33px 0px 0px 16px;
+.table_page {
+  font-family: Roboto;
+  color: #646464;
+  width: 861px;
+  margin: 33px 0px 0px 16px;
 }
-.table_page .nav-item{
-    width: 25%;
+.table_page .nav-item {
+  width: 25%;
 }
-.table_page .nav-item .nav-link{
-    font-family: Roboto;
-    color:#646464;
-    border: none;
-    border-bottom:  3px solid #e1e1e1;
-    text-align: center;
+.table_page .nav-item .nav-link {
+  font-family: Roboto;
+  color: #646464;
+  border: none;
+  border-bottom: 3px solid #e1e1e1;
+  text-align: center;
 }
 .table_page .nav-item .nav-link:hover,
-.table_page .nav-item .nav-link.active{
-    border-bottom: 3px solid #1d7a8c;
-    color: #1d7a8c;
+.table_page .nav-item .nav-link.active {
+  border-bottom: 3px solid #1d7a8c;
+  color: #1d7a8c;
 }
-.table_page .nav-item .nav-link i{
-    font-size: 25px;
-    display: none;
+.table_page .nav-item .nav-link i {
+  font-size: 25px;
+  display: none;
 }
-.table_page .title{
-    font-weight: bold;
+.table_page .title {
+  font-weight: bold;
 }
-#my_details{
-    margin: 20px 0px 20px 0px;
+#my_details {
+  margin: 20px 0px 20px 0px;
 }
-#my_details .details > div{
-    width: 30%;
-    display: inline-block;
-    margin: 0px 20px 10px 0px;
+#my_details .details > div {
+  width: 30%;
+  display: inline-block;
+  margin: 0px 20px 10px 0px;
 }
-#my_details p{
-    font-weight: bold;
-    font-size: 15px;
-    margin: 0px 0px 5px 0px;
+#my_details p {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 0px 0px 5px 0px;
 }
-input{
-    height: 46px;
-    border: 1px solid #e1e1e1;
-    outline: none;
-    padding-left: 16px;
-    border-radius: 4px;
-    width: 100%;
-    font-size: 14px !important;
+input {
+  height: 46px;
+  border: 1px solid #e1e1e1;
+  outline: none;
+  padding-left: 16px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14px !important;
 }
 #my_details select:focus,
- input:focus{
-    border: 1px solid #1d7a8c;
+input:focus {
+  border: 1px solid #1d7a8c;
 }
-#my_details hr{
-    margin: 15px 0px 15px !important;
+#my_details hr {
+  margin: 15px 0px 15px !important;
 }
-#my_details select{
-    border: 1px solid #e1e1e1;
-    height: 46px;
-    outline: none;
-    font-size: 14px;
-    padding: 0px 8px 0px 6px;
-    border-radius: 4px;
-    color: #646464;
+#my_details select {
+  border: 1px solid #e1e1e1;
+  height: 46px;
+  outline: none;
+  font-size: 14px;
+  padding: 0px 8px 0px 6px;
+  border-radius: 4px;
+  color: #646464;
 }
-#my_details .dob select:nth-child(3)
-{
-    margin: 0px 5px;
+#my_details .dob select:nth-child(3) {
+  margin: 0px 5px;
 }
-#my_details .profile_save,#delete_address .delete_address_btn,#change_password .btn{
-    background-color: #1d7a8c;
-    border-radius: 40px;
-    color: #fff;
-    width: 80px;
-    margin: 10px 0px 10px;
+#my_details .profile_save,
+#delete_address .delete_address_btn,
+#change_password .btn {
+  background-color: #1d7a8c;
+  border-radius: 40px;
+  color: #fff;
+  width: 80px;
+  margin: 10px 0px 10px;
 }
-#my_addresses{
-    font-family: Roboto;
-    color:#646464;
-    margin: 20px 0px 0px;
+#my_addresses {
+  font-family: Roboto;
+  color: #646464;
+  margin: 20px 0px 0px;
 }
-#my_addresses .table{
-    border: 2px solid #e1e1e1;
-    font-size: 15px;
+#my_addresses .table {
+  border: 2px solid #e1e1e1;
+  font-size: 15px;
 }
-#my_addresses .table thead tr{
-    background-color: #64646410;
-    border-bottom: 2px solid #e1e1e1;
+#my_addresses .table thead tr {
+  background-color: #64646410;
+  border-bottom: 2px solid #e1e1e1;
 }
-#my_addresses .table tr th:nth-child(2){
-    width: 120px;
-    text-align: center;
+#my_addresses .table tr th:nth-child(2) {
+  width: 120px;
+  text-align: center;
 }
-#my_addresses .table tr th,#my_addresses .table tr td{
-    padding: 10px 10px 10px 40px;
-    vertical-align: middle;
-    color:#646464 !important;
+#my_addresses .table tr th,
+#my_addresses .table tr td {
+  padding: 10px 10px 10px 40px;
+  vertical-align: middle;
+  color: #646464 !important;
 }
-#my_addresses .table tr td i{
-    color:#646464;
-    font-size: 20px;
-    padding: 5px 5px 2px 5px;
-    border-radius: 50%;
-    cursor: pointer;
+#my_addresses .table tr td i {
+  color: #646464;
+  font-size: 20px;
+  padding: 5px 5px 2px 5px;
+  border-radius: 50%;
+  cursor: pointer;
 }
-#my_addresses .table tr td i:hover{
-    background-color: #f1f1f1;
+#my_addresses .table tr td i:hover {
+  background-color: #f1f1f1;
 }
-#change_password{
-    margin: 20px 0px 20px;
+#change_password {
+  margin: 20px 0px 20px;
 }
-.modal-content{
-    font-family: Roboto;
-    color:#646464;
+.modal-content {
+  font-family: Roboto;
+  color: #646464;
 }
-.modal-content .modal-header{
-    border-bottom: none;
-    padding: 0px;
-    margin-bottom: 10px;
+.modal-content .modal-header {
+  border-bottom: none;
+  padding: 0px;
+  margin-bottom: 10px;
 }
-.modal-content{
-    padding: 20px;
+.modal-content {
+  padding: 20px;
 }
-#edit_address .details>div{
-    display: inline-block;
-    width: 48%;
-    margin: 0px 0px 10px 0px;
+#edit_address .details > div {
+  display: inline-block;
+  width: 48%;
+  margin: 0px 0px 10px 0px;
 }
-.modal-content p,#change_password p{
-    margin: 0px;
-    font-weight: bold;
-    font-size: 15px;
+.modal-content p,
+#change_password p {
+  margin: 0px;
+  font-weight: bold;
+  font-size: 15px;
 }
-#edit_address .details>div:nth-child(even){
-    float: right;
+#edit_address .details > div:nth-child(even) {
+  float: right;
 }
-#edit_address .edit{
-    background-color: #1d7a8c;
-    color: #fff;
-    border-radius: 40px;
-    margin: 10px 0px 0px;
+#edit_address .edit {
+  background-color: #1d7a8c;
+  color: #fff;
+  border-radius: 40px;
+  margin: 10px 0px 0px;
 }
-.alert{
-    display: none;
-    font-size: 15px;
+.alert {
+  display: none;
+  font-size: 15px;
 }
-#edit_address .alert button{
-    font-size: 10px;
+#edit_address .alert button {
+  font-size: 10px;
 }
-#delete_address .modal-content{
-    width: 300px;
-    margin: 0px auto;
+#delete_address .modal-content {
+  width: 300px;
+  margin: 0px auto;
 }
-#delete_address p{
-    font-weight: normal;
-    font-size: 16px;
+#delete_address p {
+  font-weight: normal;
+  font-size: 16px;
 }
-#change_password input{
-    margin: 3px 0px 15px;
-    width: 35%;
+#change_password input {
+  margin: 3px 0px 15px;
+  width: 35%;
 }
-.title{
-    margin-bottom: 20px;
-    display: none;
+.title {
+  margin-bottom: 20px;
+  display: none;
 }
