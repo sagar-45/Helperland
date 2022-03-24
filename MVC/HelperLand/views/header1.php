@@ -28,7 +28,7 @@
             <a class="nav-link" href="<?= $base_url . '?controller=Home&&function=contact' ?>">Contact us</a>
           </li>
           <li class="nav-item login dark" data-bs-toggle="modal" data-bs-target="#login">
-            <a class="nav-link">Login</a>
+            <a class="nav-link" <?php echo $_GET['function'] != 'index' ? 'href="http://localhost/HelperLand/?controller=Home&&function=index"' : "" ?> onclick="login_set()">Login</a>
           </li>
           <li class="nav-item helper dark">
             <a class="nav-link" href="<?= $base_url . '?controller=Home&&function=service' ?>">Become a Helper</a>
