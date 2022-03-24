@@ -51,80 +51,82 @@
 #list .active {
   background-color: #146371;
 }
-#filter .table{
-    width: 847px;
-    font-family: Roboto;
-    color:#646464;
+#filter .table {
+  width: 847px;
+  font-family: Roboto;
+  color: #646464;
 }
-#filter .table thead{
+#filter .table thead {
   display: none;
 }
-.only_mobile_view{
+.only_mobile_view {
   font-family: Roboto;
-  color:#646464;
+  color: #646464;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
   display: none;
 }
-#filter .table tbody tr{
-    width: 240px;
-    border: 1px solid #e1e1e1;
-    display: inline-block;
-    margin: 0px 15px 10px 0px;
+#filter .table tbody tr {
+  width: 240px;
+  border: 1px solid #e1e1e1;
+  display: inline-block;
+  margin: 0px 15px 10px 0px;
 }
-#filter .table tbody tr td{
-    text-align: center;
-    width: 250px;
-    border-bottom: none;
-} 
-#filter .table tbody tr td .img{
-    border: 1px solid #c1c1c1;
-    padding: 17px 10px;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin:10px auto ;
+#filter .table tbody tr td {
+  text-align: center;
+  width: 250px;
+  border-bottom: none;
 }
-#filter .table tbody tr td img{
-    width: 45px;
-    height: 30px;
+#filter .table tbody tr td .img {
+  border: 1px solid #c1c1c1;
+  padding: 17px 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 10px auto;
 }
-#filter .table tbody tr td .btn{
-    color:#fff;
-    border-radius: 40px;
-    margin: -5px auto 10px;
+#filter .table tbody tr td img {
+  width: 45px;
+  height: 30px;
 }
-#filter .table tbody tr td .btn.unblock{
-    background-color:#ff6b6b;
+#filter .table tbody tr td .btn {
+  color: #fff;
+  border-radius: 40px;
+  margin: -5px auto 10px;
 }
-#filter .table tbody tr td .btn.block{
-    background-color: #1d7a8c;
+#filter .table tbody tr td .btn.unblock {
+  background-color: #ff6b6b;
 }
-.bottom .bi{
+#filter .table tbody tr td .btn.block {
+  background-color: #1d7a8c;
+}
+.bottom .bi {
   font-size: 12px;
 }
-.bottom .pagination .paginate_button a{
+.bottom .pagination .paginate_button a {
   border-radius: 50%;
   font-size: 15px;
   margin: 0px 1px;
   border: 1px solid #e1e1e1;
   color: #646464;
 }
-.bottom .pagination .paginate_button.active a{
+.bottom .pagination .paginate_button.active a {
   background-color: #1d7a8c;
   border: 1px solid #1d7a8c;
   color: #fff;
 }
-.bottom{
+.bottom {
   margin: 20px 0px 20px 0px;
 }
-.bottom .dataTables_length,.bottom .dataTables_info,.bottom .dataTables_paginate{
+.bottom .dataTables_length,
+.bottom .dataTables_info,
+.bottom .dataTables_paginate {
   display: inline-block;
 }
-.bottom .dataTables_length{
+.bottom .dataTables_length {
   margin: 0px 20px 0px 0px;
 }
-.bottom .dataTables_paginate{
+.bottom .dataTables_paginate {
   float: right;
 }
