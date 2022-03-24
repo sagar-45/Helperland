@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="stylesheet" type="text/css" href="./assets/css/header1.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/service-pro.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/login_forgot_card.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/news_letter.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
@@ -30,9 +30,31 @@
     </section>
     <?php
     require_once("Email_exist_modal.php");
-    require_once('card_modal.php');
     ?>
     <section id="reg_form">
+      <div class="text">
+        <div class="main_text">Do not feel like housework?</div>
+        <div class="text_desc">
+          <img src="./assets/images/true.png" class="img-fluid" alt="" />
+          <span>open time-management</span>
+        </div>
+        <div class="text_desc">
+          <img src="./assets/images/true.png" class="img-fluid" alt="" />
+          <span>only accept suitable requests</span>
+        </div>
+        <div class="text_desc">
+          <img src="./assets/images/true.png" class="img-fluid" alt="" />
+          <span>fair and fixed hourly wage</span>
+        </div>
+        <div class="text_desc">
+          <img src="./assets/images/true.png" class="img-fluid" alt="" />
+          <span>ideal part time job</span>
+        </div>
+        <div class="text_desc">
+          <img src="./assets/images/true.png" class="img-fluid" alt="" />
+          <span>personal contact person</span>
+        </div>
+      </div>
       <form>
         <div class="reg_title">Register Now!</div>
         <input type="text" name="fname" class="cfname" placeholder="First name" onblur="validate_value(this.value,'error1','first name')" />
