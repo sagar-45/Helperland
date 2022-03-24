@@ -80,6 +80,11 @@
   max-width: 946px;
   height: auto;
 }
+#faq .tab-content {
+  width: 946px;
+  margin: 0px auto;
+  padding-left: 30px;
+}
 #faq .accordion #headingOne {
   margin-top: 48px;
   font-family: Roboto;
@@ -175,4 +180,3 @@
   color: #ffffff;
 }
 /*Newsletter section end*/
-
