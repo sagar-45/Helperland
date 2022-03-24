@@ -51,150 +51,152 @@
 #list .active {
   background-color: #146371;
 }
-.table_page{
-    font-family: Roboto;
-    color: #646464;
-    width: 861px;
-    margin: 0px 0px 0px 16px;
+.table_page {
+  font-family: Roboto;
+  color: #646464;
+  width: 861px;
+  margin: 0px 0px 0px 16px;
 }
-.table_page .nav-item{
-    width: 25%;
+.table_page .nav-item {
+  width: 25%;
 }
-.table_page .nav-item .nav-link{
-    font-family: Roboto;
-    color:#646464;
-    border: none;
-    border-bottom:  3px solid #e1e1e1;
-    text-align: center;
+.table_page .nav-item .nav-link {
+  font-family: Roboto;
+  color: #646464;
+  border: none;
+  border-bottom: 3px solid #e1e1e1;
+  text-align: center;
 }
 .table_page .nav-item .nav-link:hover,
-.table_page .nav-item .nav-link.active{
-    border-bottom: 3px solid #1d7a8c;
-    color: #1d7a8c;
+.table_page .nav-item .nav-link.active {
+  border-bottom: 3px solid #1d7a8c;
+  color: #1d7a8c;
 }
-.table_page .nav-item .nav-link i{
-    font-size: 25px;
-    display: none;
+.table_page .nav-item .nav-link i {
+  font-size: 25px;
+  display: none;
 }
-.table_page .title{
-    font-weight: bold;
+.table_page .title {
+  font-weight: bold;
 }
-.table_page .acc_status_lable{
-    margin-top: 15px;
+.table_page .acc_status_lable {
+  margin-top: 15px;
 }
-.table_page .lable{
-    font-weight: bold;
+.table_page .lable {
+  font-weight: bold;
 }
-.table_page .selcted_avatar_img{
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    float: right;
-    margin-top: -40px;
+.table_page .selcted_avatar_img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  float: right;
+  margin-top: -40px;
 }
-.table_page #my_details .div_header{
-    margin-top: 15px;
+.table_page #my_details .div_header {
+  margin-top: 15px;
 }
-#my_details .acc_status{
-    color:#67b644;
+#my_details .acc_status {
+  color: #67b644;
 }
-#my_details .details > div,#edit_address > div{
-    width: 30%;
-    display: inline-block;
-    margin: 0px 20px 10px 0px;
+#my_details .details > div,
+#edit_address > div {
+  width: 30%;
+  display: inline-block;
+  margin: 0px 20px 10px 0px;
 }
-p{
-    font-weight: bold;
-    font-size: 15px;
-    margin: 0px 0px 5px 0px;
+p {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 0px 0px 5px 0px;
 }
-.title{
-    margin-top: 20px;
+.title {
+  margin-top: 20px;
 }
-input{
-    height: 46px;
-    border: 1px solid #e1e1e1;
-    outline: none;
-    padding-left: 16px;
-    border-radius: 4px;
-    width: 100%;
-    font-size: 14px !important;
+input {
+  height: 46px;
+  border: 1px solid #e1e1e1;
+  outline: none;
+  padding-left: 16px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14px !important;
 }
 #my_details select:focus,
- input:focus{
-    border: 1px solid #1d7a8c;
+input:focus {
+  border: 1px solid #1d7a8c;
 }
-#my_details hr,#edit_address hr{
-    margin: 15px 0px 15px !important;
+#my_details hr,
+#edit_address hr {
+  margin: 15px 0px 15px !important;
 }
-#my_details select{
-    border: 1px solid #e1e1e1;
-    height: 46px;
-    outline: none;
-    font-size: 14px;
-    padding: 0px 8px 0px 6px;
-    border-radius: 4px;
-    color: #646464;
+#my_details select {
+  border: 1px solid #e1e1e1;
+  height: 46px;
+  outline: none;
+  font-size: 14px;
+  padding: 0px 8px 0px 6px;
+  border-radius: 4px;
+  color: #646464;
 }
-#my_details .nationality{
-    width: 258px;
+#my_details .nationality {
+  width: 258px;
 }
-#my_details .dob select:nth-child(3)
-{
-    margin: 0px 5px;
+#my_details .dob select:nth-child(3) {
+  margin: 0px 5px;
 }
-#my_details .gender input{
-    width: 15px;
-    height: 14px;
+#my_details .gender input {
+  width: 15px;
+  height: 14px;
 }
-#my_details .gender label{
-    font-size: 15px;
-    margin: 0px 20px 0px 5px;
-    cursor: pointer;
+#my_details .gender label {
+  font-size: 15px;
+  margin: 0px 20px 0px 5px;
+  cursor: pointer;
 }
-#my_details .avatar{
-    margin: 30px 0px 0px;
+#my_details .avatar {
+  margin: 30px 0px 0px;
 }
-#my_details .avatar img{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 5px 5px 0px 0px;
-    cursor: pointer;
+#my_details .avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 5px 5px 0px 0px;
+  cursor: pointer;
 }
-#my_details .avatar .active{
-    border: 3px solid #1d7a8c;
+#my_details .avatar .active {
+  border: 3px solid #1d7a8c;
 }
-.btn.profile_save,#change_password .btn{
-    background-color: #1d7a8c;
-    border-radius: 40px;
-    color: #fff;
-    width: 80px;
-    margin: 0px 0px 10px;
+.btn.profile_save,
+#change_password .btn {
+  background-color: #1d7a8c;
+  border-radius: 40px;
+  color: #fff;
+  width: 80px;
+  margin: 0px 0px 10px;
 }
-.btn.profile_save:hover{
-    color: #fff;
+.btn.profile_save:hover {
+  color: #fff;
 }
-.alert{
-    display: none;
+.alert {
+  display: none;
 }
-.alert-success{
-    margin-top: 10px;
+.alert-success {
+  margin-top: 10px;
 }
-p.alert{
-    font-weight: normal;
+p.alert {
+  font-weight: normal;
 }
-#change_password{
-    margin: 20px 0px 20px;
+#change_password {
+  margin: 20px 0px 20px;
 }
-#change_password input{
-    margin: 3px 0px 15px;
-    width: 35%;
+#change_password input {
+  margin: 3px 0px 15px;
+  width: 35%;
 }
-#change_password p{
-    margin-bottom: 0px;
+#change_password p {
+  margin-bottom: 0px;
 }
-.title{
-    margin-bottom: 20px;
-    display: none;
+.title {
+  margin-bottom: 20px;
+  display: none;
 }
