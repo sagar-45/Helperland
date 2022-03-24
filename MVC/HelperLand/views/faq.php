@@ -16,6 +16,7 @@
   ?>
   <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/news_letter.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
@@ -64,239 +65,53 @@
         <a href="#accordionId2" class="nav-link text-provider" data-bs-toggle="tab">FOR SERVICE PROVIDER</a>
       </li>
     </ul>
-    <div class="tab-content" style="display: flex; justify-content:center;">
+    <div class="tab-content">
       <div class="tab-pane accordion fade show active" id="accordionId">
         <div>
           <div class="heading" id="headingOne">
             <span class="head_title" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
+              What's included in a cleaning?
             </span>
           </div>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionId">
             <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
+              Bedroom, Living Room & Common Areas, Bathrooms, Kitchen, Extras
             </div>
           </div>
         </div>
         <div>
           <div class="heading" id="headingTwo">
             <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
+              Which Helperland professional will come to my place?
             </span>
           </div>
           <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionId">
             <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
+              Helperland has a vast network of experienced, top-rated cleaners. Based on the time and date of your request, we work to assign the best professional available. Like working with a specific pro? Add them to your Pro Team from the mobile app and they'll be requested first for all future bookings. You will receive an email with details about your professional prior to your appointment.
             </div>
           </div>
         </div>
         <div>
           <div class="heading" id="headingThree">
             <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
+              Can I skip or reschedule bookings?
             </span>
           </div>
           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionId">
             <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
+              You can reschedule any booking for free at least 24 hours in advance of the scheduled start time. If you need to skip a booking within the minimum commitment, we’ll credit the value of the booking to your account. You can use this credit on future cleanings and other Helperland services.
             </div>
           </div>
         </div>
         <div>
           <div class="heading" id="headingFour">
             <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
+              Do I need to be home for the booking?
             </span>
           </div>
           <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionId">
             <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="heading" id="headingFive">
-            <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
-            </span>
-          </div>
-          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionId">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="heading" id="headingSix">
-            <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
-            </span>
-          </div>
-          <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionId">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="heading" id="headingSeven">
-            <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
-            </span>
-          </div>
-          <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionId">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="heading" id="headingEight">
-            <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
-            </span>
-          </div>
-          <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionId">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="heading" id="headingNine">
-            <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
-            </span>
-          </div>
-          <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionId">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
+              We strongly recommend that you are home for the first clean of your booking to show your cleaner around. Some customers choose to give a spare key to their cleaner, but this decision is based on individual preferences.
             </div>
           </div>
         </div>
@@ -305,26 +120,24 @@
         <div>
           <div class="heading" id="headingOne">
             <span class="head_title" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet
-              velit?
+              How much do service providers earn?
             </span>
           </div>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionId">
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionId2">
             <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-              diam tincidunt, fringilla ante vitae, dapibus velit. Vivamus id
-              tortor rhoncus, efficitur quam at, suscipit tortor. Integer
-              fermentum convallis eros vel semper. Ut non imperdiet velit.
-              Praesent eu dui vel lacus porta eleifend eget quis dui. Integer
-              tempus massa in gravida tincidunt. Fusce in libero tristique,
-              euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-              ipsum primis in faucibus. Donec et placerat arcu. Suspendisse
-              lacinia tristique massa. Etiam risus justo, scelerisque id arcu
-              eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-              congue risus malesuada rutrum. Donec id massa vel velit
-              ullamcorper accumsan ut eget nisl. Fusce viverra commodo lacus,
-              sit amet facilisis leo luctus dictum.
+              The self-employed service providers working with Helperland set their own payouts, this means that they decide how much they earn per hour.
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="heading" id="headingTwo">
+            <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              What support do you provide to the service providers?
+            </span>
+          </div>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionId2">
+            <div class="accordion-body">
+              Our call-centre is available to assist the service providers with all queries or issues in regards to their bookings during office hours. Before a service provider starts receiving jobs, every individual partner receives an orientation session to familiarise with the online platform and their profile.
             </div>
           </div>
         </div>
