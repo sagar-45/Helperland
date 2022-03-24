@@ -13,6 +13,7 @@ if (!isset($_SESSION['UserTypeId']) || $_SESSION['UserTypeId'] != 1) {
     <link rel="stylesheet" type="text/css" href="./assets/css/header3.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/footer2.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/bookS.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/news_letter.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/media.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
@@ -368,14 +369,13 @@ if (!isset($_SESSION['UserTypeId']) || $_SESSION['UserTypeId'] != 1) {
             <div class="accordion" id="accordionId">
               <div class="heading" id="headingOne">
                 <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  Which Helperland professional will come to my place?
+                  What's included in a cleaning?
                 </span>
               </div>
               <div class="hr1"></div>
               <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionId">
                 <div class="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-                  diam tincidunt, fringilla ante vitae, dapibus velit.
+                  Bedroom, Living Room & Common Areas, Bathrooms, Kitchen, Extras
                 </div>
               </div>
               <div class="heading" id="headingOne">
@@ -386,68 +386,18 @@ if (!isset($_SESSION['UserTypeId']) || $_SESSION['UserTypeId'] != 1) {
               <div class="hr1"></div>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionId">
                 <div class="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-                  diam tincidunt, fringilla ante vitae, dapibus velit.
+                  Helperland has a vast network of experienced, top-rated cleaners. Based on the time and date of your request, we work to assign the best professional available. Like working with a specific pro? Add them to your Pro Team from the mobile app and they'll be requested first for all future bookings. You will receive an email with details about your professional prior to your appointment.
                 </div>
               </div>
               <div class="heading" id="headingOne">
                 <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseOne">
-                  Which Helperland professional will come to my place?
+                  Can I skip or reschedule bookings?
                 </span>
               </div>
               <div class="hr1"></div>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionId">
                 <div class="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-                  diam tincidunt, fringilla ante vitae, dapibus velit.
-                </div>
-              </div>
-              <div class="heading" id="headingOne">
-                <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
-                  Which Helperland professional will come to my place?
-                </span>
-              </div>
-              <div class="hr1"></div>
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionId">
-                <div class="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-                  diam tincidunt, fringilla ante vitae, dapibus velit.
-                </div>
-              </div>
-              <div class="heading" id="headingOne">
-                <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseOne">
-                  Which Helperland professional will come to my place?
-                </span>
-              </div>
-              <div class="hr1"></div>
-              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionId">
-                <div class="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-                  diam tincidunt, fringilla ante vitae, dapibus velit.
-                </div>
-              </div>
-              <div class="heading" id="headingOne">
-                <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseOne">
-                  Which Helperland professional will come to my place?
-                </span>
-              </div>
-              <div class="hr1"></div>
-              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionId">
-                <div class="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-                  diam tincidunt, fringilla ante vitae, dapibus velit.
-                </div>
-              </div>
-              <div class="heading" id="headingOne">
-                <span class="head_title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseOne">
-                  Which Helperland professional will come to my place?
-                </span>
-              </div>
-              <div class="hr1"></div>
-              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionId">
-                <div class="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id
-                  diam tincidunt, fringilla ante vitae, dapibus velit.
+                  You can reschedule any booking for free at least 24 hours in advance of the scheduled start time. If you need to skip a booking within the minimum commitment, we’ll credit the value of the booking to your account. You can use this credit on future cleanings and other Helperland services.
                 </div>
               </div>
             </div>
