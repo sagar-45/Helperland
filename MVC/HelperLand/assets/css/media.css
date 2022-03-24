@@ -16,7 +16,7 @@
     margin-right: 5px;
   }
   #home #header .text {
-    margin-top: 50px;
+    margin-top: 0px;
   }
   #home #header .step .step-1 {
     width: 15%;
@@ -50,12 +50,6 @@
   }
   #home #why-helperland .cards .card-1 img {
     height: 200px;
-  }
-  #home #why-helperland .cards .card-1:nth-child(2) .card_head {
-    margin-top: 60px;
-  }
-  #home #why-helperland .cards .card-1:nth-child(2) .card_desc {
-    margin: 63px 3% 0px 3%;
   }
   #home #img-section img {
     width: 30%;
@@ -122,6 +116,11 @@
   #price #services div.card-price:nth-child(5) {
     margin-right: 0px;
   }
+  #service-pro .text {
+    display: block;
+    position: static;
+    margin: 10px auto -10px;
+  }
   .table_page,
   .table_page .service_head,
   #service_history .table {
@@ -130,7 +129,9 @@
   }
   #sp_new #filter,
   #sp_history #filter,
-  #sp_blockC #filter .table {
+  #sp_blockC #filter .table,
+  #customer_fav .table_page .table,
+  .mid-dash .calendar {
     width: 770px;
     margin-left: 0px;
   }
@@ -236,6 +237,11 @@
   #header .mobile-view {
     display: block;
   }
+  #home #header .book_clean .btn {
+    position: static;
+    display: block;
+    margin: 10px auto 0px;
+  }
   .mobile-card {
     display: none;
   }
@@ -254,7 +260,7 @@
   #about #header {
     padding-top: 77px;
   }
-  #FAQ #faq .accordion {
+  #FAQ #faq .tab-content {
     width: 80%;
   }
   #FAQ #faq .nav {
@@ -353,6 +359,13 @@
   #filter {
     width: 760px;
   }
+  #customer_fav .table_page .favorite_card {
+    margin: 0px 5px 5px 0px;
+  }
+  #customer_fav .table_page .table,
+  .mid-dash .calendar {
+    width: 760px;
+  }
 }
 @media (max-width: 767px) {
   /* home page media query  */
@@ -360,17 +373,18 @@
     padding-top: 80px;
   }
   #home #header .text {
-    margin-top: 0px;
+    width: fit-content;
+    margin: 0px auto;
   }
   #header .navbar-brand {
     height: 60px !important;
     width: 73px !important;
   }
-  #home #header .text {
-    margin-top: 40px;
-    font-size: 25px;
-    padding-left: 5%;
-    padding-right: 5%;
+  #home #header .text .main-text {
+    font-size: 30px;
+  }
+  #home #header .book_clean .btn {
+    font-size: 16px;
   }
   #home #header .step {
     display: block;
@@ -664,6 +678,15 @@
     width: 90%;
     margin: 20px auto;
   }
+  #customer_fav .table_page .table {
+    width: 90%;
+    border: none !important;
+  }
+  #customer_fav .table_page .table tr td {
+    border: none !important;
+    width: 240px !important;
+    margin: 0px auto;
+  }
   #my_settings .table_page .nav-item .nav-link span {
     display: none;
   }
@@ -715,7 +738,8 @@
   .table_page,
   #sp_new #filter,
   #sp_blockC #filter .table,
-  #sp_blockC #filter {
+  #sp_blockC #filter,
+  .mid-dash .calendar {
     width: 90%;
     margin: 10px auto;
   }
@@ -934,6 +958,34 @@
     padding-left: 0px;
     padding-right: 0px;
   }
+  .calendar .fc-left {
+    float: none !important;
+  }
+  .fc .fc-toolbar > * > * {
+    float: none !important;
+  }
+  .calendar ul {
+    width: 100%;
+    text-align: center;
+    top: 50px !important;
+  }
+  .calendar ul div {
+    width: fit-content;
+    margin: 0px auto;
+  }
+  .calendar .fc-view {
+    margin-top: 30px;
+  }
+  .fc-scroller {
+    overflow: visible !important;
+    height: auto !important;
+  }
+  .fc-content-skeleton {
+    height: 80px;
+  }
+  .ss_title {
+    display: block;
+  }
 }
 @media (max-width: 642px) {
   #my_settings #my_addresses .table {
@@ -968,7 +1020,7 @@
     display: block;
   }
   #home #header .text {
-    padding-left: 0%;
+    width: 250px;
   }
   /* home page media query  */
   #FAQ #faq .nav .nav-item {
@@ -1052,6 +1104,9 @@
   }
   #my_details .gender span {
     display: block;
+  }
+  .fc-content-skeleton {
+    height: 50px;
   }
 }
 @media (max-width: 350px) {
