@@ -26,9 +26,10 @@
   color: #fff;
 }
 #header .book_clean .btn {
-  display: block;
-  margin: 16px auto 0px;
+  position: absolute;
   padding: 13px 25px 13px 25px;
+  top: 50%;
+  left: 42%;
   font-family: Roboto;
   font-size: 18px;
   color: #fff;
@@ -124,12 +125,6 @@
   margin-top: 39px;
   text-align: center;
 }
-#why-helperland .cards .card-1:nth-child(2) .card_head {
-  margin-top: 52.5px;
-}
-#why-helperland .cards .card-1:nth-child(2) .card_desc {
-  margin: 70px 16px 0px 16px;
-}
 /* why helperland section end */
 .sec_rect {
   background-image: url("../images/blog-left-bg.png"),
@@ -143,7 +138,7 @@
   flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: center;
-  margin-top: 219px;
+  margin-top: 156px;
 }
 #img-section img {
   width: 403px;
